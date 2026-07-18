@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bangladesh Public Exam Results Portal</title>
+    <meta
+      name="description"
+      content="A single portal to search public exam results in Bangladesh from PSC to BCS and other major examinations."
+    />
+    <style>
+      :root {
+        --bg: #f4f8ff;
+        --surface: #ffffff;
+        --primary: #1d4ed8;
+        --primary-dark: #163eab;
+        --accent: #0f766e;
+        --text: #15213a;
+        --muted: #5d6b86;
+        --border: #dce7ff;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #eef5ff 0%, var(--bg) 100%);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      .container {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      header {
+        background: linear-gradient(120deg, #0f172a, #1e40af);
+        color: white;
+        padding: 2rem 0 3.5rem;
+      }
+
+      .brand {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-size: clamp(1.5rem, 2.2vw, 2rem);
+      }
+
+      .pill {
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.2);
+        padding: 0.5rem 0.9rem;
+        border-radius: 999px;
+        font-size: 0.95rem;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .hero h2 {
+        font-size: clamp(2rem, 3.4vw, 3rem);
+        margin: 0 0 0.75rem;
+      }
+
+      .hero p {
+        color: rgba(255,255,255,0.9);
+        margin: 0 0 1.3rem;
+        font-size: 1.05rem;
+      }
+
+      .hero-card {
+        background: rgba(255,255,255,0.96);
+        color: var(--text);
+        border-radius: 20px;
+        padding: 1.2rem;
+        box-shadow: 0 18px 40px rgba(2, 8, 23, 0.18);
+      }
+
+      .hero-card h3 {
+        margin-top: 0;
+        margin-bottom: 0.2rem;
+        font-size: 1.1rem;
+      }
+
+      .hero-card p {
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
+
+      form {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+      }
+
+      select,
+      input,
+      button {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        font-size: 0.98rem;
+      }
+
+      button {
+        background: var(--primary);
+        color: white;
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      button:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+      }
+
+      main {
+        padding: 2rem 0 3rem;
+      }
+
+      section {
+        margin-bottom: 2rem;
+      }
+
+      .section-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-title h3 {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1rem;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+      }
+
+      .card h4 {
+        margin: 0 0 0.4rem;
+        font-size: 1rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin-top: 1rem;
+      }
+
+      .chip {
+        background: #eff6ff;
+        color: var(--primary);
+        padding: 0.4rem 0.7rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .list {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .list a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem 0.95rem;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+      }
+
+      .list span:last-child {
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 1rem 0 2rem;
+      }
+
+      @media (max-width: 860px) {
+        .hero { grid-template-columns: 1fr; }
+        .grid { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (max-width: 560px) {
+        .row { grid-template-columns: 1fr; }
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="brand">
+          <h1>Bangladesh Public Exam Results Portal</h1>
+          <div class="pill">PSC • JSC • SSC • HSC • NU • BCS</div>
+        </div>
+
+        <div class="hero">
+          <div>
+            <h2>Search public exam results from one place</h2>
+            <p>
+              Find results for primary, junior, secondary, higher secondary, university,
+              and public service exams in Bangladesh with a simple search.
+            </p>
+            <div class="chips">
+              <span class="chip">PSC</span>
+              <span class="chip">JSC</span>
+              <span class="chip">SSC</span>
+              <span class="chip">HSC</span>
+              <span class="chip">National University</span>
+              <span class="chip">BCS</span>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <h3>Quick result finder</h3>
+            <p>Choose an exam, enter the year and roll number, and search immediately.</p>
+            <form id="result-search-form">
+              <select id="exam" name="exam" required>
+                <option value="PSC">PSC</option>
+                <option value="JSC">JSC</option>
+                <option value="SSC">SSC</option>
+                <option value="HSC">HSC</option>
+                <option value="National University">National University</option>
+                <option value="BCS">BCS</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Teacher Registration">Teacher Registration</option>
+              </select>
+              <div class="row">
+                <input id="year" name="year" type="number" placeholder="Year (e.g. 2024)" required />
+                <input id="roll" name="roll" type="text" placeholder="Roll / Registration" required />
+              </div>
+              <button type="submit">Search Results</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section>
+        <div class="section-title">
+          <h3>Popular exam categories</h3>
+          <span class="pill">All major public exams</span>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h4>PSC</h4>
+            <p>Primary School Certificate result search for public school students.</p>
+          </article>
+          <article class="card">
+            <h4>JSC</h4>
+            <p>Junior School Certificate and equivalent result lookup.</p>
+          </article>
+          <article class="card">
+            <h4>SSC</h4>
+            <p>Secondary School Certificate result support for all boards.</p>
+          </article>
+          <article class="card">
+            <h4>HSC</h4>
+            <p>Higher Secondary Certificate result search for science, commerce, and arts.</p>
+          </article>
+          <article class="card">
+            <h4>National University</h4>
+            <p>Degree, honours, and professional course result lookup.</p>
+          </article>
+          <article class="card">
+            <h4>BCS / Public Service</h4>
+            <p>Recruitment and public service exam result search support.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <h3>Useful result sources</h3>
+          <span class="pill">Official and trusted links</span>
+        </div>
+        <div class="list">
+          <a href="https://eboardresults.com" target="_blank" rel="noreferrer">
+            <span>Education Board Results</span>
+            <span>Open</span>
+          </a>
+          <a href="https://www.nu.ac.bd/results" target="_blank" rel="noreferrer">
+            <span>National University Results</span>
+            <span>Open</span>
+          </a>
+          <a href="https://www.bpsc.gov.bd" target="_blank" rel="noreferrer">
+            <span>Bangladesh Public Service Commission</span>
+            <span>Open</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">A simple public exam results hub for Bangladesh.</div>
+    </footer>
+
+    <script>
+      const form = document.getElementById('result-search-form');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const exam = document.getElementById('exam').value;
+        const year = document.getElementById('year').value.trim();
+        const roll = document.getElementById('roll').value.trim();
+
+        const templates = {
+          PSC: `PSC result ${year} ${roll} Bangladesh`,
+          JSC: `JSC result ${year} ${roll} Bangladesh`,
+          SSC: `SSC result ${year} ${roll} Bangladesh`,
+          HSC: `HSC result ${year} ${roll} Bangladesh`,
+          'National University': `National University result ${year} ${roll} Bangladesh`,
+          BCS: `BCS result ${year} ${roll} Bangladesh`,
+          Diploma: `Diploma result ${year} ${roll} Bangladesh`,
+          'Teacher Registration': `Teacher registration result ${year} ${roll} Bangladesh`
+        };
+
+        const query = templates[exam] || `${exam} result ${year} ${roll} Bangladesh`;
+        const target = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+        window.open(target, '_blank', 'noopener,noreferrer');
+      });
+    </script>
+  </body>
+</html>
