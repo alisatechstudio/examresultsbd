@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /ads.txt
+Sitemap: https://examresultsbd.online/sitemap.xml

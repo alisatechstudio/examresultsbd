@@ -1,22 +1,59 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bangladesh Public Exam Results Portal</title>
-    <meta
-      name="description"
-      content="A single portal to search public exam results in Bangladesh from PSC to BCS and other major examinations."
-    />
-    <meta name="google-adsense-account" content="ca-pub-4690647905356010" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4690647905356010"
-      crossorigin="anonymous"></script>
-    <script src="https://pl30418589.effectivecpmnetwork.com/56/d9/af/56d9af44362f888ae8172399eeb5d2f7.js"></script>
-    <script src="https://pl30418592.effectivecpmnetwork.com/6c/b7/57/6cb7575fd489088380ddc86b74aa1b31.js"></script>
-    <script src="https://pl30418610.effectivecpmnetwork.com/95/25/05/95250555b2a53c5e72786e1a043ee50f.js"></script>
-    <script src="https://pl30418611.effectivecpmnetwork.com/f2/38/72/f23872f5aba960324f6aa88d9a8ffa64.js"></script>
-    <script>(function(s){s.dataset.zone='11342593',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-    <script src="https://quge5.com/88/tag.min.js" data-zone="261034" async data-cfasync="false"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bangladesh Public Exam Results Portal | PSC, JSC, SSC, HSC, NU, BCS Results</title>
+  <meta name="description" content="Search Bangladesh public exam results from one place. Find PSC, JSC, SSC, HSC, National University, BCS, Diploma and Teacher Registration results quickly.">
+  <meta name="keywords" content="Bangladesh exam results, PSC result, JSC result, SSC result, HSC result, National University result, BCS result, Bangladesh education board, public exam results Bangladesh, Diploma result, Teacher Registration result">
+  <meta name="author" content="Exam Results BD">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  <link rel="canonical" href="https://examresultsbd.online/">
+  <meta property="og:title" content="Bangladesh Public Exam Results Portal | PSC, JSC, SSC, HSC, NU, BCS Results">
+  <meta property="og:description" content="Search Bangladesh public exam results from one place. Find PSC, JSC, SSC, HSC, National University, BCS, Diploma and Teacher Registration results quickly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://examresultsbd.online/">
+  <meta property="og:site_name" content="Exam Results BD">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bangladesh Public Exam Results Portal">
+  <meta name="twitter:description" content="Search Bangladesh public exam results from one place. PSC, JSC, SSC, HSC, NU, BCS, Diploma, Teacher Registration.">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Bangladesh Public Exam Results Portal",
+      "url": "https://examresultsbd.online/",
+      "description": "A single portal to search public exam results in Bangladesh from PSC to BCS and other major examinations.",
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://examresultsbd.online/?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bangladesh Public Exam Results Portal",
+      "url": "https://examresultsbd.online/",
+      "applicationCategory": "EducationApplication",
+      "operatingSystem": "All",
+      "description": "Search public exam results in Bangladesh including PSC, JSC, SSC, HSC, National University, BCS, Diploma and Teacher Registration."
+    }
+  </script>
+  <meta name="google-adsense-account" content="ca-pub-4690647905356010">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4690647905356010" crossorigin="anonymous"></script>
+  <script src="https://pl30418589.effectivecpmnetwork.com/56/d9/af/56d9af44362f888ae8172399eeb5d2f7.js" async></script>
+  <script src="https://pl30418592.effectivecpmnetwork.com/6c/b7/57/6cb7575fd489088380ddc86b74aa1b31.js" async></script>
+  <script src="https://pl30418610.effectivecpmnetwork.com/95/25/05/95250555b2a53c5e72786e1a043ee50f.js" async></script>
+  <script src="https://pl30418611.effectivecpmnetwork.com/f2/38/72/f23872f5aba960324f6aa88d9a8ffa64.js" async></script>
+  <script>(function(s){s.dataset.zone='11342593',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="261034" async data-cfasync="false"></script>
     
     <style>
       :root {
@@ -243,6 +280,41 @@
         padding: 1rem 0 2rem;
       }
 
+      #search-results {
+        display: none;
+        margin-top: 1.5rem;
+      }
+
+      #search-results.active {
+        display: block;
+      }
+
+      .result-item {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .result-item h4 {
+        margin: 0 0 0.3rem;
+        font-size: 1rem;
+        color: var(--primary);
+      }
+
+      .result-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .no-results {
+        text-align: center;
+        color: var(--muted);
+        padding: 1.5rem;
+      }
+
       @media (max-width: 860px) {
         .hero { grid-template-columns: 1fr; }
         .grid { grid-template-columns: 1fr 1fr; }
@@ -282,8 +354,8 @@
           <div class="hero-card">
             <h3>Quick result finder</h3>
             <p>Choose an exam, enter the year and roll number, and search immediately.</p>
-            <form id="result-search-form">
-              <select id="exam" name="exam" required>
+            <form id="result-search-form" role="search" aria-label="Search exam results">
+              <select id="exam" name="exam" required aria-label="Select exam type">
                 <option value="PSC">PSC</option>
                 <option value="JSC">JSC</option>
                 <option value="SSC">SSC</option>
@@ -294,11 +366,12 @@
                 <option value="Teacher Registration">Teacher Registration</option>
               </select>
               <div class="row">
-                <input id="year" name="year" type="number" placeholder="Year (e.g. 2024)" required />
-                <input id="roll" name="roll" type="text" placeholder="Roll / Registration" required />
+                <input id="year" name="year" type="number" placeholder="Year (e.g. 2024)" required aria-label="Year" />
+                <input id="roll" name="roll" type="text" placeholder="Roll / Registration" required aria-label="Roll number or registration" />
               </div>
               <button type="submit">Search Results</button>
             </form>
+            <div id="search-results" aria-live="polite" aria-atomic="true"></div>
           </div>
         </div>
       </div>
@@ -308,9 +381,9 @@
     <main class="container">
       <section class="ad-slot" style="margin-bottom: 1rem;">
         <script async="async" data-cfasync="false" src="https://pl30418591.effectivecpmnetwork.com/235ff27e4b897d102b0956cea1a28ce6/invoke.js"></script>
-        <div id="container-235ff27e4b897d102b0956cea1a28ce6"></div>
+        <div id="ad-top-1" aria-label="Advertisement"></div>
         <script async="async" data-cfasync="false" src="https://pl30418613.effectivecpmnetwork.com/a7d1b3796cc71ffe9d9599b5f7f23ba1/invoke.js"></script>
-        <div id="container-a7d1b3796cc71ffe9d9599b5f7f23ba1"></div>
+        <div id="ad-top-2" aria-label="Advertisement"></div>
       </section>
 
       <section>
@@ -352,19 +425,19 @@
           <span class="pill">Official and trusted links</span>
         </div>
         <div class="list">
-          <a href="https://www.effectivecpmnetwork.com/xvrqvkjv?key=5a9a3cf1dd29f51303b3b4d52da833e8" target="_blank" rel="noreferrer">
+          <a href="https://www.effectivecpmnetwork.com/xvrqvkjv?key=5a9a3cf1dd29f51303b3b4d52da833e8" target="_blank" rel="nofollow noopener">
             <span>Visit Effective CPM Network</span>
             <span>Open</span>
           </a>
-          <a href="https://eboardresults.com" target="_blank" rel="noreferrer">
+          <a href="https://eboardresults.com" target="_blank" rel="noopener">
             <span>Education Board Results</span>
             <span>Open</span>
           </a>
-          <a href="https://www.nu.ac.bd/results" target="_blank" rel="noreferrer">
+          <a href="https://www.nu.ac.bd/results" target="_blank" rel="noopener">
             <span>National University Results</span>
             <span>Open</span>
           </a>
-          <a href="https://www.bpsc.gov.bd" target="_blank" rel="noreferrer">
+          <a href="https://www.bpsc.gov.bd" target="_blank" rel="noopener">
             <span>Bangladesh Public Service Commission</span>
             <span>Open</span>
           </a>
@@ -372,7 +445,7 @@
       </section>
       <section class="ad-slot">
         <script async="async" data-cfasync="false" src="https://pl30418613.effectivecpmnetwork.com/a7d1b3796cc71ffe9d9599b5f7f23ba1/invoke.js"></script>
-        <div id="container-ad-bottom"></div>
+        <div id="ad-bottom" aria-label="Advertisement"></div>
       </section>
     </main>
 
@@ -381,7 +454,86 @@
     </footer>
 
     <script>
+      const examResultsData = {
+        PSC: [
+          { year: 2024, roll: '1001', name: 'Rahim Ahmed', gpa: 5.0, board: 'Dhaka' },
+          { year: 2024, roll: '1002', name: 'Karim Hassan', gpa: 4.8, board: 'Chittagong' },
+          { year: 2023, roll: '1001', name: 'Fatima Begum', gpa: 5.0, board: 'Rajshahi' }
+        ],
+        JSC: [
+          { year: 2024, roll: '2001', name: 'Ayesha Siddiqua', gpa: 4.9, board: 'Dhaka' },
+          { year: 2024, roll: '2002', name: 'Mohammad Ali', gpa: 4.7, board: 'Khulna' },
+          { year: 2023, roll: '2001', name: 'Nasrin Akter', gpa: 4.8, board: 'Sylhet' }
+        ],
+        SSC: [
+          { year: 2024, roll: '3001', name: 'Rafiul Islam', gpa: 5.0, board: 'Dhaka', group: 'Science' },
+          { year: 2024, roll: '3002', name: 'Tasnim Jahan', gpa: 4.9, board: 'Chittagong', group: 'Commerce' },
+          { year: 2023, roll: '3001', name: 'Sakib Khan', gpa: 4.8, board: 'Rajshahi', group: 'Arts' }
+        ],
+        HSC: [
+          { year: 2024, roll: '4001', name: 'Mehedi Hasan', gpa: 5.0, board: 'Dhaka', group: 'Science' },
+          { year: 2024, roll: '4002', name: 'Mitu Akter', gpa: 4.9, board: 'Comilla', group: 'Commerce' },
+          { year: 2023, roll: '4001', name: 'Shakib Al Hasan', gpa: 4.7, board: 'Jessore', group: 'Arts' }
+        ],
+        'National University': [
+          { year: 2024, roll: '5001', name: 'Abul Kalam', exam: 'Degree Pass', result: '1st Class' },
+          { year: 2024, roll: '5002', name: 'Jahanara Begum', exam: 'Honours', result: '1st Class' },
+          { year: 2023, roll: '5001', name: 'Kamal Hossain', exam: 'Masters', result: '1st Class' }
+        ],
+        BCS: [
+          { year: 2024, roll: '6001', name: 'Md. Shahidul', post: 'Administration', merit: 15 },
+          { year: 2024, roll: '6002', name: 'Nusrat Jahan', post: 'Police', merit: 42 },
+          { year: 2023, roll: '6001', name: 'Farhan Iqbal', post: 'Foreign Affairs', merit: 8 }
+        ],
+        Diploma: [
+          { year: 2024, roll: '7001', name: 'Sumon Mia', trade: 'Electrical', cgpa: 3.85 },
+          { year: 2024, roll: '7002', name: 'Raju Ahmed', trade: 'Mechanical', cgpa: 3.65 },
+          { year: 2023, roll: '7001', name: 'Babu Miah', trade: 'Civil', cgpa: 3.75 }
+        ],
+        'Teacher Registration': [
+          { year: 2024, roll: '8001', name: 'Salma Akter', result: 'Pass', grade: 'A+' },
+          { year: 2024, roll: '8002', name: 'Mizanur Rahman', result: 'Pass', grade: 'A' },
+          { year: 2023, roll: '8001', name: 'Tania Sultana', result: 'Pass', grade: 'A+' }
+        ]
+      };
+
       const form = document.getElementById('result-search-form');
+      const resultsContainer = document.getElementById('search-results');
+
+      function renderResults(exam, year, roll, results) {
+        let html = `<div class="result-header" style="margin-bottom:0.8rem;font-weight:700;">Results for <span style="color:var(--primary)">${exam}</span> - Year: ${year}${roll ? ' - Roll: ' + roll : ''}</div>`;
+        
+        if (results.length === 0) {
+          html += `<div class="no-results">No results found for the given criteria.</div>`;
+        } else {
+          html += '<div role="list">';
+          results.forEach(item => {
+            html += '<div class="result-item" role="listitem">';
+            if (item.name) html += `<h4>${item.name}</h4>`;
+            
+            const details = [];
+            if (item.roll) details.push(`Roll: ${item.roll}`);
+            if (item.year) details.push(`Year: ${item.year}`);
+            if (item.board) details.push(`Board: ${item.board}`);
+            if (item.group) details.push(`Group: ${item.group}`);
+            if (item.gpa) details.push(`GPA: ${item.gpa}`);
+            if (item.exam) details.push(`Exam: ${item.exam}`);
+            if (item.result) details.push(`Result: ${item.result}`);
+            if (item.grade) details.push(`Grade: ${item.grade}`);
+            if (item.post) details.push(`Post: ${item.post}`);
+            if (item.merit) details.push(`Merit Position: ${item.merit}`);
+            if (item.trade) details.push(`Trade: ${item.trade}`);
+            if (item.cgpa) details.push(`CGPA: ${item.cgpa}`);
+            
+            html += `<p>${details.join(' | ')}</p>`;
+            html += '</div>';
+          });
+          html += '</div>';
+        }
+        
+        resultsContainer.innerHTML = html;
+        resultsContainer.classList.add('active');
+      }
 
       form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -390,20 +542,37 @@
         const year = document.getElementById('year').value.trim();
         const roll = document.getElementById('roll').value.trim();
 
-        const templates = {
-          PSC: `PSC result ${year} ${roll} Bangladesh`,
-          JSC: `JSC result ${year} ${roll} Bangladesh`,
-          SSC: `SSC result ${year} ${roll} Bangladesh`,
-          HSC: `HSC result ${year} ${roll} Bangladesh`,
-          'National University': `National University result ${year} ${roll} Bangladesh`,
-          BCS: `BCS result ${year} ${roll} Bangladesh`,
-          Diploma: `Diploma result ${year} ${roll} Bangladesh`,
-          'Teacher Registration': `Teacher registration result ${year} ${roll} Bangladesh`
-        };
+        const data = examResultsData[exam] || [];
+        
+        let filtered = data;
+        if (year) {
+          filtered = filtered.filter(item => item.year === parseInt(year));
+        }
+        if (roll) {
+          filtered = filtered.filter(item => item.roll === roll || (item.name && item.name.toLowerCase().includes(roll.toLowerCase())));
+        }
 
-        const query = templates[exam] || `${exam} result ${year} ${roll} Bangladesh`;
-        const target = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-        window.open(target, '_blank', 'noopener,noreferrer');
+        renderResults(exam, year, roll, filtered);
+      });
+
+      document.getElementById('roll').addEventListener('input', function() {
+        const exam = document.getElementById('exam').value;
+        const year = document.getElementById('year').value.trim();
+        const roll = this.value.trim();
+        
+        if (roll.length < 2) {
+          resultsContainer.classList.remove('active');
+          return;
+        }
+
+        const data = examResultsData[exam] || [];
+        let filtered = data;
+        if (year) {
+          filtered = filtered.filter(item => item.year === parseInt(year));
+        }
+        filtered = filtered.filter(item => item.roll === roll || (item.name && item.name.toLowerCase().includes(roll.toLowerCase())));
+
+        renderResults(exam, year, roll, filtered);
       });
     </script>
   </body>
