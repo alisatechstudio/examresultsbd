@@ -102,6 +102,13 @@
             <button type="submit" class="bg-primary text-white font-bold border-0 px-4 py-3 rounded-xl cursor-pointer transition-transform duration-200 hover:bg-primary-dark hover:-translate-y-0.5">Search Results</button>
           </form>
           <div id="search-results" aria-live="polite" aria-atomic="true" class="hidden mt-6"></div>
+          <div id="result-frame-wrapper" class="hidden mt-4 border border-border rounded-2xl overflow-hidden bg-white">
+            <div class="p-3 flex flex-wrap justify-between items-center gap-3 border-b border-border bg-[#f8fafc]">
+              <div class="text-sm text-muted">Official result source is loading below.</div>
+              <a href="#" target="_blank" rel="noopener" id="open-official-top" class="bg-primary text-white px-3 py-1.5 rounded-lg font-semibold text-sm">Open Official Result</a>
+            </div>
+            <iframe id="result-iframe" title="Official exam result" class="w-full" style="height:70vh;" allow="autoplay; clipboard-write" sandbox="allow-forms allow-scripts allow-same-origin allow-popups"></iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -228,7 +235,18 @@
     };
 
     const officialResultLinks = {
-      PSC: 'https://www.dpe.gov.bd/result',
+      PSC: 'https://eboardresults.com',
+      JSC: 'https://eboardresults.com/jsc/',
+      SSC: 'https://eboardresults.com/ssc/',
+      HSC: 'https://eboardresults.com/hsc/',
+      'National University': 'https://www.nu.ac.bd/results',
+      BCS: 'https://bpsc.gov.bd',
+      Diploma: 'https://www.bteb.gov.bd/',
+      'Teacher Registration': 'https://nctb.gov.bd/'
+    };
+
+    const examSources = {
+      PSC: 'https://eboardresults.com',
       JSC: 'https://eboardresults.com/jsc/',
       SSC: 'https://eboardresults.com/ssc/',
       HSC: 'https://eboardresults.com/hsc/',
@@ -240,12 +258,23 @@
 
     const form = document.getElementById('result-search-form');
     const resultsContainer = document.getElementById('search-results');
+    const resultFrameWrapper = document.getElementById('result-frame-wrapper');
+    const resultIframe = document.getElementById('result-iframe');
+    const openOfficialTop = document.getElementById('open-official-top');
 
-    function renderResults(exam, year, roll, results) {
+    function buildOfficialUrl(exam, year, roll) {
+      const base = examSources[exam] || 'https://eboardresults.com';
+      const url = new URL(base);
+      if (year) url.searchParams.set('year', year);
+      if (roll) url.searchParams.set('roll', roll);
+      return url.toString();
+    }
+
+    function showLocalResults(exam, year, roll, results) {
       let html = `<div class="mb-3 font-bold text-lg">Results for <span class="text-primary">${exam}</span> - Year: ${year}${roll ? ' - Roll: ' + roll : ''}</div>`;
 
       if (results.length === 0) {
-        html += `<div class="bg-surface border border-border rounded-xl p-6 mb-3 text-center text-muted">No matching records found. Showing official source below.</div>`;
+        html += `<div class="bg-surface border border-border rounded-xl p-6 mb-3 text-center text-muted">No matching local records found. The official result source is shown below.</div>`;
       } else {
         html += '<div role="list" class="grid gap-3">';
         results.forEach(item => {
@@ -272,15 +301,18 @@
         html += '</div>';
       }
 
-      const officialUrl = officialResultLinks[exam] || 'https://eboardresults.com';
-      html += `<div class="mt-4 p-3 bg-white border border-border rounded-xl flex flex-wrap justify-between items-center gap-3">`;
-      html += `<div class="text-sm text-muted">Official source: <span class="font-semibold text-text">${officialUrl}</span></div>`;
-      html += `<a href="${officialUrl}" target="_blank" rel="noopener" class="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm">Open Official Result</a>`;
-      html += `</div>`;
-
       resultsContainer.innerHTML = html;
       resultsContainer.classList.remove('hidden');
-      resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function showOfficialFrame(exam, year, roll) {
+      const officialUrl = buildOfficialUrl(exam, year, roll);
+      resultIframe.src = officialUrl;
+      resultFrameWrapper.classList.remove('hidden');
+      resultsContainer.classList.add('hidden');
+      if (openOfficialTop) {
+        openOfficialTop.href = officialUrl;
+      }
+      resultFrameWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     form.addEventListener('submit', function (event) {
@@ -291,7 +323,6 @@
       const roll = document.getElementById('roll').value.trim();
 
       const data = examResultsData[exam] || [];
-
       let filtered = data;
       if (year) {
         filtered = filtered.filter(item => item.year === parseInt(year));
@@ -300,7 +331,8 @@
         filtered = filtered.filter(item => item.roll === roll || (item.name && item.name.toLowerCase().includes(roll.toLowerCase())));
       }
 
-      renderResults(exam, year, roll, filtered);
+      showLocalResults(exam, year, roll, filtered);
+      showOfficialFrame(exam, year, roll);
     });
 
     document.getElementById('roll').addEventListener('input', function() {
@@ -309,16 +341,27 @@
       const roll = this.value.trim();
 
       if (roll.length >= 2) {
-        const data = examResultsData[exam] || [];
-        let filtered = data;
-        if (year) {
-          filtered = filtered.filter(item => item.year === parseInt(year));
-        }
-        filtered = filtered.filter(item => item.roll === roll || (item.name && item.name.toLowerCase().includes(roll.toLowerCase())));
-        renderResults(exam, year, roll, filtered);
-      } else {
+        const officialUrl = buildOfficialUrl(exam, year, roll);
+        resultIframe.src = officialUrl;
+        resultFrameWrapper.classList.remove('hidden');
         resultsContainer.classList.add('hidden');
+        if (openOfficialTop) {
+          openOfficialTop.href = officialUrl;
+        }
+        resultFrameWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        resultFrameWrapper.classList.add('hidden');
+        resultIframe.src = '';
       }
+    });
+
+    resultIframe.addEventListener('error', function() {
+      const existing = resultFrameWrapper.querySelector('.iframe-fallback');
+      if (existing) return;
+      const fallback = document.createElement('div');
+      fallback.className = 'iframe-fallback p-6 bg-surface border border-border rounded-xl text-center text-muted';
+      fallback.innerText = 'This result source could not be embedded. Please use the button above to open the official result page.';
+      resultFrameWrapper.appendChild(fallback);
     });
   </script>
 </body>
