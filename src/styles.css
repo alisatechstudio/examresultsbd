@@ -53,4 +53,29 @@
     -webkit-mask: radial-gradient(circle, #000 62%, transparent 63%);
             mask: radial-gradient(circle, #000 62%, transparent 63%);
   }
+
+  .ec-a, .ec-op, .ec-b, .ec-eq, .ec-q {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+  .ec-op {
+    margin: 0 2px;
+  }
+  .ec-eq {
+    margin: 0 6px;
+    color: var(--color-muted);
+  }
+  .ec-q {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 32px;
+    background: #eef6f0;
+    border: 1px dashed #9cb8a8;
+    border-radius: 6px;
+    color: var(--color-primary-dark);
+    font-size: 15px;
+  }
 }

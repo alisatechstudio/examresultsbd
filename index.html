@@ -1421,14 +1421,7 @@ It serves as a centralized platform where students can check their results by en
 </script>
 
 
-<script id="ebrh-home-js" src="https://eboardresultsgovbd.com/wp-content/plugins/eboardresults-homepage/assets/ebrh-home.js?ver=3.0.2"></script>
-<script id="lucide-icons-js" src="https://eboardresultsgovbd.com/wp-content/plugins/eboardresults-homepage/assets/vendor/lucide.min.js?ver=2.7.6"></script>
-<script id="bd-result-checker-js-extra">
-var BDRC = {"ajax_url":"https://eboardresultsgovbd.com/wp-admin/admin-ajax.php","nonce":"ec2b9112ea","assets":{"style":"https://eboardresultsgovbd.com/wp-content/plugins/eboardresults/assets/style.css","design":"https://eboardresultsgovbd.com/wp-content/plugins/eboardresults/assets/design.css"},"i18n":{"loading_captcha":"Loading captcha\u2026","loading":"Searching result, please wait\u2026","error":"An error occurred. Please try again.","fill_all":"Please fill in all required fields.","fill_captcha":"Please enter the captcha text."}};
-//# sourceURL=bd-result-checker-js-extra
-</script>
-<script id="bd-result-checker-js" src="https://eboardresultsgovbd.com/wp-content/plugins/eboardresults/assets/script.js?ver=2.7.6"></script>
-<script id="bd-result-checker-ui-js" src="https://eboardresultsgovbd.com/wp-content/plugins/eboardresults/assets/ui.js?ver=2.7.6"></script>
+<script id="ebrh-home-js" src="script.js"></script>
 <script id="wp-emoji-settings" type="application/json">
 {"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://eboardresultsgovbd.com/wp-includes/js/wp-emoji-release.min.js?ver=7.0.2"}}
 </script>
@@ -1438,6 +1431,21 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 //# sourceURL=https://eboardresultsgovbd.com/wp-includes/js/wp-emoji-loader.min.js
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.querySelector('.bdrc-modal-overlay');
+    if (overlay && !overlay.getAttribute('data-modal-bound')) {
+        overlay.setAttribute('data-modal-bound', '1');
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+                document.querySelectorAll('.checker-tab-panel').forEach(function(p){ p.querySelector('.bdrc-form') && (p.querySelector('.bdrc-checker-submit').disabled = false, p.querySelector('.bdrc-btn-text').style.display = 'inline-flex', p.querySelector('.bdrc-btn-spinner').style.display = 'none'); });
+                overlay.style.display = 'none';
+                overlay.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>
 
