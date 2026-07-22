@@ -4,55 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Bangladesh Public Exam Results Portal | PSC, JSC, SSC, HSC, NU, BCS Results</title>
-  <meta name="description" content="Search Bangladesh public exam results from one place. Find PSC, JSC, SSC, HSC, National University, BCS, Diploma and Teacher Registration results quickly.">
-  <meta name="keywords" content="Bangladesh exam results, PSC result, JSC result, SSC result, HSC result, National University result, BCS result, Bangladesh education board, public exam results Bangladesh, Diploma result, Teacher Registration result">
-  <meta name="author" content="Exam Results BD">
-  <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
-  <meta name="revisit-after" content="7 days">
-  <link rel="canonical" href="https://examresultsbd.online/">
-  <meta property="og:title" content="Bangladesh Public Exam Results Portal | PSC, JSC, SSC, HSC, NU, BCS Results">
-  <meta property="og:description" content="Search Bangladesh public exam results from one place. Find PSC, JSC, SSC, HSC, National University, BCS, Diploma and Teacher Registration results quickly.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://examresultsbd.online/">
-  <meta property="og:site_name" content="Exam Results BD">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bangladesh Public Exam Results Portal">
-  <meta name="twitter:description" content="Search Bangladesh public exam results from one place. PSC, JSC, SSC, HSC, NU, BCS, Diploma, Teacher Registration.">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Bangladesh Public Exam Results Portal",
-      "url": "https://examresultsbd.online/",
-      "description": "A single portal to search public exam results in Bangladesh from PSC to BCS and other major examinations.",
-      "inLanguage": "en",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://examresultsbd.online/?search={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Bangladesh Public Exam Results Portal",
-      "url": "https://examresultsbd.online/",
-      "applicationCategory": "EducationApplication",
-      "operatingSystem": "All",
-      "description": "Search public exam results in Bangladesh including PSC, JSC, SSC, HSC, National University, BCS, Diploma and Teacher Registration."
-    }
-  </script>
-  <meta name="google-adsense-account" content="ca-pub-4690647905356010">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4690647905356010" crossorigin="anonymous"></script>
-  
+  <title>Bangladesh Public Exam Results Portal</title>
   <link rel="stylesheet" href="/dist/styles.css">
 </head>
 <body class="bg-gradient-to-br from-[#eef5ff] to-bg min-h-screen">
-<header class="bg-gradient-to-br from-ink to-[#1e40af] text-white pt-8 pb-14">
+  <header class="bg-gradient-to-br from-ink to-[#1e40af] text-white pt-8 pb-14">
     <div class="max-w-[1120px] mx-auto px-4">
       <div class="flex flex-wrap justify-between items-center gap-4 mb-8">
         <h1 class="m-0" style="font-size: clamp(1.5rem, 2.2vw, 2rem)">Bangladesh Public Exam Results Portal</h1>
@@ -79,148 +35,11 @@
   </header>
 
   <main class="max-w-[1120px] mx-auto px-4 py-8 pb-12">
-<section class="mb-8">
+    <section class="mb-8">
       <div class="mt-4 border border-border rounded-2xl overflow-hidden bg-white">
         <iframe id="eboardresults-iframe" title="eBoardResults Home" class="w-full" style="height:70vh;" allow="autoplay; clipboard-write" sandbox="allow-forms allow-scripts allow-same-origin allow-popups" src="https://eboardresults.com/v2/home"></iframe>
       </div>
     </section>
-
-    
-
-    
-
-
-  <script>
-    
-    const officialResultLinks = {
-      PSC: 'https://eboardresults.com',
-      JSC: 'https://eboardresults.com/jsc/',
-      SSC: 'https://eboardresults.com/ssc/',
-      HSC: 'https://eboardresults.com/hsc/',
-      'National University': 'https://www.nu.ac.bd/results',
-      BCS: 'https://bpsc.gov.bd',
-      Diploma: 'https://www.bteb.gov.bd/',
-      'Teacher Registration': 'https://nctb.gov.bd/'
-    };
-
-    const examSources = {
-      PSC: 'https://eboardresults.com',
-      JSC: 'https://eboardresults.com/jsc/',
-      SSC: 'https://eboardresults.com/ssc/',
-      HSC: 'https://eboardresults.com/hsc/',
-      'National University': 'https://www.nu.ac.bd/results',
-      BCS: 'https://bpsc.gov.bd',
-      Diploma: 'https://www.bteb.gov.bd/',
-      'Teacher Registration': 'https://nctb.gov.bd/'
-    };
-
-    const form = document.getElementById('result-search-form');
-    const resultsContainer = document.getElementById('search-results');
-    const resultFrameWrapper = document.getElementById('result-frame-wrapper');
-    const resultIframe = document.getElementById('result-iframe');
-    const openOfficialTop = document.getElementById('open-official-top');
-
-    function buildOfficialUrl(exam, year, roll) {
-      const base = examSources[exam] || 'https://eboardresults.com';
-      const url = new URL(base);
-      if (year) url.searchParams.set('year', year);
-      if (roll) url.searchParams.set('roll', roll);
-      return url.toString();
-    }
-
-    function showLocalResults(exam, year, roll, results) {
-      let html = `<div class="mb-3 font-bold text-lg">Results for <span class="text-primary">${exam}</span> - Year: ${year}${roll ? ' - Roll: ' + roll : ''}</div>`;
-
-      if (results.length === 0) {
-        html += `<div class="bg-surface border border-border rounded-xl p-6 mb-3 text-center text-muted">No matching local records found. The official result source is shown below.</div>`;
-      } else {
-        html += '<div role="list" class="grid gap-3">';
-        results.forEach(item => {
-          html += '<div class="bg-surface border border-border rounded-xl p-4" role="listitem">';
-          if (item.name) html += `<h4 class="m-0 mb-2 text-lg text-primary">${item.name}</h4>`;
-
-          const details = [];
-          if (item.roll) details.push(`Roll: ${item.roll}`);
-          if (item.year) details.push(`Year: ${item.year}`);
-          if (item.board) details.push(`Board: ${item.board}`);
-          if (item.group) details.push(`Group: ${item.group}`);
-          if (item.gpa) details.push(`GPA: ${item.gpa}`);
-          if (item.exam) details.push(`Exam: ${item.exam}`);
-          if (item.result) details.push(`Result: ${item.result}`);
-          if (item.grade) details.push(`Grade: ${item.grade}`);
-          if (item.post) details.push(`Post: ${item.post}`);
-          if (item.merit) details.push(`Merit Position: ${item.merit}`);
-          if (item.trade) details.push(`Trade: ${item.trade}`);
-          if (item.cgpa) details.push(`CGPA: ${item.cgpa}`);
-
-          html += `<p class="m-0 text-muted">${details.join(' | ')}</p>`;
-          html += '</div>';
-        });
-        html += '</div>';
-      }
-
-      resultsContainer.innerHTML = html;
-      resultsContainer.classList.remove('hidden');
-    }
-    function showOfficialFrame(exam, year, roll) {
-      const officialUrl = buildOfficialUrl(exam, year, roll);
-      resultIframe.src = officialUrl;
-      resultFrameWrapper.classList.remove('hidden');
-      resultsContainer.classList.add('hidden');
-      if (openOfficialTop) {
-        openOfficialTop.href = officialUrl;
-      }
-      resultFrameWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      const exam = document.getElementById('exam').value;
-      const year = document.getElementById('year').value.trim();
-      const roll = document.getElementById('roll').value.trim();
-
-      const data = examResultsData[exam] || [];
-      let filtered = data;
-      if (year) {
-        filtered = filtered.filter(item => item.year === parseInt(year));
-      }
-      if (roll) {
-        filtered = filtered.filter(item => item.roll === roll || (item.name && item.name.toLowerCase().includes(roll.toLowerCase())));
-      }
-
-      showLocalResults(exam, year, roll, filtered);
-      showOfficialFrame(exam, year, roll);
-    });
-
-    document.getElementById('roll').addEventListener('input', function() {
-      const exam = document.getElementById('exam').value;
-      const year = document.getElementById('year').value.trim();
-      const roll = this.value.trim();
-
-      if (roll.length >= 2) {
-        const officialUrl = buildOfficialUrl(exam, year, roll);
-        resultIframe.src = officialUrl;
-        resultFrameWrapper.classList.remove('hidden');
-        resultsContainer.classList.add('hidden');
-        if (openOfficialTop) {
-          openOfficialTop.href = officialUrl;
-        }
-        resultFrameWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        resultFrameWrapper.classList.add('hidden');
-        resultIframe.src = '';
-      }
-    });
-
-    resultIframe.addEventListener('error', function() {
-      const existing = resultFrameWrapper.querySelector('.iframe-fallback');
-      if (existing) return;
-      const fallback = document.createElement('div');
-      fallback.className = 'iframe-fallback p-6 bg-surface border border-border rounded-xl text-center text-muted';
-      fallback.innerText = 'This result source could not be embedded. Please use the button above to open the official result page.';
-      resultFrameWrapper.appendChild(fallback);
-    });
-  </script>
+  </main>
 </body>
 </html>
