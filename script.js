@@ -1,5 +1,7 @@
 /* eboardresultsgovbd clone - standalone scripts */
 
+const OFFICIAL_HOME = 'https://eboardresultsgovbd.com/';
+
 (function() {
   'use strict';
 
@@ -172,32 +174,110 @@
     const body = app.querySelector('.bdrc-modal-body');
     if (!overlay || !body) return;
 
-    const boardLabel = values.board ? values.board.charAt(0).toUpperCase() + values.board.slice(1) : '';
+    const base = 'https://api.bangladeshgov.org/';
+    const params = new URLSearchParams();
+    params.set('exam', values.exam || '');
+    params.set('year', values.year || '');
+    params.set('board', values.board || '');
+    if (values.resultType === '2') {
+      params.set('eiin', values.eiin || '');
+    } else {
+      params.set('roll', values.roll || '');
+      params.set('reg', values.reg || '');
+    }
+
+    const apiUrl = `${base}?${params.toString()}`;
+
     body.innerHTML = `
       <div style="padding:16px 18px;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
           <span style="height:10px;width:10px;border-radius:50%;background:#16a34a;display:inline-block;"></span>
-          <strong style="font-size:16px;">Result Preview (Demo)</strong>
+          <strong style="font-size:16px;">Fetching real result...</strong>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;font-size:14px;">
-          <div><span style="color:#6b7280;">Result Type</span><div style="font-weight:600;">${values.resultType === '2' ? 'Institution Result' : values.resultType === '5' ? 'District Result' : 'Individual Result'}</div></div>
-          <div><span style="color:#6b7280;">Examination</span><div style="font-weight:600;">${values.exam ? values.exam.toUpperCase() : '-'}</div></div>
-          <div><span style="color:#6b7280;">Board</span><div style="font-weight:600;">${boardLabel || '-'}</div></div>
-          <div><span style="color:#6b7280;">Year</span><div style="font-weight:600;">${values.year || '-'}</div></div>
-          ${values.roll ? `<div><span style="color:#6b7280;">Roll</span><div style="font-weight:600;">${values.roll}</div></div>` : ''}
-          ${values.reg ? `<div><span style="color:#6b7280;">Registration</span><div style="font-weight:600;">${values.reg}</div></div>` : ''}
-          ${values.eiin ? `<div><span style="color:#6b7280;">EIIN</span><div style="font-weight:600;">${values.eiin}</div></div>` : ''}
-          ${values.district ? `<div><span style="color:#6b7280;">District</span><div style="font-weight:600;">${values.district}</div></div>` : ''}
-        </div>
-        <div style="margin-top:14px;padding:14px;border-radius:12px;background:#f6fbf8;border:1px solid #d1fae5;">
-          <div style="font-size:13px;color:#374151;line-height:1.5;">
-            This is a static demo. The original site verifies captcha and fetches results from the server.
-          </div>
-        </div>
+        <div style="font-size:13px;color:#374151;">Contacting official result server. Please wait.</div>
       </div>
     `;
     overlay.style.display = 'flex';
     overlay.setAttribute('aria-hidden', 'false');
+
+    fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+      },
+    })
+    .then(res => res.text().then(text => ({ ok: res.ok, status: res.status, text })))
+    .then(({ ok, status, text }) => {
+      if (!ok) {
+        body.innerHTML = `
+          <div style="padding:16px 18px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+              <span style="height:10px;width:10px;border-radius:50%;background:#dc2626;display:inline-block;"></span>
+              <strong style="font-size:16px;">Could not load real result</strong>
+            </div>
+            <div style="font-size:13px;color:#374151;line-height:1.5;margin-bottom:10px;">Server responded with status ${status}</div>
+            <a href="${OFFICIAL_HOME}" target="_blank" rel="noopener" style="color:#0080b9;font-weight:600;">Open official site</a>
+          </div>
+        `;
+        return;
+      }
+
+      const trimmed = text.trim();
+      let parsed = null;
+      try {
+        parsed = JSON.parse(trimmed);
+      } catch (e) {
+        parsed = null;
+      }
+
+      const contentHtml = (() => {
+        if (parsed !== null) {
+          if (typeof parsed === 'object') {
+            const entries = Object.entries(parsed);
+            return `<pre style="white-space:pre-wrap;font-size:13px;background:#f8fafc;padding:10px;border-radius:8px;border:1px solid #e5e7eb;">${escapeHtml(JSON.stringify(parsed, null, 2))}</pre>`;
+          }
+          return `<pre style="white-space:pre-wrap;font-size:13px;background:#f8fafc;padding:10px;border-radius:8px;border:1px solid #e5e7eb;">${escapeHtml(trimmed)}</pre>`;
+        }
+
+        if (trimmed.startsWith('<')) {
+          return trimmed;
+        }
+
+        return `<pre style="white-space:pre-wrap;font-size:13px;background:#f8fafc;padding:10px;border-radius:8px;border:1px solid #e5e7eb;">${escapeHtml(trimmed)}</pre>`;
+      })();
+
+      body.innerHTML = `
+        <div style="padding:16px 18px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span style="height:10px;width:10px;border-radius:50%;background:#16a34a;display:inline-block;"></span>
+            <strong style="font-size:16px;">Official Result</strong>
+          </div>
+          <div style="max-height:60vh;overflow:auto;border:1px solid #e5e7eb;border-radius:10px;background:#fff;">${contentHtml}</div>
+          <div style="margin-top:10px;font-size:12px;color:#6b7280;">Source: ${escapeHtml(apiUrl)}</div>
+        </div>
+      `;
+    })
+    .catch(err => {
+      body.innerHTML = `
+        <div style="padding:16px 18px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span style="height:10px;width:10px;border-radius:50%;background:#dc2626;display:inline-block;"></span>
+            <strong style="font-size:16px;">Network error</strong>
+          </div>
+          <div style="font-size:13px;color:#374151;line-height:1.5;margin-bottom:10px;">${escapeHtml(err.message)}</div>
+          <a href="${OFFICIAL_HOME}" target="_blank" rel="noopener" style="color:#0080b9;font-weight:600;">Open official site</a>
+        </div>
+      `;
+    });
+  }
+
+  function escapeHtml(text) {
+    if (text == null) return '';
+    return String(text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
   }
 
   function closeModal(form) {
@@ -236,14 +316,11 @@
 
     setLoading(form, true);
     state.pendingForm = form;
-
-    setTimeout(() => {
-      setLoading(form, false);
-      openModal(form, values);
-      if (tab === 'individual') initCaptcha('bdrc-1-1');
-      else if (tab === 'institution') initCaptcha('bdrc-2-2');
-      else initCaptcha('bdrc-5-3');
-    }, 800);
+    openModal(form, values);
+    setLoading(form, false);
+    if (tab === 'individual') initCaptcha('bdrc-1-1');
+    else if (tab === 'institution') initCaptcha('bdrc-2-2');
+    else initCaptcha('bdrc-5-3');
   }
 
   function onReset(e) {

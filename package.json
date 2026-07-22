@@ -2,10 +2,12 @@
   "name": "examresultsbd",
   "version": "1.0.0",
   "description": "Search all public exam results in Bangladesh from one place. This portal helps students, parents, and job seekers quickly find results for major public examinations including PSC, JSC, SSC, HSC, National University, BCS, Diploma, and Teacher Registration.",
-  "main": "sw.js",
+  "main": "server.js",
   "scripts": {
     "build:css": "node node_modules/@tailwindcss/cli/dist/index.mjs -i src/styles.css -o dist/styles.css",
-    "watch:css": "node node_modules/@tailwindcss/cli/dist/index.mjs -i src/styles.css -o dist/styles.css --watch"
+    "watch:css": "node node_modules/@tailwindcss/cli/dist/index.mjs -i src/styles.css -o dist/styles.css --watch",
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,8 @@
   },
   "homepage": "https://github.com/alisatechstudio/examresultsbd#readme",
   "dependencies": {
-    "tailwindcss": "^4.3.3"
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3"
