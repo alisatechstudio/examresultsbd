@@ -79,19 +79,70 @@
   </header>
 
   <main class="max-w-[1120px] mx-auto px-4 py-8 pb-12">
-<section class="mb-8">
-      <div class="mt-4 border border-border rounded-2xl overflow-hidden bg-white">
-        <iframe id="eboardresults-iframe" title="eBoardResults Home" class="w-full" style="height:70vh;" allow="autoplay; clipboard-write" sandbox="allow-forms allow-scripts allow-same-origin allow-popups" src="https://eboardresults.com/v2/home"></iframe>
-      </div>
+    <section class="ad-slot my-4 py-3 border border-dashed border-border rounded-2xl bg-white/75 text-center" style="margin-bottom: 1rem;">
+      <script async="async" data-cfasync="false" src="https://pl30418591.effectivecpmnetwork.com/235ff27e4b897d102b0956cea1a28ce6/invoke.js"></script>
+      <div id="ad-top-1" aria-label="Advertisement"></div>
+      <script async="async" data-cfasync="false" src="https://pl30418613.effectivecpmnetwork.com/a7d1b3796cc71ffe9d9599b5f7f23ba1/invoke.js"></script>
+      <div id="ad-top-2" aria-label="Advertisement"></div>
     </section>
 
     
 
     
+    <section class="ad-slot my-4 py-3 border border-dashed border-border rounded-2xl bg-white/75 text-center">
+      <script async="async" data-cfasync="false" src="https://pl30418613.effectivecpmnetwork.com/a7d1b3796cc71ffe9d9599b5f7f23ba1/invoke.js"></script>
+      <div id="ad-bottom" aria-label="Advertisement"></div>
+    </section>
+  </main>
 
+  <footer class="text-center text-muted py-4 pb-8">
+    <div class="max-w-[1120px] mx-auto px-4">A simple public exam results hub for Bangladesh.</div>
+  </footer>
 
   <script>
-    
+    const examResultsData = {
+      PSC: [
+        { year: 2024, roll: '1001', name: 'Rahim Ahmed', gpa: 5.0, board: 'Dhaka' },
+        { year: 2024, roll: '1002', name: 'Karim Hassan', gpa: 4.8, board: 'Chittagong' },
+        { year: 2023, roll: '1001', name: 'Fatima Begum', gpa: 5.0, board: 'Rajshahi' }
+      ],
+      JSC: [
+        { year: 2024, roll: '2001', name: 'Ayesha Siddiqua', gpa: 4.9, board: 'Dhaka' },
+        { year: 2024, roll: '2002', name: 'Mohammad Ali', gpa: 4.7, board: 'Khulna' },
+        { year: 2023, roll: '2001', name: 'Nasrin Akter', gpa: 4.8, board: 'Sylhet' }
+      ],
+      SSC: [
+        { year: 2024, roll: '3001', name: 'Rafiul Islam', gpa: 5.0, board: 'Dhaka', group: 'Science' },
+        { year: 2024, roll: '3002', name: 'Tasnim Jahan', gpa: 4.9, board: 'Chittagong', group: 'Commerce' },
+        { year: 2023, roll: '3001', name: 'Sakib Khan', gpa: 4.8, board: 'Rajshahi', group: 'Arts' }
+      ],
+      HSC: [
+        { year: 2024, roll: '4001', name: 'Mehedi Hasan', gpa: 5.0, board: 'Dhaka', group: 'Science' },
+        { year: 2024, roll: '4002', name: 'Mitu Akter', gpa: 4.9, board: 'Comilla', group: 'Commerce' },
+        { year: 2023, roll: '4001', name: 'Shakib Al Hasan', gpa: 4.7, board: 'Jessore', group: 'Arts' }
+      ],
+      'National University': [
+        { year: 2024, roll: '5001', name: 'Abul Kalam', exam: 'Degree Pass', result: '1st Class' },
+        { year: 2024, roll: '5002', name: 'Jahanara Begum', exam: 'Honours', result: '1st Class' },
+        { year: 2023, roll: '5001', name: 'Kamal Hossain', exam: 'Masters', result: '1st Class' }
+      ],
+      BCS: [
+        { year: 2024, roll: '6001', name: 'Md. Shahidul', post: 'Administration', merit: 15 },
+        { year: 2024, roll: '6002', name: 'Nusrat Jahan', post: 'Police', merit: 42 },
+        { year: 2023, roll: '6001', name: 'Farhan Iqbal', post: 'Foreign Affairs', merit: 8 }
+      ],
+      Diploma: [
+        { year: 2024, roll: '7001', name: 'Sumon Mia', trade: 'Electrical', cgpa: 3.85 },
+        { year: 2024, roll: '7002', name: 'Raju Ahmed', trade: 'Mechanical', cgpa: 3.65 },
+        { year: 2023, roll: '7001', name: 'Babu Miah', trade: 'Civil', cgpa: 3.75 }
+      ],
+      'Teacher Registration': [
+        { year: 2024, roll: '8001', name: 'Salma Akter', result: 'Pass', grade: 'A+' },
+        { year: 2024, roll: '8002', name: 'Mizanur Rahman', result: 'Pass', grade: 'A' },
+        { year: 2023, roll: '8001', name: 'Tania Sultana', result: 'Pass', grade: 'A+' }
+      ]
+    };
+
     const officialResultLinks = {
       PSC: 'https://eboardresults.com',
       JSC: 'https://eboardresults.com/jsc/',
