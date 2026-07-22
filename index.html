@@ -52,62 +52,31 @@
   <link rel="stylesheet" href="/dist/styles.css">
 </head>
 <body class="bg-gradient-to-br from-[#eef5ff] to-bg min-h-screen">
-  <header class="bg-gradient-to-br from-ink to-[#1e40af] text-white pt-8 pb-14">
+<header class="bg-gradient-to-br from-ink to-[#1e40af] text-white pt-8 pb-14">
     <div class="max-w-[1120px] mx-auto px-4">
       <div class="flex flex-wrap justify-between items-center gap-4 mb-8">
-        <h1 class="m-0" style="font-size: clamp(1.5rem, 2.2vw, 2rem);">Bangladesh Public Exam Results Portal</h1>
+        <h1 class="m-0" style="font-size: clamp(1.5rem, 2.2vw, 2rem)">Bangladesh Public Exam Results Portal</h1>
         <div class="bg-white/12 border border-white/20 px-3 py-2 rounded-full text-base">PSC • JSC • SSC • HSC • NU • BCS</div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
-        <div>
-          <h2 class="m-0 mb-3" style="font-size: clamp(2rem, 3.4vw, 3rem);">Search public exam results from one place</h2>
-          <p class="text-white/90 text-lg mb-6">
-            Find results for primary, junior, secondary, higher secondary, university,
-            and public service exams in Bangladesh with a simple search.
-          </p>
-          <div class="flex flex-wrap gap-5 mt-4">
-            <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">PSC</span>
-            <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">JSC</span>
-            <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">SSC</span>
-            <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">HSC</span>
-            <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">National University</span>
-            <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">BCS</span>
-          </div>
-        </div>
-
-        <div class="bg-white/96 text-text rounded-[20px] p-5 shadow-[0_18px_40px_rgba(2,8,23,0.18)]">
-          <h3 class="mt-0 mb-1 text-xl">Quick result finder</h3>
-          <p class="text-muted mb-4">Choose an exam, enter the year and roll number, and search immediately.</p>
-          <form id="result-search-form" class="grid gap-3" role="search" aria-label="Search exam results">
-            <select id="exam" name="exam" required aria-label="Select exam type" class="w-full px-4 py-3 rounded-xl border border-border text-base">
-              <option value="PSC">PSC</option>
-              <option value="JSC">JSC</option>
-              <option value="SSC">SSC</option>
-              <option value="HSC">HSC</option>
-              <option value="National University">National University</option>
-              <option value="BCS">BCS</option>
-              <option value="Diploma">Diploma</option>
-              <option value="Teacher Registration">Teacher Registration</option>
-            </select>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <input id="year" name="year" type="number" placeholder="Year (e.g. 2024)" required aria-label="Year" class="w-full px-4 py-3 rounded-xl border border-border text-base" />
-              <input id="roll" name="roll" type="text" placeholder="Roll / Registration" required aria-label="Roll number or registration" class="w-full px-4 py-3 rounded-xl border border-border text-base" />
-            </div>
-            <button type="submit" class="bg-primary text-white font-bold border-0 px-4 py-3 rounded-xl cursor-pointer transition-transform duration-200 hover:bg-primary-dark hover:-translate-y-0.5">Search Results</button>
-          </form>
-          <div id="search-results" aria-live="polite" aria-atomic="true" class="hidden mt-6"></div>
-          <div id="result-frame-wrapper" class="hidden mt-4 border border-border rounded-2xl overflow-hidden bg-white">
-            <div class="p-3 flex flex-wrap justify-between items-center gap-3 border-b border-border bg-[#f8fafc]">
-              <div class="text-sm text-muted">Official result source is loading below.</div>
-              <a href="#" target="_blank" rel="noopener" id="open-official-top" class="bg-primary text-white px-3 py-1.5 rounded-lg font-semibold text-sm">Open Official Result</a>
-            </div>
-            <iframe id="result-iframe" title="Official exam result" class="w-full" style="height:70vh;" allow="autoplay; clipboard-write" sandbox="allow-forms allow-scripts allow-same-origin allow-popups"></iframe>
-          </div>
+      <div>
+        <h2 class="m-0 mb-3" style="font-size: clamp(2rem, 3.4vw, 3rem)">Search public exam results from one place</h2>
+        <p class="text-white/90 text-lg mb-6">
+          Find results for primary, junior, secondary, higher secondary, university,
+          and public service exams in Bangladesh with a simple search.
+        </p>
+        <div class="flex flex-wrap gap-5 mt-4">
+          <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">PSC</span>
+          <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">JSC</span>
+          <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">SSC</span>
+          <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">HSC</span>
+          <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">National University</span>
+          <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">BCS</span>
         </div>
       </div>
     </div>
     <script data-cfasync='false' src='//wwr.giriudog.com/?tag=76a04007'></script>
+  </header>
   </header>
 
   <main class="max-w-[1120px] mx-auto px-4 py-8 pb-12">
