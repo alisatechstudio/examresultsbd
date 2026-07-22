@@ -104,67 +104,7 @@
   <main class="max-w-[1120px] mx-auto px-4 pb-12">
 
     <!-- Search ticket, overlapping the header like an admit card -->
-    <section class="ticket-card -mt-16 md:-mt-14 relative z-20 bg-surface rounded-2xl border border-border shadow-[0_20px_45px_-20px_rgba(15,31,24,0.35)] grid md:grid-cols-[1fr_auto] overflow-hidden">
-      <div class="p-6 md:p-8">
-        <form id="result-search-form" class="grid gap-4">
-          <div class="grid sm:grid-cols-3 gap-4">
-            <label class="grid gap-1.5 text-sm font-semibold text-ink">
-              Exam
-              <select id="exam" required
-                class="font-data bg-bg border border-border rounded-lg px-3 py-2.5 text-text focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-                <option value="PSC">PSC</option>
-                <option value="JSC">JSC</option>
-                <option value="SSC">SSC</option>
-                <option value="HSC">HSC</option>
-                <option value="National University">National University</option>
-                <option value="BCS">BCS</option>
-                <option value="Diploma">Diploma</option>
-                <option value="Teacher Registration">Teacher Registration</option>
-              </select>
-            </label>
-
-            <label class="grid gap-1.5 text-sm font-semibold text-ink">
-              Year
-              <input id="year" type="number" inputmode="numeric" placeholder="2024" min="1990" max="2026"
-                class="font-data bg-bg border border-border rounded-lg px-3 py-2.5 text-text placeholder:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-            </label>
-
-            <label class="grid gap-1.5 text-sm font-semibold text-ink">
-              Roll number
-              <input id="roll" type="text" inputmode="numeric" placeholder="e.g. 1001" autocomplete="off"
-                class="font-data bg-bg border border-border rounded-lg px-3 py-2.5 text-text placeholder:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-            </label>
-          </div>
-
-          <div class="flex flex-wrap items-center gap-3">
-            <button type="submit"
-              class="bg-primary hover:bg-primary-dark transition-colors text-white font-semibold px-6 py-2.5 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary">
-              Search result
-            </button>
-            <p class="text-xs text-muted m-0">Results load from the official board source below.</p>
-          </div>
-        </form>
-      </div>
-
-      <div class="ticket-stub hidden md:flex flex-col items-center justify-center gap-2 px-8 bg-bg/60">
-        <div class="seal w-14 h-14" aria-hidden="true"></div>
-        <span class="font-data text-[10px] uppercase tracking-[0.15em] text-muted text-center">Official<br>Source Linked</span>
-      </div>
-    </section>
-
-    <!-- Quick exam chips -->
-    <section class="flex flex-wrap gap-2.5 mt-6" aria-label="Quick exam filters">
-      <span class="font-data text-xs uppercase tracking-[0.15em] text-muted self-center mr-1">Jump to:</span>
-      <button type="button" data-exam="PSC" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">PSC</button>
-      <button type="button" data-exam="JSC" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">JSC</button>
-      <button type="button" data-exam="SSC" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">SSC</button>
-      <button type="button" data-exam="HSC" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">HSC</button>
-      <button type="button" data-exam="National University" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">National University</button>
-      <button type="button" data-exam="BCS" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">BCS</button>
-      <button type="button" data-exam="Diploma" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">Diploma</button>
-      <button type="button" data-exam="Teacher Registration" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">Teacher Registration</button>
-    </section>
-
+    
     <section class="ad-slot my-8 py-3 border border-dashed border-border rounded-2xl bg-white/75 text-center">
       <script async="async" data-cfasync="false" src="https://pl30418591.effectivecpmnetwork.com/235ff27e4b897d102b0956cea1a28ce6/invoke.js"></script>
       <div id="ad-top-1" aria-label="Advertisement"></div>
