@@ -4,8 +4,8 @@
   "description": "Search all public exam results in Bangladesh from one place. This portal helps students, parents, and job seekers quickly find results for major public examinations including PSC, JSC, SSC, HSC, National University, BCS, Diploma, and Teacher Registration.",
   "main": "sw.js",
   "scripts": {
-    "build:css": "npx @tailwindcss/cli -i ./src/styles.css -o ./dist/styles.css",
-    "watch:css": "npx @tailwindcss/cli -i ./src/styles.css -o ./dist/styles.css --watch"
+    "build:css": "npx @tailwindcss/cli -i src/styles.css -o dist/styles.css",
+    "watch:css": "npx @tailwindcss/cli -i src/styles.css -o dist/styles.css --watch"
   },
   "repository": {
     "type": "git",
