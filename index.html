@@ -184,85 +184,27 @@
   </footer>
 
   <script>
-    const examResultsData = {
-      PSC: [
-        { year: 2024, roll: '1001', name: 'Rahim Ahmed', gpa: 5.0, board: 'Dhaka' },
-        { year: 2024, roll: '1002', name: 'Karim Hassan', gpa: 4.8, board: 'Chittagong' },
-        { year: 2023, roll: '1001', name: 'Fatima Begum', gpa: 5.0, board: 'Rajshahi' }
-      ],
-      JSC: [
-        { year: 2024, roll: '2001', name: 'Ayesha Siddiqua', gpa: 4.9, board: 'Dhaka' },
-        { year: 2024, roll: '2002', name: 'Mohammad Ali', gpa: 4.7, board: 'Khulna' },
-        { year: 2023, roll: '2001', name: 'Nasrin Akter', gpa: 4.8, board: 'Sylhet' }
-      ],
-      SSC: [
-        { year: 2024, roll: '3001', name: 'Rafiul Islam', gpa: 5.0, board: 'Dhaka', group: 'Science' },
-        { year: 2024, roll: '3002', name: 'Tasnim Jahan', gpa: 4.9, board: 'Chittagong', group: 'Commerce' },
-        { year: 2023, roll: '3001', name: 'Sakib Khan', gpa: 4.8, board: 'Rajshahi', group: 'Arts' }
-      ],
-      HSC: [
-        { year: 2024, roll: '4001', name: 'Mehedi Hasan', gpa: 5.0, board: 'Dhaka', group: 'Science' },
-        { year: 2024, roll: '4002', name: 'Mitu Akter', gpa: 4.9, board: 'Comilla', group: 'Commerce' },
-        { year: 2023, roll: '4001', name: 'Shakib Al Hasan', gpa: 4.7, board: 'Jessore', group: 'Arts' }
-      ],
-      'National University': [
-        { year: 2024, roll: '5001', name: 'Abul Kalam', exam: 'Degree Pass', result: '1st Class' },
-        { year: 2024, roll: '5002', name: 'Jahanara Begum', exam: 'Honours', result: '1st Class' },
-        { year: 2023, roll: '5001', name: 'Kamal Hossain', exam: 'Masters', result: '1st Class' }
-      ],
-      BCS: [
-        { year: 2024, roll: '6001', name: 'Md. Shahidul', post: 'Administration', merit: 15 },
-        { year: 2024, roll: '6002', name: 'Nusrat Jahan', post: 'Police', merit: 42 },
-        { year: 2023, roll: '6001', name: 'Farhan Iqbal', post: 'Foreign Affairs', merit: 8 }
-      ],
-      Diploma: [
-        { year: 2024, roll: '7001', name: 'Sumon Mia', trade: 'Electrical', cgpa: 3.85 },
-        { year: 2024, roll: '7002', name: 'Raju Ahmed', trade: 'Mechanical', cgpa: 3.65 },
-        { year: 2023, roll: '7001', name: 'Babu Miah', trade: 'Civil', cgpa: 3.75 }
-      ],
-      'Teacher Registration': [
-        { year: 2024, roll: '8001', name: 'Salma Akter', result: 'Pass', grade: 'A+' },
-        { year: 2024, roll: '8002', name: 'Mizanur Rahman', result: 'Pass', grade: 'A' },
-        { year: 2023, roll: '8001', name: 'Tania Sultana', result: 'Pass', grade: 'A+' }
-      ]
+    const officialResultLinks = {
+      PSC: 'https://www.dpe.gov.bd/result',
+      JSC: 'https://eboardresults.com/jsc/',
+      SSC: 'https://eboardresults.com/ssc/',
+      HSC: 'https://eboardresults.com/hsc/',
+      'National University': 'https://www.nu.ac.bd/results',
+      BCS: 'https://bpsc.gov.bd',
+      Diploma: 'https://www.bteb.gov.bd/',
+      'Teacher Registration': 'https://nctb.gov.bd/'
     };
 
     const form = document.getElementById('result-search-form');
     const resultsContainer = document.getElementById('search-results');
 
-    function renderResults(exam, year, roll, results) {
-      let html = `<div class="mb-2 font-bold">Results for <span class="text-primary">${exam}</span> - Year: ${year}${roll ? ' - Roll: ' + roll : ''}</div>`;
-
-      if (results.length === 0) {
-        html += `<div class="text-center text-muted p-6">No results found for the given criteria.</div>`;
-      } else {
-        html += '<div role="list">';
-        results.forEach(item => {
-          html += '<div class="bg-surface border border-border rounded-xl p-4 mb-3" role="listitem">';
-          if (item.name) html += `<h4 class="m-0 mb-1 text-lg text-primary">${item.name}</h4>`;
-
-          const details = [];
-          if (item.roll) details.push(`Roll: ${item.roll}`);
-          if (item.year) details.push(`Year: ${item.year}`);
-          if (item.board) details.push(`Board: ${item.board}`);
-          if (item.group) details.push(`Group: ${item.group}`);
-          if (item.gpa) details.push(`GPA: ${item.gpa}`);
-          if (item.exam) details.push(`Exam: ${item.exam}`);
-          if (item.result) details.push(`Result: ${item.result}`);
-          if (item.grade) details.push(`Grade: ${item.grade}`);
-          if (item.post) details.push(`Post: ${item.post}`);
-          if (item.merit) details.push(`Merit Position: ${item.merit}`);
-          if (item.trade) details.push(`Trade: ${item.trade}`);
-          if (item.cgpa) details.push(`CGPA: ${item.cgpa}`);
-
-          html += `<p class="m-0 text-muted">${details.join(' | ')}</p>`;
-          html += '</div>';
-        });
-        html += '</div>';
-      }
-
-      resultsContainer.innerHTML = html;
-      resultsContainer.classList.remove('hidden');
+    function openOfficialResult(exam, year, roll) {
+      const baseUrl = officialResultLinks[exam] || 'https://eboardresults.com';
+      const query = new URLSearchParams();
+      if (year) query.append('year', year);
+      if (roll) query.append('roll', roll);
+      const separator = baseUrl.includes('?') ? '&' : '?';
+      window.open(`${baseUrl}${separator}${query.toString()}`, '_blank', 'noopener,noreferrer');
     }
 
     form.addEventListener('submit', function (event) {
@@ -272,17 +214,7 @@
       const year = document.getElementById('year').value.trim();
       const roll = document.getElementById('roll').value.trim();
 
-      const data = examResultsData[exam] || [];
-
-      let filtered = data;
-      if (year) {
-        filtered = filtered.filter(item => item.year === parseInt(year));
-      }
-      if (roll) {
-        filtered = filtered.filter(item => item.roll === roll || (item.name && item.name.toLowerCase().includes(roll.toLowerCase())));
-      }
-
-      renderResults(exam, year, roll, filtered);
+      openOfficialResult(exam, year, roll);
     });
 
     document.getElementById('roll').addEventListener('input', function() {
@@ -290,19 +222,12 @@
       const year = document.getElementById('year').value.trim();
       const roll = this.value.trim();
 
-      if (roll.length < 2) {
+      if (roll.length >= 2) {
+        resultsContainer.classList.remove('hidden');
+        resultsContainer.innerHTML = `<div class="mb-2 text-muted">Ready to search official <span class="text-primary font-semibold">${exam}</span> results for Year: ${year || 'Any'}${roll ? ' - Roll: ' + roll : ''}</div>`;
+      } else {
         resultsContainer.classList.add('hidden');
-        return;
       }
-
-      const data = examResultsData[exam] || [];
-      let filtered = data;
-      if (year) {
-        filtered = filtered.filter(item => item.year === parseInt(year));
-      }
-      filtered = filtered.filter(item => item.roll === roll || (item.name && item.name.toLowerCase().includes(roll.toLowerCase())));
-
-      renderResults(exam, year, roll, filtered);
     });
   </script>
 </body>
