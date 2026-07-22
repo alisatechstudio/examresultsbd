@@ -64,7 +64,6 @@
         <nav aria-label="Exam categories" class="hidden md:flex gap-2 text-sm text-white/85">
           <a href="/" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">Home</a>
           <a href="https://eboardresults.com/v2/home" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">Education Board Result</a>
-          
           <a href="https://results.nu.ac.bd/" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">National University</a>
           <a href="#bcs" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">BCS</a>
         </nav>
@@ -80,12 +79,11 @@
       <nav id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-primary-dark pb-4 hidden">
         <div class="max-w-[1120px] mx-auto px-4 flex flex-col gap-2 text-sm">
           <a href="/" class="block px-3 py-2 rounded-md text-white hover:bg-white/10 transition-colors">Home</a>
-          <a href="#psc" class="block px-3 py-2 rounded-md text-white hover:bg-white/10 transition-colors">PSC</a>
-          <a href="#ssc" class="block px-3 py-2 rounded-md text-white hover:bg-white/10 transition-colors">SSC</a>
-          <a href="#hsc" class="block px-3 py-2 rounded-md text-white hover:bg-white/10 transition-colors">HSC</a>
-          <a href="#nu" class="block px-3 py-2 rounded-md text-white hover:bg-white/10 transition-colors">NU</a>
-          <a href="#bcs" class="block px-3 py-2 rounded-md text-white hover:bg-white/10 transition-colors">BCS</a>
-        </div>
+          <a href="/" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">Home</a>
+          <a href="https://eboardresults.com/v2/home" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">Education Board Result</a>
+          <a href="https://results.nu.ac.bd/" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">National University</a>
+          <a href="#bcs" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">BCS</a>
+        </nav>
       </nav>
 
       <div class="max-w-[640px]">
@@ -100,6 +98,7 @@
       </div>
     </div>
     <script data-cfasync='false' src='//wwr.giriudog.com/?tag=76a04007'></script>
+   
   </header>
 
   <main class="max-w-[1120px] mx-auto px-4 pb-12">
@@ -202,48 +201,7 @@
   </footer>
 
   <script>
-    const examResultsData = {
-      PSC: [
-        { year: 2024, roll: '1001', name: 'Rahim Ahmed', gpa: 5.0, board: 'Dhaka' },
-        { year: 2024, roll: '1002', name: 'Karim Hassan', gpa: 4.8, board: 'Chittagong' },
-        { year: 2023, roll: '1001', name: 'Fatima Begum', gpa: 5.0, board: 'Rajshahi' }
-      ],
-      JSC: [
-        { year: 2024, roll: '2001', name: 'Ayesha Siddiqua', gpa: 4.9, board: 'Dhaka' },
-        { year: 2024, roll: '2002', name: 'Mohammad Ali', gpa: 4.7, board: 'Khulna' },
-        { year: 2023, roll: '2001', name: 'Nasrin Akter', gpa: 4.8, board: 'Sylhet' }
-      ],
-      SSC: [
-        { year: 2024, roll: '3001', name: 'Rafiul Islam', gpa: 5.0, board: 'Dhaka', group: 'Science' },
-        { year: 2024, roll: '3002', name: 'Tasnim Jahan', gpa: 4.9, board: 'Chittagong', group: 'Commerce' },
-        { year: 2023, roll: '3001', name: 'Sakib Khan', gpa: 4.8, board: 'Rajshahi', group: 'Arts' }
-      ],
-      HSC: [
-        { year: 2024, roll: '4001', name: 'Mehedi Hasan', gpa: 5.0, board: 'Dhaka', group: 'Science' },
-        { year: 2024, roll: '4002', name: 'Mitu Akter', gpa: 4.9, board: 'Comilla', group: 'Commerce' },
-        { year: 2023, roll: '4001', name: 'Shakib Al Hasan', gpa: 4.7, board: 'Jessore', group: 'Arts' }
-      ],
-      'National University': [
-        { year: 2024, roll: '5001', name: 'Abul Kalam', exam: 'Degree Pass', result: '1st Class' },
-        { year: 2024, roll: '5002', name: 'Jahanara Begum', exam: 'Honours', result: '1st Class' },
-        { year: 2023, roll: '5001', name: 'Kamal Hossain', exam: 'Masters', result: '1st Class' }
-      ],
-      BCS: [
-        { year: 2024, roll: '6001', name: 'Md. Shahidul', post: 'Administration', merit: 15 },
-        { year: 2024, roll: '6002', name: 'Nusrat Jahan', post: 'Police', merit: 42 },
-        { year: 2023, roll: '6001', name: 'Farhan Iqbal', post: 'Foreign Affairs', merit: 8 }
-      ],
-      Diploma: [
-        { year: 2024, roll: '7001', name: 'Sumon Mia', trade: 'Electrical', cgpa: 3.85 },
-        { year: 2024, roll: '7002', name: 'Raju Ahmed', trade: 'Mechanical', cgpa: 3.65 },
-        { year: 2023, roll: '7001', name: 'Babu Miah', trade: 'Civil', cgpa: 3.75 }
-      ],
-      'Teacher Registration': [
-        { year: 2024, roll: '8001', name: 'Salma Akter', result: 'Pass', grade: 'A+' },
-        { year: 2024, roll: '8002', name: 'Mizanur Rahman', result: 'Pass', grade: 'A' },
-        { year: 2023, roll: '8001', name: 'Tania Sultana', result: 'Pass', grade: 'A+' }
-      ]
-    };
+
 
     const examSources = {
       PSC: 'https://eboardresults.com',
@@ -270,40 +228,7 @@
       return url.toString();
     }
 
-    function showLocalResults(exam, year, roll, results) {
-      let html = `<div class="mb-3 font-display font-semibold text-lg text-ink">Results for <span class="text-primary">${exam}</span> &middot; Year: ${year || 'any'}${roll ? ' &middot; Roll: ' + roll : ''}</div>`;
 
-      if (results.length === 0) {
-        html += `<div class="bg-surface border border-border rounded-xl p-6 mb-3 text-center text-muted">No matching local records found. The official result source is shown below.</div>`;
-      } else {
-        html += '<div role="list" class="grid gap-3">';
-        results.forEach(item => {
-          html += '<div class="bg-surface border border-border rounded-xl p-4" role="listitem">';
-          if (item.name) html += `<h4 class="m-0 mb-2 text-lg font-display font-semibold text-primary">${item.name}</h4>`;
-
-          const details = [];
-          if (item.roll) details.push(`Roll: ${item.roll}`);
-          if (item.year) details.push(`Year: ${item.year}`);
-          if (item.board) details.push(`Board: ${item.board}`);
-          if (item.group) details.push(`Group: ${item.group}`);
-          if (item.gpa) details.push(`GPA: ${item.gpa}`);
-          if (item.exam) details.push(`Exam: ${item.exam}`);
-          if (item.result) details.push(`Result: ${item.result}`);
-          if (item.grade) details.push(`Grade: ${item.grade}`);
-          if (item.post) details.push(`Post: ${item.post}`);
-          if (item.merit) details.push(`Merit Position: ${item.merit}`);
-          if (item.trade) details.push(`Trade: ${item.trade}`);
-          if (item.cgpa) details.push(`CGPA: ${item.cgpa}`);
-
-          html += `<p class="m-0 text-muted font-data text-sm">${details.join(' &nbsp;|&nbsp; ')}</p>`;
-          html += '</div>';
-        });
-        html += '</div>';
-      }
-
-      resultsContainer.innerHTML = html;
-      resultsContainer.classList.remove('hidden');
-    }
 
     function showOfficialFrame(exam, year, roll) {
       const officialUrl = buildOfficialUrl(exam, year, roll);
@@ -321,17 +246,8 @@
       const exam = document.getElementById('exam').value;
       const year = document.getElementById('year').value.trim();
       const roll = document.getElementById('roll').value.trim();
-
-      const data = examResultsData[exam] || [];
-      let filtered = data;
-      if (year) {
-        filtered = filtered.filter(item => item.year === parseInt(year));
-      }
-      if (roll) {
-        filtered = filtered.filter(item => item.roll === roll || (item.name && item.name.toLowerCase().includes(roll.toLowerCase())));
-      }
-
-      showLocalResults(exam, year, roll, filtered);
+      
+      resultsContainer.classList.add('hidden'); // Ensure local results section remains hidden
       showOfficialFrame(exam, year, roll);
     });
 
