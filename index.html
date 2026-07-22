@@ -54,526 +54,256 @@
   <script src="https://pl30418611.effectivecpmnetwork.com/f2/38/72/f23872f5aba960324f6aa88d9a8ffa64.js" async></script>
   <script>(function(s){s.dataset.zone='11342593',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
   <script src="https://quge5.com/88/tag.min.js" data-zone="261034" async data-cfasync="false"></script>
-    
-    <style>
-      :root {
-        --bg: #f4f8ff;
-        --surface: #ffffff;
-        --primary: #1d4ed8;
-        --primary-dark: #163eab;
-        --accent: #0f766e;
-        --text: #15213a;
-        --muted: #5d6b86;
-        --border: #dce7ff;
-      }
+  <link rel="stylesheet" href="./dist/styles.css">
+</head>
+<body class="bg-gradient-to-br from-[#eef5ff] to-bg min-h-screen">
+  <header class="bg-gradient-to-br from-ink to-[#1e40af] text-white pt-8 pb-14">
+    <div class="max-w-[1120px] mx-auto px-4">
+      <div class="flex flex-wrap justify-between items-center gap-4 mb-8">
+        <h1 class="m-0" style="font-size: clamp(1.5rem, 2.2vw, 2rem);">Bangladesh Public Exam Results Portal</h1>
+        <div class="bg-white/12 border border-white/20 px-3 py-2 rounded-full text-base">PSC • JSC • SSC • HSC • NU • BCS</div>
+      </div>
 
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #eef5ff 0%, var(--bg) 100%);
-        color: var(--text);
-        line-height: 1.6;
-      }
-
-      a { color: inherit; text-decoration: none; }
-
-      .container {
-        width: min(1120px, calc(100% - 2rem));
-        margin: 0 auto;
-      }
-
-      header {
-        background: linear-gradient(120deg, #0f172a, #1e40af);
-        color: white;
-        padding: 2rem 0 3.5rem;
-      }
-
-      .brand {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-        margin-bottom: 2rem;
-      }
-
-      .brand h1 {
-        margin: 0;
-        font-size: clamp(1.5rem, 2.2vw, 2rem);
-      }
-
-      .pill {
-        background: rgba(255,255,255,0.12);
-        border: 1px solid rgba(255,255,255,0.2);
-        padding: 0.5rem 0.9rem;
-        border-radius: 999px;
-        font-size: 0.95rem;
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 2rem;
-        align-items: center;
-      }
-
-      .hero h2 {
-        font-size: clamp(2rem, 3.4vw, 3rem);
-        margin: 0 0 0.75rem;
-      }
-
-      .hero p {
-        color: rgba(255,255,255,0.9);
-        margin: 0 0 1.3rem;
-        font-size: 1.05rem;
-      }
-
-      .hero-card {
-        background: rgba(255,255,255,0.96);
-        color: var(--text);
-        border-radius: 20px;
-        padding: 1.2rem;
-        box-shadow: 0 18px 40px rgba(2, 8, 23, 0.18);
-      }
-
-      .hero-card h3 {
-        margin-top: 0;
-        margin-bottom: 0.2rem;
-        font-size: 1.1rem;
-      }
-
-      .hero-card p {
-        color: var(--muted);
-        margin-bottom: 1rem;
-      }
-
-      form {
-        display: grid;
-        gap: 0.8rem;
-      }
-
-      .row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.8rem;
-      }
-
-      select,
-      input,
-      button {
-        width: 100%;
-        padding: 0.9rem 1rem;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        font-size: 0.98rem;
-      }
-
-      button {
-        background: var(--primary);
-        color: white;
-        border: none;
-        font-weight: 700;
-        cursor: pointer;
-        transition: transform 0.2s ease, background 0.2s ease;
-      }
-
-      button:hover {
-        background: var(--primary-dark);
-        transform: translateY(-1px);
-      }
-
-      main {
-        padding: 2rem 0 3rem;
-      }
-
-      section {
-        margin-bottom: 2rem;
-      }
-
-      .section-title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      .section-title h3 {
-        margin: 0;
-        font-size: 1.2rem;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
-      }
-
-      .card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 1rem;
-        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
-      }
-
-      .card h4 {
-        margin: 0 0 0.4rem;
-        font-size: 1rem;
-      }
-
-      .card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      .chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.55rem;
-        margin-top: 1rem;
-      }
-
-      .chip {
-        background: #eff6ff;
-        color: var(--primary);
-        padding: 0.4rem 0.7rem;
-        border-radius: 999px;
-        font-size: 0.85rem;
-        font-weight: 600;
-      }
-
-      .list {
-        display: grid;
-        gap: 0.8rem;
-      }
-
-      .list a {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.8rem 0.95rem;
-        background: white;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-      }
-
-      .list span:last-child {
-        color: var(--primary);
-        font-weight: 700;
-      }
-
-      .ad-slot {
-        margin: 1rem 0 1.5rem;
-        padding: 0.75rem;
-        border: 1px dashed var(--border);
-        border-radius: 16px;
-        background: rgba(255,255,255,0.75);
-        text-align: center;
-      }
-
-      footer {
-        text-align: center;
-        color: var(--muted);
-        padding: 1rem 0 2rem;
-      }
-
-      #search-results {
-        display: none;
-        margin-top: 1.5rem;
-      }
-
-      #search-results.active {
-        display: block;
-      }
-
-      .result-item {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 1rem;
-        margin-bottom: 0.8rem;
-      }
-
-      .result-item h4 {
-        margin: 0 0 0.3rem;
-        font-size: 1rem;
-        color: var(--primary);
-      }
-
-      .result-item p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      .no-results {
-        text-align: center;
-        color: var(--muted);
-        padding: 1.5rem;
-      }
-
-      @media (max-width: 860px) {
-        .hero { grid-template-columns: 1fr; }
-        .grid { grid-template-columns: 1fr 1fr; }
-      }
-
-      @media (max-width: 560px) {
-        .row { grid-template-columns: 1fr; }
-        .grid { grid-template-columns: 1fr; }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <div class="brand">
-          <h1>Bangladesh Public Exam Results Portal</h1>
-          <div class="pill">PSC • JSC • SSC • HSC • NU • BCS</div>
+      <div class="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+        <div>
+          <h2 class="m-0 mb-3" style="font-size: clamp(2rem, 3.4vw, 3rem);">Search public exam results from one place</h2>
+          <p class="text-white/90 text-lg mb-6">
+            Find results for primary, junior, secondary, higher secondary, university,
+            and public service exams in Bangladesh with a simple search.
+          </p>
+          <div class="flex flex-wrap gap-5 mt-4">
+            <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">PSC</span>
+            <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">JSC</span>
+            <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">SSC</span>
+            <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">HSC</span>
+            <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">National University</span>
+            <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">BCS</span>
+          </div>
         </div>
 
-        <div class="hero">
-          <div>
-            <h2>Search public exam results from one place</h2>
-            <p>
-              Find results for primary, junior, secondary, higher secondary, university,
-              and public service exams in Bangladesh with a simple search.
-            </p>
-            <div class="chips">
-              <span class="chip">PSC</span>
-              <span class="chip">JSC</span>
-              <span class="chip">SSC</span>
-              <span class="chip">HSC</span>
-              <span class="chip">National University</span>
-              <span class="chip">BCS</span>
+        <div class="bg-white/96 text-text rounded-[20px] p-5 shadow-[0_18px_40px_rgba(2,8,23,0.18)]">
+          <h3 class="mt-0 mb-1 text-xl">Quick result finder</h3>
+          <p class="text-muted mb-4">Choose an exam, enter the year and roll number, and search immediately.</p>
+          <form id="result-search-form" class="grid gap-3" role="search" aria-label="Search exam results">
+            <select id="exam" name="exam" required aria-label="Select exam type" class="w-full px-4 py-3 rounded-xl border border-border text-base">
+              <option value="PSC">PSC</option>
+              <option value="JSC">JSC</option>
+              <option value="SSC">SSC</option>
+              <option value="HSC">HSC</option>
+              <option value="National University">National University</option>
+              <option value="BCS">BCS</option>
+              <option value="Diploma">Diploma</option>
+              <option value="Teacher Registration">Teacher Registration</option>
+            </select>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input id="year" name="year" type="number" placeholder="Year (e.g. 2024)" required aria-label="Year" class="w-full px-4 py-3 rounded-xl border border-border text-base" />
+              <input id="roll" name="roll" type="text" placeholder="Roll / Registration" required aria-label="Roll number or registration" class="w-full px-4 py-3 rounded-xl border border-border text-base" />
             </div>
-          </div>
-
-          <div class="hero-card">
-            <h3>Quick result finder</h3>
-            <p>Choose an exam, enter the year and roll number, and search immediately.</p>
-            <form id="result-search-form" role="search" aria-label="Search exam results">
-              <select id="exam" name="exam" required aria-label="Select exam type">
-                <option value="PSC">PSC</option>
-                <option value="JSC">JSC</option>
-                <option value="SSC">SSC</option>
-                <option value="HSC">HSC</option>
-                <option value="National University">National University</option>
-                <option value="BCS">BCS</option>
-                <option value="Diploma">Diploma</option>
-                <option value="Teacher Registration">Teacher Registration</option>
-              </select>
-              <div class="row">
-                <input id="year" name="year" type="number" placeholder="Year (e.g. 2024)" required aria-label="Year" />
-                <input id="roll" name="roll" type="text" placeholder="Roll / Registration" required aria-label="Roll number or registration" />
-              </div>
-              <button type="submit">Search Results</button>
-            </form>
-            <div id="search-results" aria-live="polite" aria-atomic="true"></div>
-          </div>
+            <button type="submit" class="bg-primary text-white font-bold border-0 px-4 py-3 rounded-xl cursor-pointer transition-transform duration-200 hover:bg-primary-dark hover:-translate-y-0.5">Search Results</button>
+          </form>
+          <div id="search-results" aria-live="polite" aria-atomic="true" class="hidden mt-6"></div>
         </div>
       </div>
-      <script data-cfasync='false' src='//wwr.giriudog.com/?tag=76a04007'></script>
-    </header>
+    </div>
+    <script data-cfasync='false' src='//wwr.giriudog.com/?tag=76a04007'></script>
+  </header>
 
-    <main class="container">
-      <section class="ad-slot" style="margin-bottom: 1rem;">
-        <script async="async" data-cfasync="false" src="https://pl30418591.effectivecpmnetwork.com/235ff27e4b897d102b0956cea1a28ce6/invoke.js"></script>
-        <div id="ad-top-1" aria-label="Advertisement"></div>
-        <script async="async" data-cfasync="false" src="https://pl30418613.effectivecpmnetwork.com/a7d1b3796cc71ffe9d9599b5f7f23ba1/invoke.js"></script>
-        <div id="ad-top-2" aria-label="Advertisement"></div>
-      </section>
+  <main class="max-w-[1120px] mx-auto px-4 py-8 pb-12">
+    <section class="ad-slot my-4 py-3 border border-dashed border-border rounded-2xl bg-white/75 text-center" style="margin-bottom: 1rem;">
+      <script async="async" data-cfasync="false" src="https://pl30418591.effectivecpmnetwork.com/235ff27e4b897d102b0956cea1a28ce6/invoke.js"></script>
+      <div id="ad-top-1" aria-label="Advertisement"></div>
+      <script async="async" data-cfasync="false" src="https://pl30418613.effectivecpmnetwork.com/a7d1b3796cc71ffe9d9599b5f7f23ba1/invoke.js"></script>
+      <div id="ad-top-2" aria-label="Advertisement"></div>
+    </section>
 
-      <section>
-        <div class="section-title">
-          <h3>Popular exam categories</h3>
-          <span class="pill">All major public exams</span>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <h4>PSC</h4>
-            <p>Primary School Certificate result search for public school students.</p>
-          </article>
-          <article class="card">
-            <h4>JSC</h4>
-            <p>Junior School Certificate and equivalent result lookup.</p>
-          </article>
-          <article class="card">
-            <h4>SSC</h4>
-            <p>Secondary School Certificate result support for all boards.</p>
-          </article>
-          <article class="card">
-            <h4>HSC</h4>
-            <p>Higher Secondary Certificate result search for science, commerce, and arts.</p>
-          </article>
-          <article class="card">
-            <h4>National University</h4>
-            <p>Degree, honours, and professional course result lookup.</p>
-          </article>
-          <article class="card">
-            <h4>BCS / Public Service</h4>
-            <p>Recruitment and public service exam result search support.</p>
-          </article>
-        </div>
-      </section>
+    <section class="mb-8">
+      <div class="flex flex-wrap justify-between items-center gap-4 mb-4">
+        <h3 class="m-0 text-xl">Popular exam categories</h3>
+        <span class="bg-white/12 border border-white/20 px-3 py-2 rounded-full text-base">All major public exams</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <article class="bg-surface border border-border rounded-2xl p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+          <h4 class="m-0 mb-1 text-lg">PSC</h4>
+          <p class="m-0 text-muted text-base">Primary School Certificate result search for public school students.</p>
+        </article>
+        <article class="bg-surface border border-border rounded-2xl p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+          <h4 class="m-0 mb-1 text-lg">JSC</h4>
+          <p class="m-0 text-muted text-base">Junior School Certificate and equivalent result lookup.</p>
+        </article>
+        <article class="bg-surface border border-border rounded-2xl p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+          <h4 class="m-0 mb-1 text-lg">SSC</h4>
+          <p class="m-0 text-muted text-base">Secondary School Certificate result support for all boards.</p>
+        </article>
+        <article class="bg-surface border border-border rounded-2xl p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+          <h4 class="m-0 mb-1 text-lg">HSC</h4>
+          <p class="m-0 text-muted text-base">Higher Secondary Certificate result search for science, commerce, and arts.</p>
+        </article>
+        <article class="bg-surface border border-border rounded-2xl p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+          <h4 class="m-0 mb-1 text-lg">National University</h4>
+          <p class="m-0 text-muted text-base">Degree, honours, and professional course result lookup.</p>
+        </article>
+        <article class="bg-surface border border-border rounded-2xl p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+          <h4 class="m-0 mb-1 text-lg">BCS / Public Service</h4>
+          <p class="m-0 text-muted text-base">Recruitment and public service exam result search support.</p>
+        </article>
+      </div>
+    </section>
 
-      <section>
-        <div class="section-title">
-          <h3>Useful result sources</h3>
-          <span class="pill">Official and trusted links</span>
-        </div>
-        <div class="list">
-          <a href="https://www.effectivecpmnetwork.com/xvrqvkjv?key=5a9a3cf1dd29f51303b3b4d52da833e8" target="_blank" rel="nofollow noopener">
-            <span>Visit Effective CPM Network</span>
-            <span>Open</span>
-          </a>
-          <a href="https://eboardresults.com" target="_blank" rel="noopener">
-            <span>Education Board Results</span>
-            <span>Open</span>
-          </a>
-          <a href="https://www.nu.ac.bd/results" target="_blank" rel="noopener">
-            <span>National University Results</span>
-            <span>Open</span>
-          </a>
-          <a href="https://www.bpsc.gov.bd" target="_blank" rel="noopener">
-            <span>Bangladesh Public Service Commission</span>
-            <span>Open</span>
-          </a>
-        </div>
-      </section>
-      <section class="ad-slot">
-        <script async="async" data-cfasync="false" src="https://pl30418613.effectivecpmnetwork.com/a7d1b3796cc71ffe9d9599b5f7f23ba1/invoke.js"></script>
-        <div id="ad-bottom" aria-label="Advertisement"></div>
-      </section>
-    </main>
+    <section class="mb-8">
+      <div class="flex flex-wrap justify-between items-center gap-4 mb-4">
+        <h3 class="m-0 text-xl">Useful result sources</h3>
+        <span class="bg-white/12 border border-white/20 px-3 py-2 rounded-full text-base">Official and trusted links</span>
+      </div>
+      <div class="grid gap-3">
+        <a href="https://www.effectivecpmnetwork.com/xvrqvkjv?key=5a9a3cf1dd29f51303b3b4d52da833e8" target="_blank" rel="nofollow noopener" class="flex justify-between items-center p-3 bg-white border border-border rounded-xl">
+          <span>Visit Effective CPM Network</span>
+          <span class="text-primary font-bold">Open</span>
+        </a>
+        <a href="https://eboardresults.com" target="_blank" rel="noopener" class="flex justify-between items-center p-3 bg-white border border-border rounded-xl">
+          <span>Education Board Results</span>
+          <span class="text-primary font-bold">Open</span>
+        </a>
+        <a href="https://www.nu.ac.bd/results" target="_blank" rel="noopener" class="flex justify-between items-center p-3 bg-white border border-border rounded-xl">
+          <span>National University Results</span>
+          <span class="text-primary font-bold">Open</span>
+        </a>
+        <a href="https://www.bpsc.gov.bd" target="_blank" rel="noopener" class="flex justify-between items-center p-3 bg-white border border-border rounded-xl">
+          <span>Bangladesh Public Service Commission</span>
+          <span class="text-primary font-bold">Open</span>
+        </a>
+      </div>
+    </section>
+    <section class="ad-slot my-4 py-3 border border-dashed border-border rounded-2xl bg-white/75 text-center">
+      <script async="async" data-cfasync="false" src="https://pl30418613.effectivecpmnetwork.com/a7d1b3796cc71ffe9d9599b5f7f23ba1/invoke.js"></script>
+      <div id="ad-bottom" aria-label="Advertisement"></div>
+    </section>
+  </main>
 
-    <footer>
-      <div class="container">A simple public exam results hub for Bangladesh.</div>
-    </footer>
+  <footer class="text-center text-muted py-4 pb-8">
+    <div class="max-w-[1120px] mx-auto px-4">A simple public exam results hub for Bangladesh.</div>
+  </footer>
 
-    <script>
-      const examResultsData = {
-        PSC: [
-          { year: 2024, roll: '1001', name: 'Rahim Ahmed', gpa: 5.0, board: 'Dhaka' },
-          { year: 2024, roll: '1002', name: 'Karim Hassan', gpa: 4.8, board: 'Chittagong' },
-          { year: 2023, roll: '1001', name: 'Fatima Begum', gpa: 5.0, board: 'Rajshahi' }
-        ],
-        JSC: [
-          { year: 2024, roll: '2001', name: 'Ayesha Siddiqua', gpa: 4.9, board: 'Dhaka' },
-          { year: 2024, roll: '2002', name: 'Mohammad Ali', gpa: 4.7, board: 'Khulna' },
-          { year: 2023, roll: '2001', name: 'Nasrin Akter', gpa: 4.8, board: 'Sylhet' }
-        ],
-        SSC: [
-          { year: 2024, roll: '3001', name: 'Rafiul Islam', gpa: 5.0, board: 'Dhaka', group: 'Science' },
-          { year: 2024, roll: '3002', name: 'Tasnim Jahan', gpa: 4.9, board: 'Chittagong', group: 'Commerce' },
-          { year: 2023, roll: '3001', name: 'Sakib Khan', gpa: 4.8, board: 'Rajshahi', group: 'Arts' }
-        ],
-        HSC: [
-          { year: 2024, roll: '4001', name: 'Mehedi Hasan', gpa: 5.0, board: 'Dhaka', group: 'Science' },
-          { year: 2024, roll: '4002', name: 'Mitu Akter', gpa: 4.9, board: 'Comilla', group: 'Commerce' },
-          { year: 2023, roll: '4001', name: 'Shakib Al Hasan', gpa: 4.7, board: 'Jessore', group: 'Arts' }
-        ],
-        'National University': [
-          { year: 2024, roll: '5001', name: 'Abul Kalam', exam: 'Degree Pass', result: '1st Class' },
-          { year: 2024, roll: '5002', name: 'Jahanara Begum', exam: 'Honours', result: '1st Class' },
-          { year: 2023, roll: '5001', name: 'Kamal Hossain', exam: 'Masters', result: '1st Class' }
-        ],
-        BCS: [
-          { year: 2024, roll: '6001', name: 'Md. Shahidul', post: 'Administration', merit: 15 },
-          { year: 2024, roll: '6002', name: 'Nusrat Jahan', post: 'Police', merit: 42 },
-          { year: 2023, roll: '6001', name: 'Farhan Iqbal', post: 'Foreign Affairs', merit: 8 }
-        ],
-        Diploma: [
-          { year: 2024, roll: '7001', name: 'Sumon Mia', trade: 'Electrical', cgpa: 3.85 },
-          { year: 2024, roll: '7002', name: 'Raju Ahmed', trade: 'Mechanical', cgpa: 3.65 },
-          { year: 2023, roll: '7001', name: 'Babu Miah', trade: 'Civil', cgpa: 3.75 }
-        ],
-        'Teacher Registration': [
-          { year: 2024, roll: '8001', name: 'Salma Akter', result: 'Pass', grade: 'A+' },
-          { year: 2024, roll: '8002', name: 'Mizanur Rahman', result: 'Pass', grade: 'A' },
-          { year: 2023, roll: '8001', name: 'Tania Sultana', result: 'Pass', grade: 'A+' }
-        ]
-      };
+  <script>
+    const examResultsData = {
+      PSC: [
+        { year: 2024, roll: '1001', name: 'Rahim Ahmed', gpa: 5.0, board: 'Dhaka' },
+        { year: 2024, roll: '1002', name: 'Karim Hassan', gpa: 4.8, board: 'Chittagong' },
+        { year: 2023, roll: '1001', name: 'Fatima Begum', gpa: 5.0, board: 'Rajshahi' }
+      ],
+      JSC: [
+        { year: 2024, roll: '2001', name: 'Ayesha Siddiqua', gpa: 4.9, board: 'Dhaka' },
+        { year: 2024, roll: '2002', name: 'Mohammad Ali', gpa: 4.7, board: 'Khulna' },
+        { year: 2023, roll: '2001', name: 'Nasrin Akter', gpa: 4.8, board: 'Sylhet' }
+      ],
+      SSC: [
+        { year: 2024, roll: '3001', name: 'Rafiul Islam', gpa: 5.0, board: 'Dhaka', group: 'Science' },
+        { year: 2024, roll: '3002', name: 'Tasnim Jahan', gpa: 4.9, board: 'Chittagong', group: 'Commerce' },
+        { year: 2023, roll: '3001', name: 'Sakib Khan', gpa: 4.8, board: 'Rajshahi', group: 'Arts' }
+      ],
+      HSC: [
+        { year: 2024, roll: '4001', name: 'Mehedi Hasan', gpa: 5.0, board: 'Dhaka', group: 'Science' },
+        { year: 2024, roll: '4002', name: 'Mitu Akter', gpa: 4.9, board: 'Comilla', group: 'Commerce' },
+        { year: 2023, roll: '4001', name: 'Shakib Al Hasan', gpa: 4.7, board: 'Jessore', group: 'Arts' }
+      ],
+      'National University': [
+        { year: 2024, roll: '5001', name: 'Abul Kalam', exam: 'Degree Pass', result: '1st Class' },
+        { year: 2024, roll: '5002', name: 'Jahanara Begum', exam: 'Honours', result: '1st Class' },
+        { year: 2023, roll: '5001', name: 'Kamal Hossain', exam: 'Masters', result: '1st Class' }
+      ],
+      BCS: [
+        { year: 2024, roll: '6001', name: 'Md. Shahidul', post: 'Administration', merit: 15 },
+        { year: 2024, roll: '6002', name: 'Nusrat Jahan', post: 'Police', merit: 42 },
+        { year: 2023, roll: '6001', name: 'Farhan Iqbal', post: 'Foreign Affairs', merit: 8 }
+      ],
+      Diploma: [
+        { year: 2024, roll: '7001', name: 'Sumon Mia', trade: 'Electrical', cgpa: 3.85 },
+        { year: 2024, roll: '7002', name: 'Raju Ahmed', trade: 'Mechanical', cgpa: 3.65 },
+        { year: 2023, roll: '7001', name: 'Babu Miah', trade: 'Civil', cgpa: 3.75 }
+      ],
+      'Teacher Registration': [
+        { year: 2024, roll: '8001', name: 'Salma Akter', result: 'Pass', grade: 'A+' },
+        { year: 2024, roll: '8002', name: 'Mizanur Rahman', result: 'Pass', grade: 'A' },
+        { year: 2023, roll: '8001', name: 'Tania Sultana', result: 'Pass', grade: 'A+' }
+      ]
+    };
 
-      const form = document.getElementById('result-search-form');
-      const resultsContainer = document.getElementById('search-results');
+    const form = document.getElementById('result-search-form');
+    const resultsContainer = document.getElementById('search-results');
 
-      function renderResults(exam, year, roll, results) {
-        let html = `<div class="result-header" style="margin-bottom:0.8rem;font-weight:700;">Results for <span style="color:var(--primary)">${exam}</span> - Year: ${year}${roll ? ' - Roll: ' + roll : ''}</div>`;
-        
-        if (results.length === 0) {
-          html += `<div class="no-results">No results found for the given criteria.</div>`;
-        } else {
-          html += '<div role="list">';
-          results.forEach(item => {
-            html += '<div class="result-item" role="listitem">';
-            if (item.name) html += `<h4>${item.name}</h4>`;
-            
-            const details = [];
-            if (item.roll) details.push(`Roll: ${item.roll}`);
-            if (item.year) details.push(`Year: ${item.year}`);
-            if (item.board) details.push(`Board: ${item.board}`);
-            if (item.group) details.push(`Group: ${item.group}`);
-            if (item.gpa) details.push(`GPA: ${item.gpa}`);
-            if (item.exam) details.push(`Exam: ${item.exam}`);
-            if (item.result) details.push(`Result: ${item.result}`);
-            if (item.grade) details.push(`Grade: ${item.grade}`);
-            if (item.post) details.push(`Post: ${item.post}`);
-            if (item.merit) details.push(`Merit Position: ${item.merit}`);
-            if (item.trade) details.push(`Trade: ${item.trade}`);
-            if (item.cgpa) details.push(`CGPA: ${item.cgpa}`);
-            
-            html += `<p>${details.join(' | ')}</p>`;
-            html += '</div>';
-          });
+    function renderResults(exam, year, roll, results) {
+      let html = `<div class="mb-2 font-bold">Results for <span class="text-primary">${exam}</span> - Year: ${year}${roll ? ' - Roll: ' + roll : ''}</div>`;
+
+      if (results.length === 0) {
+        html += `<div class="text-center text-muted p-6">No results found for the given criteria.</div>`;
+      } else {
+        html += '<div role="list">';
+        results.forEach(item => {
+          html += '<div class="bg-surface border border-border rounded-xl p-4 mb-3" role="listitem">';
+          if (item.name) html += `<h4 class="m-0 mb-1 text-lg text-primary">${item.name}</h4>`;
+
+          const details = [];
+          if (item.roll) details.push(`Roll: ${item.roll}`);
+          if (item.year) details.push(`Year: ${item.year}`);
+          if (item.board) details.push(`Board: ${item.board}`);
+          if (item.group) details.push(`Group: ${item.group}`);
+          if (item.gpa) details.push(`GPA: ${item.gpa}`);
+          if (item.exam) details.push(`Exam: ${item.exam}`);
+          if (item.result) details.push(`Result: ${item.result}`);
+          if (item.grade) details.push(`Grade: ${item.grade}`);
+          if (item.post) details.push(`Post: ${item.post}`);
+          if (item.merit) details.push(`Merit Position: ${item.merit}`);
+          if (item.trade) details.push(`Trade: ${item.trade}`);
+          if (item.cgpa) details.push(`CGPA: ${item.cgpa}`);
+
+          html += `<p class="m-0 text-muted">${details.join(' | ')}</p>`;
           html += '</div>';
-        }
-        
-        resultsContainer.innerHTML = html;
-        resultsContainer.classList.add('active');
+        });
+        html += '</div>';
       }
 
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
+      resultsContainer.innerHTML = html;
+      resultsContainer.classList.remove('hidden');
+    }
 
-        const exam = document.getElementById('exam').value;
-        const year = document.getElementById('year').value.trim();
-        const roll = document.getElementById('roll').value.trim();
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
 
-        const data = examResultsData[exam] || [];
-        
-        let filtered = data;
-        if (year) {
-          filtered = filtered.filter(item => item.year === parseInt(year));
-        }
-        if (roll) {
-          filtered = filtered.filter(item => item.roll === roll || (item.name && item.name.toLowerCase().includes(roll.toLowerCase())));
-        }
+      const exam = document.getElementById('exam').value;
+      const year = document.getElementById('year').value.trim();
+      const roll = document.getElementById('roll').value.trim();
 
-        renderResults(exam, year, roll, filtered);
-      });
+      const data = examResultsData[exam] || [];
 
-      document.getElementById('roll').addEventListener('input', function() {
-        const exam = document.getElementById('exam').value;
-        const year = document.getElementById('year').value.trim();
-        const roll = this.value.trim();
-        
-        if (roll.length < 2) {
-          resultsContainer.classList.remove('active');
-          return;
-        }
-
-        const data = examResultsData[exam] || [];
-        let filtered = data;
-        if (year) {
-          filtered = filtered.filter(item => item.year === parseInt(year));
-        }
+      let filtered = data;
+      if (year) {
+        filtered = filtered.filter(item => item.year === parseInt(year));
+      }
+      if (roll) {
         filtered = filtered.filter(item => item.roll === roll || (item.name && item.name.toLowerCase().includes(roll.toLowerCase())));
+      }
 
-        renderResults(exam, year, roll, filtered);
-      });
-    </script>
-  </body>
+      renderResults(exam, year, roll, filtered);
+    });
+
+    document.getElementById('roll').addEventListener('input', function() {
+      const exam = document.getElementById('exam').value;
+      const year = document.getElementById('year').value.trim();
+      const roll = this.value.trim();
+
+      if (roll.length < 2) {
+        resultsContainer.classList.add('hidden');
+        return;
+      }
+
+      const data = examResultsData[exam] || [];
+      let filtered = data;
+      if (year) {
+        filtered = filtered.filter(item => item.year === parseInt(year));
+      }
+      filtered = filtered.filter(item => item.roll === roll || (item.name && item.name.toLowerCase().includes(roll.toLowerCase())));
+
+      renderResults(exam, year, roll, filtered);
+    });
+  </script>
+</body>
 </html>
