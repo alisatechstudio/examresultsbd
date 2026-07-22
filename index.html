@@ -1,45 +1,338 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Bangladesh Public Exam Results Portal</title>
+  <title>Bangladesh Public Exam Results Portal | PSC, JSC, SSC, HSC, NU, BCS Results</title>
+  <meta name="description" content="Search Bangladesh public exam results from one place. Find PSC, JSC, SSC, HSC, National University, BCS, Diploma and Teacher Registration results quickly.">
+  <meta name="keywords" content="Bangladesh exam results, PSC result, JSC result, SSC result, HSC result, National University result, BCS result, Bangladesh education board, public exam results Bangladesh, Diploma result, Teacher Registration result">
+  <meta name="author" content="Exam Results BD">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  <link rel="canonical" href="https://examresultsbd.online/">
+  <meta property="og:title" content="Bangladesh Public Exam Results Portal | PSC, JSC, SSC, HSC, NU, BCS Results">
+  <meta property="og:description" content="Search Bangladesh public exam results from one place. Find PSC, JSC, SSC, HSC, National University, BCS, Diploma and Teacher Registration results quickly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://examresultsbd.online/">
+  <meta property="og:site_name" content="Exam Results BD">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bangladesh Public Exam Results Portal">
+  <meta name="twitter:description" content="Search Bangladesh public exam results from one place. PSC, JSC, SSC, HSC, NU, BCS, Diploma, Teacher Registration.">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Bangladesh Public Exam Results Portal",
+      "url": "https://examresultsbd.online/",
+      "description": "A single portal to search public exam results in Bangladesh from PSC to BCS and other major examinations.",
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://examresultsbd.online/?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bangladesh Public Exam Results Portal",
+      "url": "https://examresultsbd.online/",
+      "applicationCategory": "EducationApplication",
+      "operatingSystem": "All",
+      "description": "Search public exam results in Bangladesh including PSC, JSC, SSC, HSC, National University, BCS, Diploma and Teacher Registration."
+    }
+  </script>
+  <meta name="google-adsense-account" content="ca-pub-4690647905356010">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4690647905356010" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="/dist/styles.css">
 </head>
-<body class="bg-gradient-to-br from-[#eef5ff] to-bg min-h-screen">
-  <header class="bg-gradient-to-br from-ink to-[#1e40af] text-white pt-8 pb-14">
-    <div class="max-w-[1120px] mx-auto px-4">
-      <div class="flex flex-wrap justify-between items-center gap-4 mb-8">
-        <h1 class="m-0" style="font-size: clamp(1.5rem, 2.2vw, 2rem)">Bangladesh Public Exam Results Portal</h1>
-        <div class="bg-white/12 border border-white/20 px-3 py-2 rounded-full text-base">PSC • JSC • SSC • HSC • NU • BCS</div>
+<body class="bg-bg text-text min-h-screen">
+
+  <header class="relative overflow-hidden bg-gradient-to-br from-ink to-primary-dark text-white pt-8 pb-24">
+    <div class="max-w-[1120px] mx-auto px-4 relative z-10">
+      <div class="flex flex-wrap justify-between items-center gap-4 mb-10">
+        <h1 class="font-display font-semibold m-0" style="font-size: clamp(1.35rem, 2.2vw, 1.9rem)">Exam Results BD</h1>
+        <nav aria-label="Exam categories" class="hidden md:flex gap-2 text-sm text-white/85">
+          <a href="#psc" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">PSC</a>
+          <a href="#ssc" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">SSC</a>
+          <a href="#hsc" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">HSC</a>
+          <a href="#nu" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">NU</a>
+          <a href="#bcs" class="px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/10 transition-colors">BCS</a>
+        </nav>
       </div>
 
-      <div>
-        <h2 class="m-0 mb-3" style="font-size: clamp(2rem, 3.4vw, 3rem)">Search public exam results from one place</h2>
-        <p class="text-white/90 text-lg mb-6">
-          Find results for primary, junior, secondary, higher secondary, university,
-          and public service exams in Bangladesh with a simple search.
+      <div class="max-w-[640px]">
+        <p class="font-data uppercase text-xs tracking-[0.2em] text-white/60 mb-3">Board &amp; Public Exam Board Lookup</p>
+        <h2 class="font-display font-semibold m-0 mb-4" style="font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.08;">
+          One search box.<br>Every public exam result.
+        </h2>
+        <p class="text-white/85 text-lg mb-2 max-w-[52ch]">
+          Choose your exam, enter your roll and year, and we'll pull up the record and open
+          the official result source for you &mdash; no need to hunt across a dozen board sites.
         </p>
-        <div class="flex flex-wrap gap-5 mt-4">
-          <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">PSC</span>
-          <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">JSC</span>
-          <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">SSC</span>
-          <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">HSC</span>
-          <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">National University</span>
-          <span class="bg-[#eff6ff] text-primary px-2.5 py-1 rounded-full text-sm font-semibold">BCS</span>
-        </div>
       </div>
     </div>
     <script data-cfasync='false' src='//wwr.giriudog.com/?tag=76a04007'></script>
   </header>
 
-  <main class="max-w-[1120px] mx-auto px-4 py-8 pb-12">
-    <section class="mb-8">
-      <div class="mt-4 border border-border rounded-2xl overflow-hidden bg-white">
-        <iframe id="eboardresults-iframe" title="eBoardResults Home" class="w-full" style="height:70vh;" allow="autoplay; clipboard-write" sandbox="allow-forms allow-scripts allow-same-origin allow-popups" src="https://eboardresults.com/v2/home"></iframe>
+  <main class="max-w-[1120px] mx-auto px-4 pb-12">
+
+    <!-- Search ticket, overlapping the header like an admit card -->
+    <section class="ticket-card -mt-16 md:-mt-14 relative z-20 bg-surface rounded-2xl border border-border shadow-[0_20px_45px_-20px_rgba(15,31,24,0.35)] grid md:grid-cols-[1fr_auto] overflow-hidden">
+      <div class="p-6 md:p-8">
+        <form id="result-search-form" class="grid gap-4">
+          <div class="grid sm:grid-cols-3 gap-4">
+            <label class="grid gap-1.5 text-sm font-semibold text-ink">
+              Exam
+              <select id="exam" required
+                class="font-data bg-bg border border-border rounded-lg px-3 py-2.5 text-text focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                <option value="PSC">PSC</option>
+                <option value="JSC">JSC</option>
+                <option value="SSC">SSC</option>
+                <option value="HSC">HSC</option>
+                <option value="National University">National University</option>
+                <option value="BCS">BCS</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Teacher Registration">Teacher Registration</option>
+              </select>
+            </label>
+
+            <label class="grid gap-1.5 text-sm font-semibold text-ink">
+              Year
+              <input id="year" type="number" inputmode="numeric" placeholder="2024" min="1990" max="2026"
+                class="font-data bg-bg border border-border rounded-lg px-3 py-2.5 text-text placeholder:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+            </label>
+
+            <label class="grid gap-1.5 text-sm font-semibold text-ink">
+              Roll number
+              <input id="roll" type="text" inputmode="numeric" placeholder="e.g. 1001" autocomplete="off"
+                class="font-data bg-bg border border-border rounded-lg px-3 py-2.5 text-text placeholder:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+            </label>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <button type="submit"
+              class="bg-primary hover:bg-primary-dark transition-colors text-white font-semibold px-6 py-2.5 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary">
+              Search result
+            </button>
+            <p class="text-xs text-muted m-0">Results load from the official board source below.</p>
+          </div>
+        </form>
+      </div>
+
+      <div class="ticket-stub hidden md:flex flex-col items-center justify-center gap-2 px-8 bg-bg/60">
+        <div class="seal w-14 h-14" aria-hidden="true"></div>
+        <span class="font-data text-[10px] uppercase tracking-[0.15em] text-muted text-center">Official<br>Source Linked</span>
       </div>
     </section>
+
+    <!-- Quick exam chips -->
+    <section class="flex flex-wrap gap-2.5 mt-6" aria-label="Quick exam filters">
+      <span class="font-data text-xs uppercase tracking-[0.15em] text-muted self-center mr-1">Jump to:</span>
+      <button type="button" data-exam="PSC" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">PSC</button>
+      <button type="button" data-exam="JSC" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">JSC</button>
+      <button type="button" data-exam="SSC" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">SSC</button>
+      <button type="button" data-exam="HSC" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">HSC</button>
+      <button type="button" data-exam="National University" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">National University</button>
+      <button type="button" data-exam="BCS" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">BCS</button>
+      <button type="button" data-exam="Diploma" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">Diploma</button>
+      <button type="button" data-exam="Teacher Registration" class="exam-chip bg-white text-primary border border-border px-3 py-1.5 rounded-full text-sm font-semibold hover:border-primary transition-colors">Teacher Registration</button>
+    </section>
+
+    <section class="ad-slot my-8 py-3 border border-dashed border-border rounded-2xl bg-white/75 text-center">
+      <script async="async" data-cfasync="false" src="https://pl30418591.effectivecpmnetwork.com/235ff27e4b897d102b0956cea1a28ce6/invoke.js"></script>
+      <div id="ad-top-1" aria-label="Advertisement"></div>
+      <script async="async" data-cfasync="false" src="https://pl30418613.effectivecpmnetwork.com/a7d1b3796cc71ffe9d9599b5f7f23ba1/invoke.js"></script>
+      <div id="ad-top-2" aria-label="Advertisement"></div>
+    </section>
+
+    <!-- Local record preview -->
+    <section id="search-results" class="hidden mb-8" aria-live="polite"></section>
+
+    <!-- Embedded official result page -->
+    <section id="result-frame-wrapper" class="hidden mb-8">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+        <h3 class="font-display font-semibold text-lg text-ink m-0">Official result source</h3>
+        <a id="open-official-top" href="#" target="_blank" rel="noopener noreferrer"
+          class="font-data text-sm font-semibold text-primary border border-primary/40 px-3 py-1.5 rounded-lg hover:bg-primary hover:text-white transition-colors">
+          Open in new tab &#8599;
+        </a>
+      </div>
+      <div class="bg-surface border border-border rounded-2xl overflow-hidden">
+        <iframe id="result-iframe" title="Official exam result page" class="w-full block" style="height: 70vh; min-height: 480px; border: 0;" loading="lazy"></iframe>
+      </div>
+      <p class="text-xs text-muted mt-2">Some board sites block embedding. If the page above stays blank, use "Open in new tab" instead.</p>
+    </section>
+
+    <section class="ad-slot my-4 py-3 border border-dashed border-border rounded-2xl bg-white/75 text-center">
+      <script async="async" data-cfasync="false" src="https://pl30418613.effectivecpmnetwork.com/a7d1b3796cc71ffe9d9599b5f7f23ba1/invoke.js"></script>
+      <div id="ad-bottom" aria-label="Advertisement"></div>
+    </section>
   </main>
+
+  <footer class="text-center text-muted py-4 pb-8">
+    <div class="max-w-[1120px] mx-auto px-4">A simple public exam results hub for Bangladesh.</div>
+  </footer>
+
+  <script>
+    const examResultsData = {
+      PSC: [
+        { year: 2024, roll: '1001', name: 'Rahim Ahmed', gpa: 5.0, board: 'Dhaka' },
+        { year: 2024, roll: '1002', name: 'Karim Hassan', gpa: 4.8, board: 'Chittagong' },
+        { year: 2023, roll: '1001', name: 'Fatima Begum', gpa: 5.0, board: 'Rajshahi' }
+      ],
+      JSC: [
+        { year: 2024, roll: '2001', name: 'Ayesha Siddiqua', gpa: 4.9, board: 'Dhaka' },
+        { year: 2024, roll: '2002', name: 'Mohammad Ali', gpa: 4.7, board: 'Khulna' },
+        { year: 2023, roll: '2001', name: 'Nasrin Akter', gpa: 4.8, board: 'Sylhet' }
+      ],
+      SSC: [
+        { year: 2024, roll: '3001', name: 'Rafiul Islam', gpa: 5.0, board: 'Dhaka', group: 'Science' },
+        { year: 2024, roll: '3002', name: 'Tasnim Jahan', gpa: 4.9, board: 'Chittagong', group: 'Commerce' },
+        { year: 2023, roll: '3001', name: 'Sakib Khan', gpa: 4.8, board: 'Rajshahi', group: 'Arts' }
+      ],
+      HSC: [
+        { year: 2024, roll: '4001', name: 'Mehedi Hasan', gpa: 5.0, board: 'Dhaka', group: 'Science' },
+        { year: 2024, roll: '4002', name: 'Mitu Akter', gpa: 4.9, board: 'Comilla', group: 'Commerce' },
+        { year: 2023, roll: '4001', name: 'Shakib Al Hasan', gpa: 4.7, board: 'Jessore', group: 'Arts' }
+      ],
+      'National University': [
+        { year: 2024, roll: '5001', name: 'Abul Kalam', exam: 'Degree Pass', result: '1st Class' },
+        { year: 2024, roll: '5002', name: 'Jahanara Begum', exam: 'Honours', result: '1st Class' },
+        { year: 2023, roll: '5001', name: 'Kamal Hossain', exam: 'Masters', result: '1st Class' }
+      ],
+      BCS: [
+        { year: 2024, roll: '6001', name: 'Md. Shahidul', post: 'Administration', merit: 15 },
+        { year: 2024, roll: '6002', name: 'Nusrat Jahan', post: 'Police', merit: 42 },
+        { year: 2023, roll: '6001', name: 'Farhan Iqbal', post: 'Foreign Affairs', merit: 8 }
+      ],
+      Diploma: [
+        { year: 2024, roll: '7001', name: 'Sumon Mia', trade: 'Electrical', cgpa: 3.85 },
+        { year: 2024, roll: '7002', name: 'Raju Ahmed', trade: 'Mechanical', cgpa: 3.65 },
+        { year: 2023, roll: '7001', name: 'Babu Miah', trade: 'Civil', cgpa: 3.75 }
+      ],
+      'Teacher Registration': [
+        { year: 2024, roll: '8001', name: 'Salma Akter', result: 'Pass', grade: 'A+' },
+        { year: 2024, roll: '8002', name: 'Mizanur Rahman', result: 'Pass', grade: 'A' },
+        { year: 2023, roll: '8001', name: 'Tania Sultana', result: 'Pass', grade: 'A+' }
+      ]
+    };
+
+    const examSources = {
+      PSC: 'https://eboardresults.com',
+      JSC: 'https://eboardresults.com/jsc/',
+      SSC: 'https://eboardresults.com/ssc/',
+      HSC: 'https://eboardresults.com/hsc/',
+      'National University': 'https://www.nu.ac.bd/results',
+      BCS: 'https://bpsc.gov.bd',
+      Diploma: 'https://www.bteb.gov.bd/',
+      'Teacher Registration': 'https://nctb.gov.bd/'
+    };
+
+    const form = document.getElementById('result-search-form');
+    const resultsContainer = document.getElementById('search-results');
+    const resultFrameWrapper = document.getElementById('result-frame-wrapper');
+    const resultIframe = document.getElementById('result-iframe');
+    const openOfficialTop = document.getElementById('open-official-top');
+
+    function buildOfficialUrl(exam, year, roll) {
+      const base = examSources[exam] || 'https://eboardresults.com';
+      const url = new URL(base);
+      if (year) url.searchParams.set('year', year);
+      if (roll) url.searchParams.set('roll', roll);
+      return url.toString();
+    }
+
+    function showLocalResults(exam, year, roll, results) {
+      let html = `<div class="mb-3 font-display font-semibold text-lg text-ink">Results for <span class="text-primary">${exam}</span> &middot; Year: ${year || 'any'}${roll ? ' &middot; Roll: ' + roll : ''}</div>`;
+
+      if (results.length === 0) {
+        html += `<div class="bg-surface border border-border rounded-xl p-6 mb-3 text-center text-muted">No matching local records found. The official result source is shown below.</div>`;
+      } else {
+        html += '<div role="list" class="grid gap-3">';
+        results.forEach(item => {
+          html += '<div class="bg-surface border border-border rounded-xl p-4" role="listitem">';
+          if (item.name) html += `<h4 class="m-0 mb-2 text-lg font-display font-semibold text-primary">${item.name}</h4>`;
+
+          const details = [];
+          if (item.roll) details.push(`Roll: ${item.roll}`);
+          if (item.year) details.push(`Year: ${item.year}`);
+          if (item.board) details.push(`Board: ${item.board}`);
+          if (item.group) details.push(`Group: ${item.group}`);
+          if (item.gpa) details.push(`GPA: ${item.gpa}`);
+          if (item.exam) details.push(`Exam: ${item.exam}`);
+          if (item.result) details.push(`Result: ${item.result}`);
+          if (item.grade) details.push(`Grade: ${item.grade}`);
+          if (item.post) details.push(`Post: ${item.post}`);
+          if (item.merit) details.push(`Merit Position: ${item.merit}`);
+          if (item.trade) details.push(`Trade: ${item.trade}`);
+          if (item.cgpa) details.push(`CGPA: ${item.cgpa}`);
+
+          html += `<p class="m-0 text-muted font-data text-sm">${details.join(' &nbsp;|&nbsp; ')}</p>`;
+          html += '</div>';
+        });
+        html += '</div>';
+      }
+
+      resultsContainer.innerHTML = html;
+      resultsContainer.classList.remove('hidden');
+    }
+
+    function showOfficialFrame(exam, year, roll) {
+      const officialUrl = buildOfficialUrl(exam, year, roll);
+      resultIframe.src = officialUrl;
+      resultFrameWrapper.classList.remove('hidden');
+      if (openOfficialTop) {
+        openOfficialTop.href = officialUrl;
+      }
+      resultFrameWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const exam = document.getElementById('exam').value;
+      const year = document.getElementById('year').value.trim();
+      const roll = document.getElementById('roll').value.trim();
+
+      const data = examResultsData[exam] || [];
+      let filtered = data;
+      if (year) {
+        filtered = filtered.filter(item => item.year === parseInt(year));
+      }
+      if (roll) {
+        filtered = filtered.filter(item => item.roll === roll || (item.name && item.name.toLowerCase().includes(roll.toLowerCase())));
+      }
+
+      showLocalResults(exam, year, roll, filtered);
+      showOfficialFrame(exam, year, roll);
+    });
+
+    document.querySelectorAll('.exam-chip').forEach(chip => {
+      chip.addEventListener('click', function () {
+        document.getElementById('exam').value = this.dataset.exam;
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('roll').focus();
+      });
+    });
+
+    resultIframe.addEventListener('error', function() {
+      const existing = resultFrameWrapper.querySelector('.iframe-fallback');
+      if (existing) return;
+      const fallback = document.createElement('div');
+      fallback.className = 'iframe-fallback p-6 bg-surface border border-border rounded-xl text-center text-muted';
+      fallback.innerText = 'This result source could not be embedded. Please use the button above to open the official result page.';
+      resultFrameWrapper.appendChild(fallback);
+    });
+  </script>
 </body>
 </html>

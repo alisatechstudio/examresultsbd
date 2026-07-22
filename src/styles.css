@@ -3,19 +3,54 @@
 @source "../index.html";
 
 @theme {
-  --color-bg: #f4f8ff;
+  /* Bangladesh gazette / mark-sheet palette */
+  --color-bg: #f6f3ea;
   --color-surface: #ffffff;
-  --color-primary: #1d4ed8;
-  --color-primary-dark: #163eab;
-  --color-accent: #0f766e;
-  --color-text: #15213a;
-  --color-muted: #5d6b86;
-  --color-border: #dce7ff;
-  --color-ink: #0f172a;
+  --color-primary: #0b6b4f;
+  --color-primary-dark: #074c38;
+  --color-accent: #c8102e;
+  --color-text: #1c2b24;
+  --color-muted: #5b6b62;
+  --color-border: #dfe3d6;
+  --color-ink: #0f1f18;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono-data: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-data {
+    font-family: var(--font-mono-data);
+    letter-spacing: 0.02em;
+  }
+
+  /* Admit-card style search ticket, with a dashed stub divider */
+  .ticket-card {
+    position: relative;
+    isolation: isolate;
+  }
+  .ticket-stub {
+    border-left-width: 2px;
+    border-left-style: dashed;
+    border-color: var(--color-border);
+  }
+  .seal {
+    background:
+      repeating-conic-gradient(var(--color-primary) 0deg 8deg, var(--color-primary-dark) 8deg 16deg);
+    -webkit-mask: radial-gradient(circle, #000 62%, transparent 63%);
+            mask: radial-gradient(circle, #000 62%, transparent 63%);
   }
 }
