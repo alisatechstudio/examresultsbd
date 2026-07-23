@@ -6,8 +6,8 @@ async function main() {
   app.use(express.json({ limit: '1mb' }));
   app.use(express.static('.'));
 
-  const OFFICIAL_AJAX = 'https://examresultsbd.online/wp-admin/admin-ajax.php';
-  const OFFICIAL_HOME = 'https://examresultsbd.online/';
+  const OFFICIAL_AJAX = 'https://eboardresultsgovbd.com/wp-admin/admin-ajax.php';
+  const OFFICIAL_HOME = 'https://eboardresultsgovbd.com/';
   const FALLBACK_NONCE = 'ec2b9112ea';
 
   const cookieJar = new Map();

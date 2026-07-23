@@ -1,6 +1,6 @@
-/* examresultsbd.online - standalone scripts */
+/* eboardresultsgovbd clone - standalone scripts */
 
-const OFFICIAL_HOME = 'https://examresultsbd.online/';
+const OFFICIAL_HOME = 'https://eboardresultsgovbd.com/';
 
 (function() {
   'use strict';
