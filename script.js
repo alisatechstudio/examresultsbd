@@ -1,6 +1,6 @@
-/* examresultsbd.online - standalone scripts */
+/* examresultsbd - standalone scripts */
 
-const OFFICIAL_HOME = 'https://examresultsbd.online/';
+const OFFICIAL_HOME = 'https://examresultsbd/';
 
 (function() {
   'use strict';
@@ -459,3 +459,4 @@ const OFFICIAL_HOME = 'https://examresultsbd.online/';
     });
   }
 })();
+
