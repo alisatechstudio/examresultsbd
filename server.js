@@ -4,6 +4,7 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 async function main() {
   const app = express();
   app.use(express.json({ limit: '1mb' }));
+  app.use(express.urlencoded({ extended: true }));
   app.use(express.static('.'));
 
   const OFFICIAL_AJAX = 'https://webresult.bd/wp-admin/admin-ajax.php';
@@ -71,7 +72,20 @@ async function main() {
 
   app.post('/api/check-result', async (req, res) => {
     try {
-      const values = req.body || {};
+      const body = req.body || {};
+      const values = {
+        resultType: body.result_type || body.resultType || '1',
+        exam: body.exam || '',
+        board: body.board || '',
+        year: body.year || '',
+        roll: body.roll || '',
+        reg: body.reg || '',
+        eiin: body.eiin || '',
+        district: body.district || body.dcode || '',
+        captcha: body.captcha || '',
+        sessionId: body.session_id || '',
+        nonce: body.nonce || '',
+      };
       if (!values.exam || !values.board || !values.year) {
         return res.status(400).json({ ok: false, message: 'Missing exam, board or year.' });
       }
