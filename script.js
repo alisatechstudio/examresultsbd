@@ -166,85 +166,30 @@ const OFFICIAL_HOME = 'https://examresultsbd/';
       if (btnSpinner) btnSpinner.style.display = 'none';
     }
   }
-
   function openModal(form, values) {
     const app = form.closest('.bdrc-app');
     if (!app) return;
     const overlay = app.querySelector('.bdrc-modal-overlay');
     const body = app.querySelector('.bdrc-modal-body');
     if (!overlay || !body) return;
-
-    const base = 'https://api.bangladeshgov.org/';
-    const params = new URLSearchParams();
-    params.set('exam', values.exam || '');
-    params.set('year', values.year || '');
-    params.set('board', values.board || '');
-    if (values.resultType === '2') {
-      params.set('eiin', values.eiin || '');
-    } else {
-      params.set('roll', values.roll || '');
-      params.set('reg', values.reg || '');
-    }
-
-    const apiUrl = `${base}?${params.toString()}`;
-
-    body.innerHTML = `
-      <div style="padding:16px 18px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-          <span style="height:10px;width:10px;border-radius:50%;background:#16a34a;display:inline-block;"></span>
-          <strong style="font-size:16px;">Fetching real result...</strong>
-        </div>
-        <div style="font-size:13px;color:#374151;">Contacting official result server. Please wait.</div>
-      </div>
-    `;
     overlay.style.display = 'flex';
     overlay.setAttribute('aria-hidden', 'false');
 
-    fetch(apiUrl, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-      },
-    })
-    .then(res => res.text().then(text => ({ ok: res.ok, status: res.status, text })))
-    .then(({ ok, status, text }) => {
-      if (!ok) {
-        body.innerHTML = `
-          <div style="padding:16px 18px;">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-              <span style="height:10px;width:10px;border-radius:50%;background:#dc2626;display:inline-block;"></span>
-              <strong style="font-size:16px;">Could not load real result</strong>
-            </div>
-            <div style="font-size:13px;color:#374151;line-height:1.5;margin-bottom:10px;">Server responded with status ${status}</div>
-            <a href="${OFFICIAL_HOME}" target="_blank" rel="noopener" style="color:#0080b9;font-weight:600;">Open official site</a>
-          </div>
-        `;
-        return;
+    const renderSuccess = (data) => {
+      let contentHtml = '';
+      if (data.raw) {
+        contentHtml = data.raw.trim();
+      } else if (typeof data === 'object' && data !== null) {
+        if (data.message) {
+          contentHtml = `<div style="padding: 10px; color: #b91c1c;">${escapeHtml(data.message)}</div>`;
+        } else {
+          contentHtml = `<pre style="white-space:pre-wrap;font-size:13px;background:#f8fafc;padding:10px;border-radius:8px;border:1px solid #e5e7eb;">${escapeHtml(JSON.stringify(data, null, 2))}</pre>`;
+        }
       }
 
-      const trimmed = text.trim();
-      let parsed = null;
-      try {
-        parsed = JSON.parse(trimmed);
-      } catch (e) {
-        parsed = null;
+      if (!contentHtml) {
+        contentHtml = `<div style="padding: 10px;">No result found or an empty response was received.</div>`;
       }
-
-      const contentHtml = (() => {
-        if (parsed !== null) {
-          if (typeof parsed === 'object') {
-            const entries = Object.entries(parsed);
-            return `<pre style="white-space:pre-wrap;font-size:13px;background:#f8fafc;padding:10px;border-radius:8px;border:1px solid #e5e7eb;">${escapeHtml(JSON.stringify(parsed, null, 2))}</pre>`;
-          }
-          return `<pre style="white-space:pre-wrap;font-size:13px;background:#f8fafc;padding:10px;border-radius:8px;border:1px solid #e5e7eb;">${escapeHtml(trimmed)}</pre>`;
-        }
-
-        if (trimmed.startsWith('<')) {
-          return trimmed;
-        }
-
-        return `<pre style="white-space:pre-wrap;font-size:13px;background:#f8fafc;padding:10px;border-radius:8px;border:1px solid #e5e7eb;">${escapeHtml(trimmed)}</pre>`;
-      })();
 
       body.innerHTML = `
         <div style="padding:16px 18px;">
@@ -253,22 +198,51 @@ const OFFICIAL_HOME = 'https://examresultsbd/';
             <strong style="font-size:16px;">Official Result</strong>
           </div>
           <div style="max-height:60vh;overflow:auto;border:1px solid #e5e7eb;border-radius:10px;background:#fff;">${contentHtml}</div>
-          <div style="margin-top:10px;font-size:12px;color:#6b7280;">Source: ${escapeHtml(apiUrl)}</div>
+          <div style="margin-top:10px;font-size:12px;color:#6b7280;">Source: Official Education Board Server</div>
         </div>
       `;
-    })
-    .catch(err => {
+    };
+
+    const renderError = (err) => {
       body.innerHTML = `
         <div style="padding:16px 18px;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
             <span style="height:10px;width:10px;border-radius:50%;background:#dc2626;display:inline-block;"></span>
-            <strong style="font-size:16px;">Network error</strong>
+            <strong style="font-size:16px;">Error</strong>
           </div>
           <div style="font-size:13px;color:#374151;line-height:1.5;margin-bottom:10px;">${escapeHtml(err.message)}</div>
           <a href="${OFFICIAL_HOME}" target="_blank" rel="noopener" style="color:#0080b9;font-weight:600;">Open official site</a>
         </div>
       `;
-    });
+    };
+
+    body.innerHTML = `
+      <div style="padding:16px 18px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="height:10px;width:10px;border-radius:50%;background:#16a34a;display:inline-block;"></span>
+          <strong style="font-size:16px;">Fetching result...</strong>
+        </div>
+        <div style="font-size:13px;color:#374151;">Contacting official result server. Please wait.</div>
+      </div>
+    `;
+
+    return fetch('/api/check-result', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(values),
+    })
+    .then(res => res.json())
+    .then(result => {
+      if (result.ok) {
+        renderSuccess(result.data);
+      } else {
+        throw new Error(result.message || 'An unknown error occurred while fetching the result.');
+      }
+    })
+    .catch(renderError);
   }
 
   function escapeHtml(text) {
@@ -316,11 +290,14 @@ const OFFICIAL_HOME = 'https://examresultsbd/';
 
     setLoading(form, true);
     state.pendingForm = form;
-    openModal(form, values);
-    setLoading(form, false);
-    if (tab === 'individual') initCaptcha('bdrc-1-1');
-    else if (tab === 'institution') initCaptcha('bdrc-2-2');
-    else initCaptcha('bdrc-5-3');
+
+    openModal(form, values)
+      .finally(() => {
+        setLoading(form, false);
+        if (tab === 'individual') initCaptcha('bdrc-1-1');
+        else if (tab === 'institution') initCaptcha('bdrc-2-2');
+        else initCaptcha('bdrc-5-3');
+      });
   }
 
   function onReset(e) {
@@ -459,4 +436,3 @@ const OFFICIAL_HOME = 'https://examresultsbd/';
     });
   }
 })();
-
