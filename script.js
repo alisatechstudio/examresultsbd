@@ -22,11 +22,19 @@ let captchaAnswer = 0;
  */
 function generateCaptcha() {
   // Simple math question to deter basic bots
-  const num1 = Math.floor(Math.random() * 10) + 1;
-  const num2 = Math.floor(Math.random() * 10) + 1;
-  captchaAnswer = num1 + num2;
-  if (captchaLabel) {
+  const num1 = Math.floor(Math.random() * 12) + 1;
+  const num2 = Math.floor(Math.random() * 12) + 1;
+  const useAddition = Math.random() > 0.5;
+
+  if (useAddition) {
+    captchaAnswer = num1 + num2;
     captchaLabel.textContent = `নিরাপত্তা প্রশ্ন: ${num1} + ${num2} = ?`;
+  } else {
+    // For subtraction, ensure the result is not negative
+    const max = Math.max(num1, num2);
+    const min = Math.min(num1, num2);
+    captchaAnswer = max - min;
+    captchaLabel.textContent = `নিরাপত্তা প্রশ্ন: ${max} - ${min} = ?`;
   }
   if (captchaInput) {
     captchaInput.value = ''; // Clear previous answer
