@@ -9,260 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Noto+Serif+Bengali:wght@500;600;700&family=Noto+Sans+Bengali:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --paper:#FAF6EC;
-    --paper-2:#F2ECDC;
-    --ink:#1C2320;
-    --ink-soft:#4A5049;
-    --green:#0B4D3B;
-    --green-deep:#083A2C;
-    --green-tint:#E4EDE4;
-    --red:#B5342E;
-    --gold:#A9812F;
-    --rule:#C9C0A6;
-    --white:#FFFDF8;
-    --radius:2px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Inter","Noto Sans Bengali",sans-serif;
-    line-height:1.55;
-  }
-  .bn{font-family:"Noto Serif Bengali","Noto Sans Bengali",serif;}
-  .bn-sans{font-family:"Noto Sans Bengali",sans-serif;}
-  h1,h2,h3,.display{
-    font-family:"Fraunces",serif;
-    font-weight:600;
-    letter-spacing:-0.01em;
-    margin:0;
-  }
-  .mono{font-family:"JetBrains Mono",monospace;}
-  a{color:inherit;}
-  img{max-width:100%;display:block;}
-
-  /* ===== Top utility strip (mimics a circular / memo header) ===== */
-  .memo-strip{
-    background:var(--green-deep);
-    color:var(--paper);
-    font-family:"JetBrains Mono",monospace;
-    font-size:11px;
-    letter-spacing:.04em;
-    padding:7px 24px;
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:6px 18px;
-    text-transform:uppercase;
-  }
-  .memo-strip span{opacity:.85;}
-
-  /* ===== Header ===== */
-  header.site{
-    background:var(--paper);
-    border-bottom:2px solid var(--ink);
-    padding:20px 24px;
-  }
-  .site-inner{
-    max-width:1120px;
-    margin:0 auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-    flex-wrap:wrap;
-  }
-  .brand{display:flex;align-items:center;gap:12px;}
-  .seal{
-    width:46px;height:46px;border-radius:50%;
-    border:2px solid var(--green);
-    display:flex;align-items:center;justify-content:center;
-    font-family:"Fraunces",serif;font-weight:700;color:var(--green);
-    font-size:19px;flex:none;
-    position:relative;
-  }
-  .seal::after{
-    content:"";
-    position:absolute;inset:4px;
-    border:1px dashed var(--green);
-    border-radius:50%;
-  }
-  .brand-text .bn{font-size:20px;color:var(--green-deep);display:block;line-height:1.1;}
-  .brand-text small{display:block;font-size:11px;letter-spacing:.03em;color:var(--ink-soft);margin-top:3px;}
-
-  nav.main{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;font-weight:500;}
-  nav.main a{
-    text-decoration:none;color:var(--ink);
-    padding-bottom:3px;border-bottom:2px solid transparent;
-    transition:border-color .15s;
-  }
-  nav.main a:hover{border-color:var(--red);}
-
-  /* ===== Hero / Notice ===== */
-  .hero{
-    max-width:1120px;margin:40px auto 0;padding:0 24px;
-  }
-  .notice{
-    background:var(--white);
-    border:1px solid var(--ink);
-    padding:40px 44px 36px;
-    position:relative;
-    box-shadow:6px 6px 0 var(--green-tint);
-  }
-  .notice-ref{
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
-    font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-soft);
-    border-bottom:1px solid var(--rule);padding-bottom:14px;margin-bottom:22px;
-  }
-  .notice h1{font-size:38px;color:var(--green-deep);max-width:760px;}
-  .notice h1 .bn{display:block;font-size:26px;color:var(--red);margin-bottom:8px;font-weight:600;}
-  .notice p.lede{max-width:640px;font-size:16px;color:var(--ink-soft);margin-top:16px;}
-  .stamp{
-    position:absolute;top:34px;right:40px;
-    width:112px;height:112px;border-radius:50%;
-    border:2.5px solid var(--red);
-    color:var(--red);
-    display:flex;align-items:center;justify-content:center;text-align:center;
-    transform:rotate(-9deg);
-    font-family:"JetBrains Mono",monospace;
-    font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-    line-height:1.35;
-    opacity:.85;
-  }
-  .stamp span{padding:0 10px;}
-
-  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:13px 22px;
-    font-family:"Inter",sans-serif;font-weight:600;font-size:14.5px;
-    text-decoration:none;border:1.5px solid var(--ink);
-    border-radius:var(--radius);
-    transition:transform .12s, background .12s, color .12s;
-  }
-  .btn-primary{background:var(--green);border-color:var(--green);color:var(--white);}
-  .btn-primary:hover{background:var(--green-deep);transform:translateY(-1px);}
-  .btn-ghost{background:transparent;}
-  .btn-ghost:hover{background:var(--ink);color:var(--white);transform:translateY(-1px);}
-  .btn small{font-family:"JetBrains Mono",monospace;font-weight:400;opacity:.7;font-size:11px;}
-
-  .disclaimer-bar{
-    margin-top:18px;
-    font-size:12.5px;color:var(--ink-soft);
-    border-left:3px solid var(--gold); 
-    padding:10px 14px;background:var(--paper-2);
-  }
-
-  /* ===== Section shell ===== */
-  section{max-width:1120px;margin:0 auto;padding:56px 24px 0;}
-  .section-head{
-    display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-    border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:26px;
-  }
-  .section-num{
-    font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--red);font-weight:700;
-  }
-  .section-head h2{font-size:24px;color:var(--green-deep);}
-  .section-head .bn{font-size:16px;color:var(--ink-soft);font-weight:500;}
-  .section-desc{color:var(--ink-soft);font-size:14.5px;max-width:680px;margin-bottom:24px;}
-
-  /* ===== Card grid ===== */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
-  .card{
-    background:var(--white);
-    border:1px solid var(--rule);
-    border-top:3px solid var(--green);
-    padding:20px 20px 18px;
-    display:flex;flex-direction:column;gap:10px;
-  }
-  .card.alt{border-top-color:var(--red);}
-  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
-  .card h3{font-size:17px;line-height:1.3;}
-  .badge{
-    font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.05em;
-    background:var(--green-tint);color:var(--green-deep);padding:3px 7px;border-radius:2px;white-space:nowrap;flex:none;
-  }
-  .badge.gov{background:#F0E6D2;color:var(--gold);}
-  .card p{font-size:13.5px;color:var(--ink-soft);margin:0;flex-grow:1;}
-  .card-url{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--green-deep);word-break:break-all;}
-  .card-actions{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;}
-  .link-btn{
-    font-size:12.5px;font-weight:600;text-decoration:none;
-    border:1px solid var(--ink);padding:7px 12px;border-radius:2px;
-    display:inline-flex;align-items:center;gap:6px;
-  }
-  .link-btn.primary{background:var(--ink);color:var(--white);border-color:var(--ink);}
-  .link-btn.primary:hover{background:var(--green-deep);border-color:var(--green-deep);}
-  .link-btn.secondary:hover{background:var(--paper-2);}
-
-  /* ===== Live lookup / iframe embed panel ===== */
-  .lookup-panel{
-    background:var(--white);border:1px solid var(--ink);
-  }
-  .lookup-tabs{
-    display:flex;flex-wrap:wrap;border-bottom:1px solid var(--rule);
-  }
-  .lookup-tab{
-    padding:13px 18px;font-size:13.5px;font-weight:600;cursor:pointer;
-    border-right:1px solid var(--rule);background:var(--paper-2);color:var(--ink-soft);
-  }
-  .lookup-tab.active{background:var(--white);color:var(--green-deep);border-bottom:2px solid var(--green);margin-bottom:-1px;}
-  .lookup-body{padding:0;}
-  .lookup-frame-wrap{position:relative;background:#f3f0e6;}
-  .lookup-frame-wrap iframe{width:100%;height:520px;border:0;display:block;}
-  .lookup-fallback{
-    padding:22px 24px;font-size:13.5px;color:var(--ink-soft);
-    border-top:1px dashed var(--rule);
-    display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
-  }
-  .lookup-fallback strong{color:var(--ink);}
-
-  /* ===== Board list table ===== */
-  .board-table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white);border:1px solid var(--rule);}
-  .board-table th{
-    text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.04em;
-    background:var(--green-tint);color:var(--green-deep);padding:10px 14px;border-bottom:1px solid var(--rule);
-  }
-  .board-table td{padding:11px 14px;border-bottom:1px solid var(--paper-2);vertical-align:top;}
-  .board-table tr:last-child td{border-bottom:none;}
-  .board-table a{color:var(--green-deep);font-family:"JetBrains Mono",monospace;font-size:12.5px;text-decoration:none;}
-  .board-table a:hover{text-decoration:underline;}
-  .tag-note{font-size:12px;color:var(--ink-soft);font-style:italic;}
-
-  /* ===== SMS box ===== */
-  .sms-box{
-    background:var(--green-deep);color:var(--paper);
-    padding:28px 30px;display:grid;grid-template-columns:1fr 1fr;gap:26px;
-  }
-  .sms-box h3{color:var(--paper);font-size:18px;margin-bottom:8px;}
-  .sms-example{
-    background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.35);
-    padding:14px 16px;font-family:"JetBrains Mono",monospace;font-size:13px;margin-top:10px;
-  }
-  .sms-box p{font-size:13.5px;color:#D9E4DA;margin:0 0 6px;}
-
-  footer{
-    margin-top:70px;border-top:2px solid var(--ink);background:var(--paper-2);
-  }
-  .footer-inner{max-width:1120px;margin:0 auto;padding:32px 24px 40px;font-size:12.5px;color:var(--ink-soft);}
-  .footer-inner .warn{color:var(--red);font-weight:600;}
-  .footer-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;}
-  .footer-links a{text-decoration:none;font-weight:600;color:var(--green-deep);}
-
-  @media (max-width:640px){
-    .notice{padding:28px 22px;}
-    .notice h1{font-size:28px;}
-    .stamp{position:static;transform:rotate(-4deg);margin-top:20px;width:96px;height:96px;font-size:9.5px;}
-    .sms-box{grid-template-columns:1fr;}
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 <script src="ads.js" defer></script>
-<script data-cfasync='false' src='//wwr.giriudog.com/?tag=76a04007'></script>
+<script data-cfasync='false' src='//wwr.giriudog.com/?tag=76a04007' async></script>
 </head>
 <body>
 
@@ -324,6 +73,7 @@
       <span class="section-num">00</span>
       <h2>সরাসরি ফলাফল দেখুন</h2>
     </div>
+    <p class="section-desc">এখানে সরাসরি ফলাফল দেখতে আপনার পরীক্ষার নাম, বছর, বোর্ড এবং রোল নম্বর সঠিকভাবে দিন। যদি কোনো ত্রুটি দেখায় বা "ফলাফল পাওয়া যায়নি" বার্তা আসে, তবে অনুগ্রহ করে আপনার দেওয়া তথ্যগুলো আবার যাচাই করুন।</p>
     <div id="eb-result-widget"></div>
     <script>
     (function() {
@@ -403,7 +153,7 @@
         <p>ডিপিই-এর অফিসিয়াল সাইট — সাধারণ তথ্য, নোটিশ এবং প্রাথমিক স্তরের পরীক্ষার ফলাফল দেখার পরিষেবার লিঙ্ক।</p>
         <div class="card-url">dpe.gov.bd</div>
         <div class="card-actions">
-          <a class="link-btn primary" href="http://dpe.gov.bd" target="_blank" rel="noopener">খুলুন ↗</a>
+          <a class="link-btn primary" href="https://dpe.gov.bd" target="_blank" rel="noopener">খুলুন ↗</a>
         </div>
       </div>
       <div class="card alt">
@@ -446,7 +196,7 @@
         <p>সারা দেশে জাতীয় বিশ্ববিদ্যালয়ের অধিভুক্ত কলেজগুলির জন্য অনার্স, ডিগ্রি এবং মাস্টার্স পরীক্ষার ফলাফল।</p>
         <div class="card-url">nu.ac.bd</div>
         <div class="card-actions">
-          <a class="link-btn primary" href="http://www.nu.ac.bd" target="_blank" rel="noopener">খুলুন ↗</a>
+          <a class="link-btn primary" href="https://www.nu.ac.bd" target="_blank" rel="noopener">খুলুন ↗</a>
         </div>
       </div>
       <div class="card">
@@ -462,7 +212,7 @@
         <p>বাংলাদেশ প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয় নিজস্ব আলাদা প্রকৌশল ভর্তি পরীক্ষা আয়োজন করে।</p>
         <div class="card-url">buet.ac.bd</div>
         <div class="card-actions">
-          <a class="link-btn primary" href="http://www.buet.ac.bd" target="_blank" rel="noopener">খুলুন ↗</a>
+          <a class="link-btn primary" href="https://www.buet.ac.bd" target="_blank" rel="noopener">খুলুন ↗</a>
         </div>
       </div>
     </div>
@@ -524,19 +274,7 @@
     </div>
   </div>
 </footer>
-
-<script>
-  // Set date and clock
-  const dateOpts = { year: 'numeric', month: 'long', day: 'numeric' };
-  document.getElementById('today-date').textContent = 'তারিখ: ' + new Date().toLocaleDateString('bn-BD', dateOpts);
-
-  const clockElement = document.getElementById('clock');
-  const updateClock = () => {
-    clockElement.textContent = new Date().toLocaleTimeString('bn-BD') + ' BDT';
-  };
-  updateClock();
-  setInterval(updateClock, 1000);
-</script>
+<script src="script.js" defer></script>
 
 </body>
 </html>
