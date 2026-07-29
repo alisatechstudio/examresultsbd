@@ -247,3 +247,57 @@ footer{
   .stamp{position:static;transform:rotate(-4deg);margin-top:20px;width:96px;height:96px;font-size:9.5px;}
   .sms-box{grid-template-columns:1fr;}
 }
+
+/* ===== Custom API Form & Display ===== */
+.custom-api-form .form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  background: var(--white);
+  padding: 20px;
+  border: 1px solid var(--rule);
+}
+.custom-api-form input,
+.custom-api-form select {
+  padding: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  border-radius: var(--radius);
+}
+.custom-api-form .btn {
+  grid-column: 1 / -1; /* Span full width */
+  justify-content: center;
+}
+
+.api-result-display {
+  margin-top: 20px;
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  font-size: 14px;
+  display: none; /* Hidden by default */
+}
+.api-result-display.loading,
+.api-result-display.error {
+  display: block;
+  text-align: center;
+  color: var(--ink-soft);
+}
+.api-result-display.success {
+  display: block;
+}
+.api-result-display h3 {
+  color: var(--green-deep);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px 16px;
+}
+.result-grid p { margin: 0; }
+.result-grid strong { color: var(--ink); }

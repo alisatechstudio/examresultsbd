@@ -261,6 +261,34 @@
       </div>
     </div>
   </section>
+
+  <!-- ============ CUSTOM API EXAMPLE ============ -->
+  <section id="custom-api">
+    <div class="section-head">
+      <span class="section-num">07</span>
+      <h2>কাস্টম API ব্যবহার করে ফলাফল</h2>
+    </div>
+    <p class="section-desc">এটি একটি উদাহরণ যা দেখায় কিভাবে একটি কাস্টম API (যেমন EduBoardAPI) ব্যবহার করে ফলাফল আনা যায়। এটি আপনাকে ফলাফলের প্রদর্শন সম্পূর্ণরূপে নিয়ন্ত্রণ করার সুযোগ দেয়।</p>
+    <form id="custom-result-form" class="custom-api-form">
+      <div class="form-grid">
+        <select name="exam" required><option value="">পরীক্ষা</option><option value="ssc">SSC</option><option value="hsc">HSC</option></select>
+        <input type="number" name="year" placeholder="বছর (e.g., 2024)" required>
+        <select name="board" required>
+          <option value="">বোর্ড</option>
+          <option value="dhaka">Dhaka</option><option value="dinajpur">Dinajpur</option><option value="rajshahi">Rajshahi</option>
+          <option value="comilla">Comilla</option><option value="chittagong">Chittagong</option><option value="barisal">Barisal</option>
+          <option value="sylhet">Sylhet</option><option value="jessore">Jessore</option><option value="mymensingh">Mymensingh</option>
+          <option value="madrasah">Madrasah</option><option value="tec">Technical</option>
+        </select>
+        <input type="number" name="roll" placeholder="রোল নম্বর" required>
+        <input type="number" name="reg" placeholder="রেজিস্ট্রেশন নম্বর" required>
+        <button type="submit" class="btn btn-primary">ফলাফল দেখুন</button>
+      </div>
+    </form>
+    <div id="custom-result-display" class="api-result-display">
+      <!-- API results will be rendered here -->
+    </div>
+  </section>
 </main>
 
 <footer>
