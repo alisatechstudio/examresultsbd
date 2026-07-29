@@ -301,3 +301,8 @@ footer{
 }
 .result-grid p { margin: 0; }
 .result-grid strong { color: var(--ink); }
+
+.api-result-display .grades-title {
+  margin-top: 20px;
+  margin-bottom: 8px; /* Added for better spacing */
+}

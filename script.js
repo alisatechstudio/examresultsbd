@@ -54,7 +54,7 @@ if (customForm && resultDisplay) {
             <p><strong>ফলাফল:</strong> ${result.result}</p>
             <p><strong>জিপিএ:</strong> ${result.gpa}</p>
           </div>
-          <h4 style="margin-top: 20px;">বিষয়ভিত্তিক গ্রেড:</h4>
+          <h4 class="grades-title">বিষয়ভিত্তিক গ্রেড:</h4>
           <p>${result.grades.map(g => `${g.subject} (${g.code}): <strong>${g.grade}</strong>`).join('<br>')}</p>
         `;
       }
