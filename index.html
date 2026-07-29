@@ -1,53 +1,544 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exam Results BD</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ফলাফল সেতু — Bangladesh Exam Results Directory</title>
+<meta name="description" content="An unofficial directory linking to Bangladesh's official exam result sources: SSC, HSC, Dakhil, Alim, PSC, Vocational and university admission results.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Noto+Serif+Bengali:wght@500;600;700&family=Noto+Sans+Bengali:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#FAF6EC;
+    --paper-2:#F2ECDC;
+    --ink:#1C2320;
+    --ink-soft:#4A5049;
+    --green:#0B4D3B;
+    --green-deep:#083A2C;
+    --green-tint:#E4EDE4;
+    --red:#B5342E;
+    --gold:#A9812F;
+    --rule:#C9C0A6;
+    --white:#FFFDF8;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter",sans-serif;
+    line-height:1.55;
+  }
+  .bn{font-family:"Noto Serif Bengali","Noto Sans Bengali",serif;}
+  .bn-sans{font-family:"Noto Sans Bengali",sans-serif;}
+  h1,h2,h3,.display{
+    font-family:"Fraunces",serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .mono{font-family:"JetBrains Mono",monospace;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* ===== Top utility strip (mimics a circular / memo header) ===== */
+  .memo-strip{
+    background:var(--green-deep);
+    color:var(--paper);
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;
+    letter-spacing:.04em;
+    padding:7px 24px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:6px 18px;
+    text-transform:uppercase;
+  }
+  .memo-strip span{opacity:.85;}
+
+  /* ===== Header ===== */
+  header.site{
+    background:var(--paper);
+    border-bottom:2px solid var(--ink);
+    padding:20px 24px;
+  }
+  .site-inner{
+    max-width:1120px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .seal{
+    width:46px;height:46px;border-radius:50%;
+    border:2px solid var(--green);
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Fraunces",serif;font-weight:700;color:var(--green);
+    font-size:19px;flex:none;
+    position:relative;
+  }
+  .seal::after{
+    content:"";
+    position:absolute;inset:4px;
+    border:1px dashed var(--green);
+    border-radius:50%;
+  }
+  .brand-text .bn{font-size:20px;color:var(--green-deep);display:block;line-height:1.1;}
+  .brand-text small{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px;}
+
+  nav.main{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;font-weight:500;}
+  nav.main a{
+    text-decoration:none;color:var(--ink);
+    padding-bottom:3px;border-bottom:2px solid transparent;
+    transition:border-color .15s;
+  }
+  nav.main a:hover{border-color:var(--red);}
+
+  /* ===== Hero / Notice ===== */
+  .hero{
+    max-width:1120px;margin:40px auto 0;padding:0 24px;
+  }
+  .notice{
+    background:var(--white);
+    border:1px solid var(--ink);
+    padding:40px 44px 36px;
+    position:relative;
+    box-shadow:6px 6px 0 var(--green-tint);
+  }
+  .notice-ref{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+    font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-soft);
+    border-bottom:1px solid var(--rule);padding-bottom:14px;margin-bottom:22px;
+  }
+  .notice h1{font-size:38px;color:var(--green-deep);max-width:760px;}
+  .notice h1 .bn{display:block;font-size:26px;color:var(--red);margin-bottom:8px;font-weight:600;}
+  .notice p.lede{max-width:640px;font-size:16px;color:var(--ink-soft);margin-top:16px;}
+  .stamp{
+    position:absolute;top:34px;right:40px;
+    width:112px;height:112px;border-radius:50%;
+    border:2.5px solid var(--red);
+    color:var(--red);
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    transform:rotate(-9deg);
+    font-family:"JetBrains Mono",monospace;
+    font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    line-height:1.35;
+    opacity:.85;
+  }
+  .stamp span{padding:0 6px;}
+
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 22px;
+    font-family:"Inter",sans-serif;font-weight:600;font-size:14.5px;
+    text-decoration:none;border:1.5px solid var(--ink);
+    border-radius:var(--radius);
+    transition:transform .12s, background .12s, color .12s;
+  }
+  .btn-primary{background:var(--green);border-color:var(--green);color:var(--white);}
+  .btn-primary:hover{background:var(--green-deep);transform:translateY(-1px);}
+  .btn-ghost{background:transparent;}
+  .btn-ghost:hover{background:var(--ink);color:var(--white);transform:translateY(-1px);}
+  .btn small{font-family:"JetBrains Mono",monospace;font-weight:400;opacity:.7;font-size:11px;}
+
+  .disclaimer-bar{
+    margin-top:18px;
+    font-size:12.5px;color:var(--ink-soft);
+    border-left:3px solid var(--gold);
+    padding:10px 14px;background:var(--paper-2);
+  }
+
+  /* ===== Section shell ===== */
+  section{max-width:1120px;margin:0 auto;padding:56px 24px 0;}
+  .section-head{
+    display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+    border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:26px;
+  }
+  .section-num{
+    font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--red);font-weight:700;
+  }
+  .section-head h2{font-size:24px;color:var(--green-deep);}
+  .section-head .bn{font-size:16px;color:var(--ink-soft);font-weight:500;}
+  .section-desc{color:var(--ink-soft);font-size:14.5px;max-width:680px;margin-bottom:24px;}
+
+  /* ===== Card grid ===== */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+  .card{
+    background:var(--white);
+    border:1px solid var(--rule);
+    border-top:3px solid var(--green);
+    padding:20px 20px 18px;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .card.alt{border-top-color:var(--red);}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .card h3{font-size:17px;line-height:1.3;}
+  .badge{
+    font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.05em;
+    background:var(--green-tint);color:var(--green-deep);padding:3px 7px;border-radius:2px;white-space:nowrap;flex:none;
+  }
+  .badge.gov{background:#F0E6D2;color:var(--gold);}
+  .card p{font-size:13.5px;color:var(--ink-soft);margin:0;flex-grow:1;}
+  .card-url{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--green-deep);word-break:break-all;}
+  .card-actions{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;}
+  .link-btn{
+    font-size:12.5px;font-weight:600;text-decoration:none;
+    border:1px solid var(--ink);padding:7px 12px;border-radius:2px;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .link-btn.primary{background:var(--ink);color:var(--white);border-color:var(--ink);}
+  .link-btn.primary:hover{background:var(--green-deep);border-color:var(--green-deep);}
+  .link-btn.secondary:hover{background:var(--paper-2);}
+
+  /* ===== Live lookup / iframe embed panel ===== */
+  .lookup-panel{
+    background:var(--white);border:1px solid var(--ink);
+  }
+  .lookup-tabs{
+    display:flex;flex-wrap:wrap;border-bottom:1px solid var(--rule);
+  }
+  .lookup-tab{
+    padding:13px 18px;font-size:13.5px;font-weight:600;cursor:pointer;
+    border-right:1px solid var(--rule);background:var(--paper-2);color:var(--ink-soft);
+  }
+  .lookup-tab.active{background:var(--white);color:var(--green-deep);border-bottom:2px solid var(--green);margin-bottom:-1px;}
+  .lookup-body{padding:0;}
+  .lookup-frame-wrap{position:relative;background:#f3f0e6;}
+  .lookup-frame-wrap iframe{width:100%;height:520px;border:0;display:block;}
+  .lookup-fallback{
+    padding:22px 24px;font-size:13.5px;color:var(--ink-soft);
+    border-top:1px dashed var(--rule);
+    display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  }
+  .lookup-fallback strong{color:var(--ink);}
+
+  /* ===== Board list table ===== */
+  .board-table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white);border:1px solid var(--rule);}
+  .board-table th{
+    text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.04em;
+    background:var(--green-tint);color:var(--green-deep);padding:10px 14px;border-bottom:1px solid var(--rule);
+  }
+  .board-table td{padding:11px 14px;border-bottom:1px solid var(--paper-2);vertical-align:top;}
+  .board-table tr:last-child td{border-bottom:none;}
+  .board-table a{color:var(--green-deep);font-family:"JetBrains Mono",monospace;font-size:12.5px;text-decoration:none;}
+  .board-table a:hover{text-decoration:underline;}
+  .tag-note{font-size:12px;color:var(--ink-soft);font-style:italic;}
+
+  /* ===== SMS box ===== */
+  .sms-box{
+    background:var(--green-deep);color:var(--paper);
+    padding:28px 30px;display:grid;grid-template-columns:1fr 1fr;gap:26px;
+  }
+  .sms-box h3{color:var(--paper);font-size:18px;margin-bottom:8px;}
+  .sms-example{
+    background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.35);
+    padding:14px 16px;font-family:"JetBrains Mono",monospace;font-size:13px;margin-top:10px;
+  }
+  .sms-box p{font-size:13.5px;color:#D9E4DA;margin:0 0 6px;}
+
+  footer{
+    margin-top:70px;border-top:2px solid var(--ink);background:var(--paper-2);
+  }
+  .footer-inner{max-width:1120px;margin:0 auto;padding:32px 24px 40px;font-size:12.5px;color:var(--ink-soft);}
+  .footer-inner .warn{color:var(--red);font-weight:600;}
+  .footer-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;}
+  .footer-links a{text-decoration:none;font-weight:600;color:var(--green-deep);}
+
+  @media (max-width:640px){
+    .notice{padding:28px 22px;}
+    .notice h1{font-size:28px;}
+    .stamp{position:static;transform:rotate(-4deg);margin-top:20px;width:96px;height:96px;font-size:9.5px;}
+    .sms-box{grid-template-columns:1fr;}
+  }
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Public Exam Results</a>
-                    <div class="dropdown-content">
-                        <a href="https://eboardresults.com/v2/home" target="_blank">JSC/JDC</a>
-                        <a href="http://www.educationboardresults.gov.bd/" target="_blank">SSC/Dakhil</a>
-                        <a href="http://www.educationboardresults.gov.bd/" target="_blank">HSC/Alim</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Admission Test Results</a>
-                    <div class="dropdown-content">
-                        <!-- Add official links for admission test results here -->
-                        <a href="#" target="_blank">Public University</a>
-                        <a href="#" target="_blank">Medical & Dental</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">University Results</a>
-                    <div class="dropdown-content">
-                        <!-- Add official links for university results here -->
-                        <a href="#" target="_blank">National University</a>
-                        <a href="#" target="_blank">Bangladesh Open University</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Other Results</a>
-                    <div class="dropdown-content">
-                        <!-- Add official links for other results here -->
-                        <a href="#" target="_blank">Technical Education Board</a>
-                        <a href="#" target="_blank">NTRCA</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Welcome to Exam Results BD</h1>
-        <p>Click on the exam name in the header to check the results.</p>
-    </main>
+
+<div class="memo-strip">
+  <span>UNOFFICIAL DIRECTORY · NOT A GOVERNMENT WEBSITE</span>
+  <span id="clock"></span>
+</div>
+
+<header class="site">
+  <div class="site-inner">
+    <div class="brand">
+      <div class="seal">ফ</div>
+      <div class="brand-text">
+        <span class="bn">ফলাফল সেতু</span>
+        <small>Result Bridge BD — Exam Results Directory</small>
+      </div>
+    </div>
+    <nav class="main">
+      <a href="#secondary">Secondary</a>
+      <a href="#higher-secondary">Higher Secondary</a>
+      <a href="#primary">Primary</a>
+      <a href="#university">University Admission</a>
+      <a href="#boards">All Boards</a>
+      <a href="#sms">SMS Method</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="notice">
+      <div class="stamp"><span>Links to Official Sources Only</span></div>
+      <div class="notice-ref">
+        <span>REF: RESULT-DIRECTORY / 2026</span>
+        <span id="today-date">DATE: —</span>
+      </div>
+      <h1>
+        <span class="bn">সকল পরীক্ষার ফলাফল, এক জায়গায়</span>
+        Every Bangladeshi exam result, pointed to its official source.
+      </h1>
+      <p class="lede">This page doesn't publish results itself — it's a directory that takes you straight to the real government and board portals for SSC, HSC, Dakhil, Alim, Vocational, PSC and university admission results, so you never have to search or land on a lookalike site.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://www.eboardresults.com" target="_blank" rel="noopener">
+          Check SSC / HSC results <small>eboardresults.com</small>
+        </a>
+        <a class="btn btn-ghost" href="https://www.educationboardresults.gov.bd" target="_blank" rel="noopener">
+          Ministry portal <small>educationboardresults.gov.bd</small>
+        </a>
+      </div>
+      <div class="disclaimer-bar">
+        Most official Bangladeshi government sites refuse to load inside another website's frame (a security setting called <span class="mono">X-Frame-Options</span>). Where you see a "Live lookup" panel below, treat it as a convenience attempt — if it stays blank, use the "Open official site" button next to it instead. That's the site actually working correctly, just declining to be embedded.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ LIVE LOOKUP ============ -->
+  <section id="lookup">
+    <div class="section-head">
+      <span class="section-num">00</span>
+      <h2>Live lookup</h2>
+      <span class="bn">সরাসরি ফলাফল দেখুন</span>
+    </div>
+    <div class="lookup-panel">
+      <div class="lookup-tabs">
+        <div class="lookup-tab active" data-src="https://www.eboardresults.com" onclick="switchLookup(this)">eboardresults.com</div>
+        <div class="lookup-tab" data-src="https://www.educationboardresults.gov.bd" onclick="switchLookup(this)">educationboardresults.gov.bd</div>
+      </div>
+      <div class="lookup-body">
+        <div class="lookup-frame-wrap">
+          <iframe id="lookupFrame" src="https://www.eboardresults.com" title="Official result lookup" loading="lazy" referrerpolicy="no-referrer"></iframe>
+        </div>
+        <div class="lookup-fallback">
+          <span><strong>Blank above?</strong> The official site is blocking embedding — that's normal and expected.</span>
+          <a class="link-btn primary" id="lookupOpenBtn" href="https://www.eboardresults.com" target="_blank" rel="noopener">Open official site directly ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECONDARY ============ -->
+  <section id="secondary">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Secondary Level</h2>
+      <span class="bn">এসএসসি · দাখিল · ভোকেশনাল</span>
+    </div>
+    <p class="section-desc">SSC, Dakhil (Madrasah equivalent) and SSC Vocational — taken at the end of Class 10, under 11 education boards.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-top"><h3>SSC / Dakhil / Vocational Result</h3><span class="badge gov">Government</span></div>
+        <p>Official Ministry of Education portal for individual, institution and district-wise results with mark sheets, for all boards.</p>
+        <div class="card-url">educationboardresults.gov.bd</div>
+        <div class="card-actions">
+          <a class="link-btn primary" href="https://www.educationboardresults.gov.bd" target="_blank" rel="noopener">Open ↗</a>
+        </div>
+      </div>
+      <div class="card alt">
+        <div class="card-top"><h3>Web Based Result System</h3><span class="badge">Board portal</span></div>
+        <p>The result-publication platform the boards themselves push results to. Also supports institution and district-wise lookup, archive back to 1996.</p>
+        <div class="card-url">eboardresults.com</div>
+        <div class="card-actions">
+          <a class="link-btn primary" href="https://www.eboardresults.com" target="_blank" rel="noopener">Open ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HIGHER SECONDARY ============ -->
+  <section id="higher-secondary">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Higher Secondary Level</h2>
+      <span class="bn">এইচএসসি · আলিম · ভোকেশনাল · বিএম</span>
+    </div>
+    <p class="section-desc">HSC, Alim (Madrasah equivalent), HSC Vocational and HSC Business Management — taken at the end of Class 12.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-top"><h3>HSC / Alim / Vocational Result</h3><span class="badge gov">Government</span></div>
+        <p>Same Ministry portal used for SSC, also carries HSC-level results once boards publish them.</p>
+        <div class="card-url">educationboardresults.gov.bd</div>
+        <div class="card-actions">
+          <a class="link-btn primary" href="https://www.educationboardresults.gov.bd" target="_blank" rel="noopener">Open ↗</a>
+        </div>
+      </div>
+      <div class="card alt">
+        <div class="card-top"><h3>Web Based Result System</h3><span class="badge">Board portal</span></div>
+        <p>Same platform as above; toggle exam type to HSC/Alim/HSC Vocational/HSC BM after selecting your board and year.</p>
+        <div class="card-url">eboardresults.com</div>
+        <div class="card-actions">
+          <a class="link-btn primary" href="https://www.eboardresults.com" target="_blank" rel="noopener">Open ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRIMARY ============ -->
+  <section id="primary">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Primary Level</h2>
+      <span class="bn">পিএসসি · ইবতেদায়ী</span>
+    </div>
+    <p class="section-desc">Primary Education Completion (PECE/PSC) and Ebtedayee results, run by the Directorate of Primary Education (DPE) — separate from the secondary/higher-secondary boards above.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-top"><h3>Directorate of Primary Education</h3><span class="badge gov">Government</span></div>
+        <p>Official DPE site — general information, notices and links to the result-checking service for primary-level exams.</p>
+        <div class="card-url">dpe.gov.bd</div>
+        <div class="card-actions">
+          <a class="link-btn primary" href="http://dpe.gov.bd" target="_blank" rel="noopener">Open ↗</a>
+        </div>
+      </div>
+      <div class="card alt">
+        <div class="card-top"><h3>Primary Result via Teletalk</h3><span class="badge">Result service</span></div>
+        <p>Teletalk-operated result lookup for Primary/Ebtedayee exams, used alongside the SMS method below.</p>
+        <div class="card-url">dpe.teletalk.com.bd</div>
+        <div class="card-actions">
+          <a class="link-btn primary" href="https://dpe.teletalk.com.bd" target="_blank" rel="noopener">Open ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ UNIVERSITY ADMISSION ============ -->
+  <section id="university">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>University Admission Results</h2>
+      <span class="bn">বিশ্ববিদ্যালয় ভর্তি ফলাফল</span>
+    </div>
+    <p class="section-desc">Admission test results are published per university or per cluster — there's no single national portal. Below are the highest-traffic official systems; always confirm you're on the right unit/university before checking a roll number.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-top"><h3>GST Admission (Cluster)</h3><span class="badge gov">Official</span></div>
+        <p>Integrated admission system covering ~20 public universities (General, Science &amp; Technology cluster) — one application, one exam per unit, results published here.</p>
+        <div class="card-url">gstadmission.ac.bd</div>
+        <div class="card-actions">
+          <a class="link-btn primary" href="https://gstadmission.ac.bd" target="_blank" rel="noopener">Open ↗</a>
+        </div>
+      </div>
+      <div class="card alt">
+        <div class="card-top"><h3>National University</h3><span class="badge">Official</span></div>
+        <p>Honours, Degree and Masters results for NU-affiliated colleges nationwide.</p>
+        <div class="card-url">nu.ac.bd</div>
+        <div class="card-actions">
+          <a class="link-btn primary" href="http://www.nu.ac.bd" target="_blank" rel="noopener">Open ↗</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top"><h3>University of Dhaka</h3><span class="badge">Official</span></div>
+        <p>DU runs its own admission test outside the GST cluster; results and notices are posted on its own site.</p>
+        <div class="card-url">du.ac.bd</div>
+        <div class="card-actions">
+          <a class="link-btn primary" href="https://www.du.ac.bd" target="_blank" rel="noopener">Open ↗</a>
+        </div>
+      </div>
+      <div class="card alt">
+        <div class="card-top"><h3>BUET</h3><span class="badge">Official</span></div>
+        <p>Bangladesh University of Engineering &amp; Technology holds its own separate engineering admission test.</p>
+        <div class="card-url">buet.ac.bd</div>
+        <div class="card-actions">
+          <a class="link-btn primary" href="http://www.buet.ac.bd" target="_blank" rel="noopener">Open ↗</a>
+        </div>
+      </div>
+    </div>
+    <p class="tag-note" style="margin-top:16px;">Medical &amp; dental admission results are published by the Directorate General of Health Services (DGHS); check dghs.gov.bd for the current cycle's link, as it's occasionally moved between subdomains.</p>
+  </section>
+
+  <!-- ============ BOARDS ============ -->
+  <section id="boards">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2>All 11 Education Boards</h2>
+      <span class="bn">শিক্ষা বোর্ডসমূহ</span>
+    </div>
+    <p class="section-desc">Every board publishes through the shared portals above. A couple also run their own board-specific site for notices, re-scrutiny forms and older archives.</p>
+    <table class="board-table">
+      <thead>
+        <tr><th>Board</th><th>Type</th><th>Direct site</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Dhaka</td><td>General</td><td><a href="https://www.dhakaeducationboard.gov.bd" target="_blank" rel="noopener">dhakaeducationboard.gov.bd</a></td></tr>
+        <tr><td>Jashore (Jessore)</td><td>General</td><td><a href="https://www.jessoreboard.gov.bd" target="_blank" rel="noopener">jessoreboard.gov.bd</a></td></tr>
+        <tr><td>Chattogram, Cumilla, Rajshahi, Barishal, Dinajpur, Sylhet, Mymensingh</td><td>General</td><td class="tag-note">Results published via educationboardresults.gov.bd / eboardresults.com — search "[board name] education board gov bd" for that board's own notice site.</td></tr>
+        <tr><td>Bangladesh Madrasah Education Board</td><td>Dakhil / Alim</td><td class="tag-note">Results integrated into educationboardresults.gov.bd</td></tr>
+        <tr><td>Bangladesh Technical Education Board</td><td>Vocational / Diploma</td><td class="tag-note">Results integrated into educationboardresults.gov.bd</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ SMS ============ -->
+  <section id="sms">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <h2>No internet? Use SMS</h2>
+      <span class="bn">এসএমএসের মাধ্যমে ফলাফল</span>
+    </div>
+    <div class="sms-box">
+      <div>
+        <h3>SSC / HSC &amp; equivalents</h3>
+        <p>Format: <span class="mono">BOARD-FIRST-3-LETTERS ROLL YEAR</span>, sent to <strong>16222</strong>.</p>
+        <div class="sms-example">SSC DHA 123456 2026<br>send to 16222</div>
+        <p style="margin-top:10px;">Replace <span class="mono">SSC</span> with <span class="mono">HSC</span>, <span class="mono">DAKHIL</span> or <span class="mono">ALIM</span> as needed, and the board code with yours (e.g. DHA, CHI, RAJ, JES, COM, BAR, SYL, DIN, MYM, MAD, TEC).</p>
+      </div>
+      <div>
+        <h3>Primary (PSC / Ebtedayee)</h3>
+        <p>Format: <span class="mono">DPE ROLL YEAR</span>, sent to <strong>16222</strong>.</p>
+        <div class="sms-example">DPE 123456 2026<br>send to 16222</div>
+        <p style="margin-top:10px;">SMS gives a quick pass/fail and GPA; the website gives the full subject-wise mark sheet.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="warn">This is an independent, unofficial directory. It is not operated by, affiliated with, or endorsed by the Ministry of Education, any Education Board, or the Government of Bangladesh.</p>
+    <p>Every result link on this page opens the genuine official source in a new tab. Always check the address bar reads one of the domains listed above before entering your roll or registration number — many lookalike sites exist that copy the official design.</p>
+    <div class="footer-links">
+      <a href="https://www.educationboardresults.gov.bd" target="_blank" rel="noopener">educationboardresults.gov.bd</a>
+      <a href="https://www.eboardresults.com" target="_blank" rel="noopener">eboardresults.com</a>
+      <a href="https://gstadmission.ac.bd" target="_blank" rel="noopener">gstadmission.ac.bd</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function switchLookup(tab){
+    document.querySelectorAll('.lookup-tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    var src = tab.getAttribute('data-src');
+    document.getElementById('lookupFrame').src = src;
+    document.getElementById('lookupOpenBtn').href = src;
+  }
+  var d = new Date();
+  var opts = { year:'numeric', month:'long', day:'numeric' };
+  document.getElementById('today-date').textContent = 'DATE: ' + d.toLocaleDateString('en-GB', opts).toUpperCase();
+</script>
+
 </body>
 </html>
