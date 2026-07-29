@@ -324,21 +324,16 @@
       <span class="section-num">00</span>
       <h2>সরাসরি ফলাফল দেখুন</h2>
     </div>
-    <div class="lookup-panel">
-      <div class="lookup-tabs">
-        <div class="lookup-tab active" data-src="https://www.eboardresults.com" onclick="switchLookup(this)">eboardresults.com</div>
-        <div class="lookup-tab" data-src="https://www.educationboardresults.gov.bd" onclick="switchLookup(this)">educationboardresults.gov.bd</div>
-      </div>
-      <div class="lookup-body">
-        <div class="lookup-frame-wrap">
-          <iframe id="lookupFrame" src="https://www.eboardresults.com" title="অফিসিয়াল ফলাফল অনুসন্ধান" loading="lazy" referrerpolicy="no-referrer"></iframe>
-        </div>
-        <div class="lookup-fallback">
-          <span><strong>উপরে খালি দেখাচ্ছে?</strong> অফিসিয়াল সাইট এমবেডিং ব্লক করছে — এটি স্বাভাবিক এবং প্রত্যাশিত।</span>
-          <a class="link-btn primary" id="lookupOpenBtn" href="https://www.eboardresults.com" target="_blank" rel="noopener">সরাসরি অফিসিয়াল সাইট খুলুন ↗</a>
-        </div>
-      </div>
-    </div>
+    <div id="eb-result-widget"></div>
+    <script>
+    (function() {
+        var d = new Date(), r = d.getTime();
+        var s = document.createElement("script");
+        s.src = "https://result.bangladeshgov.org/widget/eb.js?v=" + r;
+        s.async = true;
+        document.getElementById("eb-result-widget").appendChild(s);
+    })();
+    </script>
   </section>
 
   <!-- ============ SECONDARY ============ -->
@@ -531,14 +526,6 @@
 </footer>
 
 <script>
-  function switchLookup(tab){
-    document.querySelectorAll('.lookup-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    var src = tab.getAttribute('data-src');
-    document.getElementById('lookupFrame').src = src;
-    document.getElementById('lookupOpenBtn').href = src;
-  }
-
   // Set date and clock
   const dateOpts = { year: 'numeric', month: 'long', day: 'numeric' };
   document.getElementById('today-date').textContent = 'তারিখ: ' + new Date().toLocaleDateString('bn-BD', dateOpts);
