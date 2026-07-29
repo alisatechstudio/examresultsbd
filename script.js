@@ -13,6 +13,25 @@ setInterval(updateClock, 1000);
 
 const customForm = document.getElementById('custom-result-form');
 const resultDisplay = document.getElementById('custom-result-display');
+const captchaLabel = document.getElementById('captcha-label');
+const captchaInput = document.getElementById('captcha-input');
+let captchaAnswer = 0;
+
+/**
+ * Generates and displays a new CAPTCHA question.
+ */
+function generateCaptcha() {
+  // Simple math question to deter basic bots
+  const num1 = Math.floor(Math.random() * 10) + 1;
+  const num2 = Math.floor(Math.random() * 10) + 1;
+  captchaAnswer = num1 + num2;
+  if (captchaLabel) {
+    captchaLabel.textContent = `নিরাপত্তা প্রশ্ন: ${num1} + ${num2} = ?`;
+  }
+  if (captchaInput) {
+    captchaInput.value = ''; // Clear previous answer
+  }
+}
 
 /**
  * Renders the success state with the result data.
@@ -128,8 +147,19 @@ async function fetchResult(data) {
 }
 
 if (customForm && resultDisplay) {
+  generateCaptcha(); // Generate the first CAPTCHA on page load
+
   customForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // --- CAPTCHA Verification ---
+    const userAnswer = parseInt(captchaInput.value, 10);
+    if (userAnswer !== captchaAnswer) {
+      renderError('ভুল নিরাপত্তা উত্তর। অনুগ্রহ করে আবার চেষ্টা করুন।');
+      generateCaptcha(); // Generate a new question after a wrong attempt
+      return; // Stop the form submission
+    }
+
     renderLoading();
     const data = Object.fromEntries(new FormData(customForm).entries());
     try {
@@ -137,6 +167,9 @@ if (customForm && resultDisplay) {
       renderSuccess(result, data.year);
     } catch (error) {
       renderError(error.message);
+    } finally {
+      // Regenerate captcha for the next attempt, regardless of success or failure
+      generateCaptcha();
     }
   });
 }

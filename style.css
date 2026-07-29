@@ -285,6 +285,24 @@ footer{
   grid-column: 1 / -1; /* Span full width */
   justify-content: center;
 }
+.custom-api-form .captcha-control {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--paper-2);
+  padding: 10px 15px;
+  border-radius: var(--radius);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.custom-api-form #captcha-label {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+}
+.custom-api-form #captcha-input {
+  width: 120px;
+}
 
 .api-result-display {
   margin-top: 20px;
