@@ -248,6 +248,19 @@ footer{
   .sms-box{grid-template-columns:1fr;}
 }
 
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* ===== Custom API Form & Display ===== */
 .custom-api-form .form-grid {
   display: grid;
@@ -257,8 +270,10 @@ footer{
   padding: 20px;
   border: 1px solid var(--rule);
 }
+.custom-api-form .form-control { display: contents; } /* Allow inputs to be direct children of the grid */
 .custom-api-form input,
 .custom-api-form select {
+  width: 100%; /* Ensure inputs fill their grid cell */
   padding: 12px;
   font-family: "Inter", sans-serif;
   font-size: 14px;
@@ -287,22 +302,140 @@ footer{
 }
 .api-result-display.success {
   display: block;
+  /* Override default padding and border for marksheet display */
+  padding: 0;
+  border: none;
+  background: transparent;
 }
-.api-result-display h3 {
-  color: var(--green-deep);
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 8px;
-  margin-bottom: 16px;
-}
-.result-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 8px 16px;
-}
-.result-grid p { margin: 0; }
-.result-grid strong { color: var(--ink); }
 
-.api-result-display .grades-title {
+/* ===== Marksheet Styles ===== */
+.marksheet {
+  border: 2px solid var(--ink);
+  padding: 20px;
+  background: var(--white);
+  font-family: "Noto Sans Bengali", sans-serif;
+}
+
+.marksheet-failed {
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--red);
+}
+
+.marksheet-failed h3 {
+  color: var(--red);
+  border-bottom: none;
+  margin-bottom: 10px;
+}
+
+.marksheet-header {
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.marksheet-header h2 {
+  font-family: "Fraunces", serif;
+  color: var(--green-deep);
+  font-size: 22px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.marksheet-header p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.student-info {
+  margin-bottom: 25px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 8px 20px;
+  font-size: 14px;
+}
+
+.info-grid p {
+  margin: 0;
+}
+
+.info-grid strong {
+  color: var(--ink);
+  min-width: 120px;
+  display: inline-block;
+}
+
+.grades-section h4 {
+  font-family: "Fraunces", serif;
+  font-size: 18px;
+  color: var(--green-deep);
+  margin-bottom: 12px;
+}
+
+.grades-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.grades-table th,
+.grades-table td {
+  border: 1px solid var(--rule);
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.grades-table th {
+  background: var(--green-tint);
+  font-weight: 600;
+  color: var(--green-deep);
+}
+
+.grades-table td:nth-child(1),
+.grades-table td:nth-child(3) {
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.marksheet-summary {
   margin-top: 20px;
-  margin-bottom: 8px; /* Added for better spacing */
+  padding-top: 15px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.marksheet-summary p {
+  margin: 0;
+}
+
+.result-status {
+  text-transform: capitalize;
+}
+
+.result-status.passed {
+  color: var(--green);
+}
+
+.result-status.failed {
+  color: var(--red);
+}
+
+.gpa-value {
+  background: var(--paper-2);
+  padding: 4px 10px;
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
 }
