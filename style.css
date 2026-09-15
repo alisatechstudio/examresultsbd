@@ -1150,4 +1150,46 @@ footer {
   .hero-card { padding: 24px; }
   section { padding: 0 16px; margin-top: 36px; }
   #toast { bottom: 70px; right: 16px; left: 16px; text-align: center; justify-content: center; }
+  .ad-unit-wrapper { margin: 20px 12px; padding: 10px 8px; }
+}
+
+/* ==========================================================================
+   Google AdSense Units Styling
+   ========================================================================== */
+.ad-unit-wrapper {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  text-align: center;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.ad-unit-wrapper:hover {
+  border-color: var(--accent-emerald);
+}
+
+.ad-label {
+  display: inline-block;
+  font-size: 10.5px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  opacity: 0.7;
+}
+
+.ad-unit-wrapper.top-banner {
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.ad-unit-wrapper.multiplex-box {
+  margin-top: 36px;
+  margin-bottom: 36px;
 }
