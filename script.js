@@ -1,13 +1,18 @@
-// Set date (now handled by PHP for SEO, but keep JS fallback)
+// Set date and year dynamically for static GitHub Pages
 const dateOpts = { year: 'numeric', month: 'long', day: 'numeric' };
 const todayDateEl = document.getElementById('today-date');
-if (todayDateEl && !todayDateEl.textContent.includes('তারিখ:')) {
+if (todayDateEl) {
   todayDateEl.textContent = 'তারিখ: ' + new Date().toLocaleDateString('bn-BD', dateOpts);
+}
+
+const footerYearEl = document.getElementById('footer-year');
+if (footerYearEl) {
+  footerYearEl.textContent = new Date().getFullYear();
 }
 
 const clockElement = document.getElementById('clock');
 const updateClock = () => {
-  clockElement.textContent = new Date().toLocaleTimeString('bn-BD') + ' BDT';
+  if (clockElement) clockElement.textContent = new Date().toLocaleTimeString('bn-BD') + ' BDT';
 };
 updateClock();
 setInterval(updateClock, 1000);
@@ -150,14 +155,14 @@ function renderLoading() {
  * @returns {Promise<object>} - The result data.
  */
 async function fetchResult(data) {
-  const response = await fetch('api-proxy.php', {
+  const response = await fetch('https://eduboardapi.vercel.app/fetch', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
 
   if (!response.ok) {
-    const errorData = await response.json().catch(() => ({ message: 'An unknown server error occurred.' }));
+    const errorData = await response.json().catch(() => ({ message: 'সার্ভার থেকে ফলাফল পাওয়া যায়নি। অনুগ্রহ করে eboardresults.com সরাসরি ব্যবহার করুন।' }));
     throw new Error(errorData.message || `HTTP error! Status: ${response.status}`);
   }
 
