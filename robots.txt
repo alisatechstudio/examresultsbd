@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /ads.txt
-Sitemap: https://examresultsbd.com/sitemap.xml
+Disallow: /includes/
+Disallow: /api-proxy.php
+Sitemap: https://examresultsbd.online/sitemap.xml

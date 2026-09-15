@@ -1,6 +1,9 @@
-// Set date and clock
+// Set date (now handled by PHP for SEO, but keep JS fallback)
 const dateOpts = { year: 'numeric', month: 'long', day: 'numeric' };
-document.getElementById('today-date').textContent = 'তারিখ: ' + new Date().toLocaleDateString('bn-BD', dateOpts);
+const todayDateEl = document.getElementById('today-date');
+if (todayDateEl && !todayDateEl.textContent.includes('তারিখ:')) {
+  todayDateEl.textContent = 'তারিখ: ' + new Date().toLocaleDateString('bn-BD', dateOpts);
+}
 
 const clockElement = document.getElementById('clock');
 const updateClock = () => {
@@ -8,6 +11,13 @@ const updateClock = () => {
 };
 updateClock();
 setInterval(updateClock, 1000);
+
+function toEnglishDigits(str) {
+  if (!str) return str;
+  const bn = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+  const en = ['0','1','2','3','4','5','6','7','8','9'];
+  return str.replace(/[০-৯]/g, d => en[bn.indexOf(d)]);
+}
 
 // --- Custom API Result Handler ---
 
@@ -140,7 +150,7 @@ function renderLoading() {
  * @returns {Promise<object>} - The result data.
  */
 async function fetchResult(data) {
-  const response = await fetch('https://eduboardapi.vercel.app/fetch', {
+  const response = await fetch('api-proxy.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -155,29 +165,124 @@ async function fetchResult(data) {
 }
 
 if (customForm && resultDisplay) {
-  generateCaptcha(); // Generate the first CAPTCHA on page load
+  generateCaptcha();
 
   customForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // --- CAPTCHA Verification ---
     const userAnswer = parseInt(captchaInput.value, 10);
     if (userAnswer !== captchaAnswer) {
       renderError('ভুল নিরাপত্তা উত্তর। অনুগ্রহ করে আবার চেষ্টা করুন।');
-      generateCaptcha(); // Generate a new question after a wrong attempt
-      return; // Stop the form submission
+      generateCaptcha();
+      return;
     }
 
     renderLoading();
-    const data = Object.fromEntries(new FormData(customForm).entries());
+    const rawData = Object.fromEntries(new FormData(customForm).entries());
+    const data = {
+      exam: toEnglishDigits(rawData.exam),
+      year: toEnglishDigits(rawData.year),
+      board: toEnglishDigits(rawData.board),
+      roll: toEnglishDigits(rawData.roll),
+      reg: toEnglishDigits(rawData.reg),
+    };
     try {
       const result = await fetchResult(data);
       renderSuccess(result, data.year);
     } catch (error) {
       renderError(error.message);
     } finally {
-      // Regenerate captcha for the next attempt, regardless of success or failure
       generateCaptcha();
+    }
+  });
+}
+
+const liveForm = document.getElementById('live-result-form');
+const liveResultDisplay = document.getElementById('live-result-display');
+
+if (liveForm && liveResultDisplay) {
+  liveForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    liveResultDisplay.className = 'api-result-display loading';
+    liveResultDisplay.setAttribute('role', 'status');
+    liveResultDisplay.innerHTML = 'ফলাফল আনা হচ্ছে...';
+
+    const rawData = Object.fromEntries(new FormData(liveForm).entries());
+    const data = {
+      exam: toEnglishDigits(rawData.exam),
+      year: toEnglishDigits(rawData.year),
+      board: toEnglishDigits(rawData.board),
+      roll: toEnglishDigits(rawData.roll),
+      reg: toEnglishDigits(rawData.reg),
+    };
+    try {
+      const result = await fetchResult(data);
+      liveResultDisplay.className = 'api-result-display success';
+      liveResultDisplay.removeAttribute('role');
+
+      if (result.result && result.result.toLowerCase() === 'failed') {
+        liveResultDisplay.innerHTML = `
+          <div class="marksheet-failed">
+            <h3 id="live-result-heading" tabindex="-1">দুঃখিত, ফলাফল পাওয়া যায়নি।</h3>
+            <p>রোল: ${result.roll} | বোর্ড: ${result.board}</p>
+            <p>ফলাফল: <strong class="result-status failed">${result.result}</strong></p>
+          </div>
+        `;
+      } else {
+        const gradesTable = result.grades ? `
+          <table class="grades-table">
+            <thead>
+              <tr>
+                <th scope="col">বিষয় কোড</th>
+                <th scope="col">বিষয়</th>
+                <th scope="col">গ্রেড</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${result.grades.map(g => `
+                <tr>
+                  <td>${g.code}</td>
+                  <td>${g.subject}</td>
+                  <td>${g.grade}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        ` : '';
+
+        liveResultDisplay.innerHTML = `
+          <div class="marksheet">
+            <div class="marksheet-header" id="live-result-heading" tabindex="-1">
+              <h2>${result.board} Board</h2>
+              <p>${result.exam_type} Examination Result - ${data.year}</p>
+            </div>
+            <div class="student-info">
+              <div class="info-grid">
+                ${result.roll ? `<p><strong>Roll No:</strong> ${result.roll}</p>` : ''}
+                ${result.name ? `<p><strong>Name:</strong> ${result.name}</p>` : ''}
+                ${result.father_name ? `<p><strong>Father's Name:</strong> ${result.father_name}</p>` : ''}
+                ${result.mother_name ? `<p><strong>Mother's Name:</strong> ${result.mother_name}</p>` : ''}
+                ${result.group ? `<p><strong>Group:</strong> ${result.group}</p>` : ''}
+                ${result.dob ? `<p><strong>Date of Birth:</strong> ${result.dob}</p>` : ''}
+                ${result.institute ? `<p><strong>Institute:</strong> ${result.institute}</p>` : ''}
+                ${result.reg ? `<p><strong>Registration No:</strong> ${result.reg}</p>` : ''}
+              </div>
+            </div>
+            ${gradesTable ? `<div class="grades-section"><h4>Subject-wise Grades</h4>${gradesTable}</div>` : ''}
+            <div class="marksheet-summary">
+              <p><strong>Result:</strong> <span class="result-status ${result.result ? result.result.toLowerCase() : ''}">${result.result || 'N/A'}</span></p>
+              ${result.gpa ? `<p><strong>GPA:</strong> <span class="gpa-value">${result.gpa}</span></p>` : ''}
+            </div>
+          </div>
+        `;
+      }
+
+      const heading = document.getElementById('live-result-heading');
+      if (heading) heading.focus();
+    } catch (error) {
+      liveResultDisplay.className = 'api-result-display error';
+      liveResultDisplay.setAttribute('role', 'alert');
+      liveResultDisplay.innerHTML = `ত্রুটি: ${error.message}. অনুগ্রহ করে আপনার তথ্য যাচাই করে আবার চেষ্টা করুন।`;
     }
   });
 }
