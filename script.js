@@ -339,3 +339,33 @@ if (liveForm && liveResultDisplay) {
     }
   });
 }
+
+/* ==========================================================================
+   Cookie Consent Banner Initialization (Google AdSense & GDPR Compliance)
+   ========================================================================== */
+function initCookieConsent() {
+  const cookieBanner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept-btn');
+  if (!cookieBanner) return;
+
+  const hasConsented = localStorage.getItem('examresultsbd_cookie_consent');
+  if (!hasConsented) {
+    setTimeout(() => {
+      cookieBanner.style.display = 'block';
+    }, 1000);
+  }
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('examresultsbd_cookie_consent', 'accepted_' + new Date().toISOString());
+      cookieBanner.style.display = 'none';
+      if (typeof showToast === 'function') {
+        showToast('কুকি পছন্দ সফলভাবে সংরক্ষিত হয়েছে!');
+      }
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initCookieConsent();
+});

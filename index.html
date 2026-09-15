@@ -207,11 +207,12 @@
     </a>
     <nav class="main" role="navigation" aria-label="প্রধান মেনু">
       <a href="#search-hub">🔍 অনুসন্ধান</a>
-      <a href="#pillar-boards">🏫 স্কুল ও কলেজ বোর্ড</a>
+      <a href="#pillar-boards">🏫 বোর্ড রেজাল্ট</a>
       <a href="#pillar-higher-edu">🎓 উচ্চশিক্ষা ও ভর্তি</a>
       <a href="#pillar-jobs">💼 চাকুরী পরীক্ষা</a>
-      <a href="#pillar-tools">🛠️ SMS ও টুলস</a>
-      <a href="#faq">❓ FAQ</a>
+      <a href="about.html">ℹ️ আমাদের সম্পর্কে</a>
+      <a href="privacy.html">🔒 গোপনীয়তা নীতি</a>
+      <a href="contact.html">📞 যোগাযোগ</a>
     </nav>
     <button type="button" id="theme-toggle-btn" class="theme-btn" title="থিম পরিবর্তন করুন" aria-label="Toggle Dark/Light Mode">
       <span id="theme-icon">🌙</span>
@@ -976,9 +977,18 @@
 <!-- Footer -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-disclaimer">
-      ⚠️ <strong>সতর্কীকরণ:</strong> এটি একটি স্বাধীন ও অনানুষ্ঠানিক ডিরেক্টরি পোর্টাল। এটি শিক্ষা মন্ত্রণালয় বা কোনো নির্দিষ্ট শিক্ষা বোর্ড দ্বারা সরাসরি পরিচালিত নয়। ব্যক্তিগত তথ্য প্রদানের পূর্বে সবসময় অ্যাড্রেস বারে আসল সরকারি ডোমেন নিশ্চিত করুন।
+    <!-- Essential Legal & Policy Navigation for AdSense Compliance -->
+    <div class="footer-policy-nav" style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:20px; padding-bottom:18px; border-bottom:1px solid var(--border-color);">
+      <a href="about.html" style="font-weight:600; color:var(--text-primary); text-decoration:none;">ℹ️ আমাদের সম্পর্কে (About Us)</a>
+      <a href="privacy.html" style="font-weight:600; color:var(--text-primary); text-decoration:none;">🔒 গোপনীয়তা নীতি (Privacy Policy)</a>
+      <a href="terms.html" style="font-weight:600; color:var(--text-primary); text-decoration:none;">📜 শর্তাবলী ও ডিসক্লেইমার (Terms)</a>
+      <a href="contact.html" style="font-weight:600; color:var(--text-primary); text-decoration:none;">📞 যোগাযোগ (Contact Us)</a>
     </div>
+
+    <div class="footer-disclaimer">
+      ⚠️ <strong>সরকারি অনধিভুক্ত সতর্কীকরণ:</strong> এটি একটি স্বাধীন ও উন্মুক্ত তথ্যভিত্তিক ডিরেক্টরি পোর্টাল। এটি শিক্ষা মন্ত্রণালয়, কোনো নির্দিষ্ট শিক্ষা বোর্ড বা টেলিটক বাংলাদেশ দ্বারা সরাসরি পরিচালিত নয়। ব্যক্তিগত তথ্য প্রদানের পূর্বে সবসময় অ্যাড্রেস বারে আসল সরকারি ডোমেন নিশ্চিত করুন।
+    </div>
+    
     <div class="footer-links-grid">
       <a href="https://www.educationboardresults.gov.bd/result" target="_blank" rel="noopener">educationboardresults.gov.bd</a>
       <a href="https://www.eboardresults.com" target="_blank" rel="noopener">eboardresults.com</a>
@@ -993,10 +1003,24 @@
     </div>
     <div class="footer-bottom">
       <p>&copy; <span id="footer-year">2026</span> ফলাফল সেতু (ExamResultsBD). সর্বস্বত্ব সংরক্ষিত।</p>
-      <p>ডিজাইন ও আর্কিটেকচার: ৪-পিলার এডুকেশন পোর্টাল স্ট্যান্ডার্ড</p>
+      <p>একটি সমন্বিত ও সুরক্ষিত শিক্ষা পোর্টাল গেটওয়ে | Designed for High Speed & Transparency</p>
     </div>
   </div>
 </footer>
+
+<!-- Cookie Consent Banner for AdSense / GDPR Compliance -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie Consent">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <span>🍪</span>
+      <p><strong>কুকিজ ও বিজ্ঞাপন বিজ্ঞপ্তি:</strong> আমরা সাইটের সেবা উন্নত করতে, অ্যানালিটিক্স এবং <strong>Google AdSense</strong>-এর মাধ্যমে প্রাসঙ্গিক বিজ্ঞাপন পরিবেশন করতে কুকিজ ব্যবহার করি। সাইটটি ব্যবহারের মাধ্যমে আপনি আমাদের <a href="privacy.html" target="_blank">গোপনীয়তা নীতি</a> মেনে নিচ্ছেন।</p>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" id="cookie-accept-btn" class="cookie-btn accept">সম্মত আছি (Accept)</button>
+      <a href="privacy.html" class="cookie-btn learn">বিস্তারিত</a>
+    </div>
+  </div>
+</div>
 
 <!-- Toast Notification -->
 <div id="toast"></div>
