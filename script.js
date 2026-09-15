@@ -286,3 +286,104 @@ if (liveForm && liveResultDisplay) {
     }
   });
 }
+
+// --- Interactive Instant Exam Search & Category Filter System ---
+const searchInput = document.getElementById('global-exam-search');
+const clearSearchBtn = document.getElementById('clear-search-btn');
+const filterChips = document.querySelectorAll('.chip');
+const searchResultCount = document.getElementById('search-result-count');
+const noResultsMsg = document.getElementById('no-results-msg');
+const resetSearchBtn = document.getElementById('reset-search-btn');
+const allCards = document.querySelectorAll('.card, .faq-item, .sms-item, .board-row');
+const allSections = document.querySelectorAll('main > section');
+
+let activeCategoryFilter = 'all';
+
+function filterExams() {
+  const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+  
+  if (clearSearchBtn) {
+    clearSearchBtn.style.display = query.length > 0 ? 'block' : 'none';
+  }
+
+  let visibleCount = 0;
+
+  allCards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    const category = card.getAttribute('data-category') || '';
+    const keywords = card.getAttribute('data-keywords') || '';
+    
+    // Check search query match
+    const matchesQuery = query === '' || text.includes(query) || keywords.toLowerCase().includes(query);
+    
+    // Check category match
+    const matchesCategory = activeCategoryFilter === 'all' || category.includes(activeCategoryFilter);
+
+    if (matchesQuery && matchesCategory) {
+      card.style.display = '';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Handle section visibility
+  allSections.forEach(section => {
+    if (section.id === 'lookup' || section.id === 'custom-api') return;
+    
+    const visibleCardsInSection = section.querySelectorAll('.card:not([style*="display: none"]), .faq-item:not([style*="display: none"]), .sms-item:not([style*="display: none"]), .board-row:not([style*="display: none"])');
+    if (query !== '' || activeCategoryFilter !== 'all') {
+      if (visibleCardsInSection.length === 0) {
+        section.style.display = 'none';
+      } else {
+        section.style.display = '';
+      }
+    } else {
+      section.style.display = '';
+    }
+  });
+
+  if (searchResultCount) {
+    if (query === '' && activeCategoryFilter === 'all') {
+      searchResultCount.textContent = '';
+    } else {
+      searchResultCount.textContent = `মোট ${visibleCount}টি পোর্টালে মিল পাওয়া গেছে`;
+    }
+  }
+
+  if (noResultsMsg) {
+    noResultsMsg.style.display = (visibleCount === 0 && (query !== '' || activeCategoryFilter !== 'all')) ? 'block' : 'none';
+  }
+}
+
+if (searchInput) {
+  searchInput.addEventListener('input', filterExams);
+}
+
+if (clearSearchBtn) {
+  clearSearchBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    filterExams();
+    searchInput.focus();
+  });
+}
+
+if (resetSearchBtn) {
+  resetSearchBtn.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    activeCategoryFilter = 'all';
+    filterChips.forEach(c => c.classList.remove('active'));
+    const allChip = document.querySelector('.chip[data-filter="all"]');
+    if (allChip) allChip.classList.add('active');
+    filterExams();
+  });
+}
+
+filterChips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    filterChips.forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeCategoryFilter = chip.getAttribute('data-filter');
+    filterExams();
+  });
+});

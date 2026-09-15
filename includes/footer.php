@@ -21,15 +21,20 @@
       <a href="https://www.educationboardresults.gov.bd/result" target="_blank" rel="noopener">educationboardresults.gov.bd</a>
       <a href="https://www.eboardresults.com" target="_blank" rel="noopener">eboardresults.com</a>
       <a href="https://gstadmission.ac.bd" target="_blank" rel="noopener">gstadmission.ac.bd</a>
+      <a href="https://result.dghs.gov.bd" target="_blank" rel="noopener">result.dghs.gov.bd</a>
       <a href="https://results.nu.ac.bd/" target="_blank" rel="noopener">results.nu.ac.bd</a>
+      <a href="https://btebresult.gov.bd" target="_blank" rel="noopener">btebresult.gov.bd</a>
       <a href="https://bpsc.gov.bd" target="_blank" rel="noopener">bpsc.gov.bd</a>
+      <a href="http://ntrca.teletalk.com.bd" target="_blank" rel="noopener">ntrca.teletalk.com.bd</a>
       <a href="https://dpe.teletalk.com.bd" target="_blank" rel="noopener">dpe.teletalk.com.bd</a>
     </div>
     <div class="footer-links" style="margin-top:8px;">
-      <a href="#secondary">মাধ্যমিক ফলাফল</a>
-      <a href="#higher-secondary">উচ্চ মাধ্যমিক ফলাফল</a>
-      <a href="#primary">প্রাথমিক ফলাফল</a>
+      <a href="#secondary">মাধ্যমিক (SSC)</a>
+      <a href="#higher-secondary">উচ্চ মাধ্যমিক (HSC)</a>
+      <a href="#primary">প্রাথমিক (PEC)</a>
       <a href="#university">বিশ্ববিদ্যালয় ভর্তি</a>
+      <a href="#medical">মেডিকেল ও নার্সিং</a>
+      <a href="#nu-bteb">জাতীয় ও কারিগরি</a>
       <a href="#job-exams">চাকুরী পরীক্ষা</a>
       <a href="#boards">শিক্ষা বোর্ড</a>
       <a href="#sms">এসএমএস পদ্ধতি</a>

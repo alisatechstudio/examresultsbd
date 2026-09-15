@@ -172,12 +172,15 @@ $ogImage = 'https://examresultsbd.online/logo.png';
       </div>
     </div>
     <nav class="main" role="navigation" aria-label="প্রধান নেভিগেশন">
-      <a href="#secondary">মাধ্যমিক</a>
-      <a href="#higher-secondary">উচ্চ মাধ্যমিক</a>
-      <a href="#primary">প্রাথমিক</a>
+      <a href="#search-section">🔍 অনুসন্ধান</a>
+      <a href="#secondary">মাধ্যমিক (SSC)</a>
+      <a href="#higher-secondary">উচ্চ মাধ্যমিক (HSC)</a>
+      <a href="#primary">প্রাথমিক (PEC)</a>
       <a href="#university">বিশ্ববিদ্যালয় ভর্তি</a>
+      <a href="#medical">মেডিকেল ও নার্সিং</a>
+      <a href="#nu-bteb">জাতীয় ও কারিগরি</a>
       <a href="#job-exams">চাকুরী পরীক্ষা</a>
-      <a href="#boards">সকল বোর্ড</a>
+      <a href="#boards">শিক্ষা বোর্ড</a>
       <a href="#sms">এসএমএস পদ্ধতি</a>
     </nav>
   </div>

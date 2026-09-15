@@ -543,8 +543,140 @@ footer{
   text-underline-offset: 2px;
 }
 
+/* ===== Hero Search & Filter System ===== */
+.hero-search-box {
+  margin-top: 26px;
+  background: var(--paper-2);
+  border: 1.5px solid var(--ink);
+  padding: 20px 22px;
+  border-radius: var(--radius);
+  box-shadow: 4px 4px 0 var(--green-deep);
+}
+.search-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-icon-symbol {
+  position: absolute;
+  left: 16px;
+  font-size: 18px;
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+#global-exam-search {
+  width: 100%;
+  padding: 14px 46px 14px 44px;
+  font-size: 16px;
+  font-family: "Noto Sans Bengali", "Inter", sans-serif;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--ink);
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+#global-exam-search:focus {
+  border-color: var(--green-deep);
+  box-shadow: 0 0 0 3px rgba(11, 77, 59, 0.15);
+}
+.clear-search-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 4px 8px;
+  display: none;
+  line-height: 1;
+}
+.clear-search-btn:hover {
+  color: var(--red);
+}
+.quick-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.chip {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: "Noto Sans Bengali", "Inter", sans-serif;
+  font-weight: 500;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all .15s ease;
+  user-select: none;
+}
+.chip:hover {
+  border-color: var(--green-deep);
+  color: var(--green-deep);
+  background: var(--green-tint);
+}
+.chip.active {
+  background: var(--green-deep);
+  color: var(--white);
+  border-color: var(--green-deep);
+}
+.search-status-bar {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+.no-results-msg {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--white);
+  border: 1px dashed var(--rule);
+  margin-top: 24px;
+  border-radius: var(--radius);
+}
+.no-results-msg h3 {
+  color: var(--red);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.no-results-msg p {
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+/* Badge Varieties */
+.badge.admission { background: #E1F5FE; color: #0277BD; }
+.badge.medical { background: #E8F5E9; color: #2E7D32; }
+.badge.nu { background: #EDE7F6; color: #512DA8; }
+.badge.job { background: #FFF3E0; color: #E65100; }
+.badge.bteb { background: #F3E5F5; color: #7B1FA2; }
+.badge.sms { background: #FFF8E1; color: #F57F17; }
+
+mark.search-highlight {
+  background: #FFF59D;
+  color: var(--ink);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
 @media (max-width: 640px) {
   .breadcrumbs {
     padding: 12px 16px 0;
+  }
+  .hero-search-box {
+    padding: 14px;
+  }
+  #global-exam-search {
+    font-size: 14.5px;
+    padding: 12px 38px 12px 38px;
   }
 }
