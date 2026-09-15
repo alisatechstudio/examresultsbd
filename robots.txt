@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /includes/
-Disallow: /api-proxy.php
+
 Sitemap: https://examresultsbd.online/sitemap.xml
