@@ -144,7 +144,7 @@
       <div class="contact-card">
         <div class="icon">📧</div>
         <h3>ইমেইল সহায়তা</h3>
-        <p><a href="mailto:support@examresultsbd.online">support@examresultsbd.online</a><br><a href="mailto:tohin.de2018@gmail.com">tohin.de2018@gmail.com</a></p>
+        <p><a href="mailto:alisatechstudio@gmail.com">alisatechstudio@gmail.com</a></p>
       </div>
       <div class="contact-card">
         <div class="icon">⚡</div>
@@ -166,7 +166,7 @@
       </div>
       <div class="form-group">
         <label for="c-email">আপনার ইমেইল অ্যাড্রেস *</label>
-        <input type="email" id="c-email" required placeholder="example@gmail.com">
+        <input type="email" id="c-email" required placeholder="alisatechstudio@gmail.com">
       </div>
       <div class="form-group">
         <label for="c-subject">বার্তার বিষয় *</label>
@@ -213,7 +213,7 @@ function handleContactSubmit(e) {
   const message = document.getElementById('c-message').value;
   
   // mailto fallback
-  const mailtoLink = `mailto:support@examresultsbd.online?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent('নাম: ' + name + '\nইমেইল: ' + email + '\n\nবার্তা:\n' + message)}`;
+  const mailtoLink = `mailto:alisatechstudio@gmail.com?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent('নাম: ' + name + '\nইমেইল: ' + email + '\n\nবার্তা:\n' + message)}`;
   window.location.href = mailtoLink;
   
   document.getElementById('contact-success').style.display = 'block';
