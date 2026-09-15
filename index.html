@@ -87,15 +87,11 @@
     </a>
     <nav class="main" role="navigation" aria-label="প্রধান মেনু">
       <a href="#search-hub">🔍 অনুসন্ধান</a>
-      <a href="#lookup">⚡ রেজাল্ট দেখুন</a>
-      <a href="#secondary">মাধ্যমিক (SSC)</a>
-      <a href="#higher-secondary">উচ্চ মাধ্যমিক (HSC)</a>
-      <a href="#university">বিশ্ববিদ্যালয়</a>
-      <a href="#medical">মেডিকেল</a>
-      <a href="#nu-bteb">জাতীয় ও কারিগরি</a>
-      <a href="#job-exams">চাকুরী</a>
-      <a href="#sms-tool">📱 SMS টুল</a>
-      <a href="#faq">FAQ</a>
+      <a href="#pillar-boards">🏫 স্কুল ও কলেজ বোর্ড</a>
+      <a href="#pillar-higher-edu">🎓 উচ্চশিক্ষা ও ভর্তি</a>
+      <a href="#pillar-jobs">💼 চাকুরী পরীক্ষা</a>
+      <a href="#pillar-tools">🛠️ SMS ও টুলস</a>
+      <a href="#faq">❓ FAQ</a>
     </nav>
     <button type="button" id="theme-toggle-btn" class="theme-btn" title="থিম পরিবর্তন করুন" aria-label="Toggle Dark/Light Mode">
       <span id="theme-icon">🌙</span>
@@ -135,6 +131,52 @@
           <span id="today-date">তারিখ: লোড হচ্ছে...</span>
         </div>
       </div>
+
+      <!-- Quick Action Jump Grid -->
+      <div class="quick-jump-grid">
+        <a href="#pillar-boards" class="jump-tile">
+          <span class="tile-icon">🏫</span>
+          <div class="tile-text">
+            <span>বোর্ড পরীক্ষা</span>
+            <small>SSC · HSC · দাখিল · আলিম</small>
+          </div>
+        </a>
+        <a href="#pillar-higher-edu" class="jump-tile">
+          <span class="tile-icon">🏛️</span>
+          <div class="tile-text">
+            <span>বিশ্ববিদ্যালয় ভর্তি</span>
+            <small>গুচ্ছ · ঢাবি · বুয়েট · রাবি · চবি</small>
+          </div>
+        </a>
+        <a href="#pillar-medical" class="jump-tile">
+          <span class="tile-icon">🏥</span>
+          <div class="tile-text">
+            <span>মেডিকেল ও নার্সিং</span>
+            <small>MBBS · BDS · BNMC</small>
+          </div>
+        </a>
+        <a href="#pillar-nu-bteb" class="jump-tile">
+          <span class="tile-icon">📚</span>
+          <div class="tile-text">
+            <span>জাতীয় ও কারিগরি</span>
+            <small>NU অনার্স/ডিগ্রি · বাউবি · BTEB</small>
+          </div>
+        </a>
+        <a href="#pillar-jobs" class="jump-tile">
+          <span class="tile-icon">💼</span>
+          <div class="tile-text">
+            <span>চাকুরী পরীক্ষা</span>
+            <small>বিসিএস · NTRCA · ব্যাংক · প্রাইমারি</small>
+          </div>
+        </a>
+        <a href="#pillar-tools" class="jump-tile">
+          <span class="tile-icon">📱</span>
+          <div class="tile-text">
+            <span>SMS ও টুলস</span>
+            <small>১-ক্লিক SMS · GPA স্কেল</small>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -145,611 +187,606 @@
     <button type="button" id="reset-search-btn" class="card-action-btn" style="display:inline-flex; width:auto; padding:10px 20px;">সকল ফলাফল পুনরায় দেখুন</button>
   </div>
 
-  <!-- ============ 00: LIVE RESULT LOOKUP WIDGET ============ -->
-  <section id="lookup">
-    <div class="section-title-wrap">
-      <div class="section-icon-badge">⚡</div>
-      <div>
-        <h2>সরাসরি শিক্ষা বোর্ড ফলাফল দেখুন</h2>
-        <p>এসএসসি, এইচএসসি, দাখিল ও আলিম পরীক্ষার রোল ও রেজিস্ট্রেশন নম্বর দিয়ে মার্কশিট অনুসন্ধান করুন</p>
+  <!-- =========================================================================
+       PILLAR 1: স্কুল ও কলেজ শিক্ষা (School & College Board Exams)
+       ========================================================================= -->
+  <div id="pillar-boards" class="pillar-section">
+    <div class="pillar-banner">
+      <div class="pillar-banner-text">
+        <h2><span>🏫</span> পিলার ০১: স্কুল ও কলেজ বোর্ড শিক্ষা</h2>
+        <p>এসএসসি, এইচএসসি, দাখিল, আলিম, প্রাথমিক শিক্ষা সমাপনী এবং ১১টি শিক্ষা বোর্ড ফলাফল</p>
       </div>
+      <span class="pillar-badge">PILLAR 01</span>
     </div>
-    <div class="widget-box">
-      <form id="live-result-form">
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="live-exam-input">পরীক্ষার নাম</label>
-            <select id="live-exam-input" name="exam" required>
-              <option value="">নির্বাচন করুন</option>
-              <option value="ssc">SSC / দাখিল / ভোকেশনাল</option>
-              <option value="hsc">HSC / আলিম / বিএম</option>
-              <option value="dakhil">Dakhil (মাদ্রাসা)</option>
-              <option value="alim">Alim (মাদ্রাসা)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="live-year-input">পরীক্ষার সাল</label>
-            <input id="live-year-input" type="text" inputmode="numeric" pattern="[0-9]{4}" name="year" placeholder="যেমন: 2024" required>
-          </div>
-          <div class="form-group">
-            <label for="live-board-input">শিক্ষা বোর্ড</label>
-            <select id="live-board-input" name="board" required>
-              <option value="">বোর্ড নির্বাচন করুন</option>
-              <option value="dhaka">ঢাকা (Dhaka)</option>
-              <option value="dinajpur">দিনাজপুর (Dinajpur)</option>
-              <option value="rajshahi">রাজশাহী (Rajshahi)</option>
-              <option value="comilla">কুমিল্লা (Comilla)</option>
-              <option value="chittagong">চট্টগ্রাম (Chittagong)</option>
-              <option value="barisal">বরিশাল (Barisal)</option>
-              <option value="sylhet">সিলেট (Sylhet)</option>
-              <option value="jessore">যশোর (Jessore)</option>
-              <option value="mymensingh">ময়মনসিংহ (Mymensingh)</option>
-              <option value="madrasah">মাদ্রাসা বোর্ড (Madrasah)</option>
-              <option value="tec">কারিগরি বোর্ড (Technical)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="live-roll-input">রোল নম্বর</label>
-            <input id="live-roll-input" type="text" inputmode="numeric" pattern="[0-9]*" name="roll" placeholder="রোল নম্বর দিন" required>
-          </div>
-          <div class="form-group">
-            <label for="live-reg-input">রেজিস্ট্রেশন নম্বর</label>
-            <input id="live-reg-input" type="text" inputmode="numeric" pattern="[0-9]*" name="reg" placeholder="রেজিস্ট্রেশন নম্বর দিন" required>
-          </div>
-          <button type="submit" class="btn-submit">
-            <span>ফলাফল অনুসন্ধান করুন</span> 🚀
-          </button>
-        </div>
-      </form>
-      <div id="live-result-display" class="api-result-display"></div>
-    </div>
-  </section>
 
-  <!-- ============ 01: SECONDARY (SSC / DAKHIL / VOCATIONAL) ============ -->
-  <section id="secondary">
-    <div class="section-title-wrap">
-      <div class="section-icon-badge">🏫</div>
-      <div>
-        <h2>মাধ্যমিক স্তর (এসএসসি · দাখিল · ভোকেশনাল)</h2>
-        <p>দশম শ্রেণি সমাপনী এসএসসি (SSC), দাখিল (Dakhil) এবং ভোকেশনাল পরীক্ষার অফিসিয়াল পোর্টাল</p>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="card" data-category="board" data-keywords="ssc dakhil vocational board result শিক্ষা বোর্ড ফলাফল">
-        <div class="card-header">
-          <h3>এসএসসি / দাখিল / ভোকেশনাল ফলাফল</h3>
-          <span class="badge gov">সরকারি পোর্টাল</span>
-        </div>
-        <p class="card-desc">শিক্ষা মন্ত্রণালয়ের মূল অফিসিয়াল রেজাল্ট সিস্টেম। গ্রেড শিট ও ব্যক্তিগত ফলাফল দেখার প্ল্যাটফর্ম।</p>
-        <div class="card-domain">🔗 educationboardresults.gov.bd</div>
-        <a class="card-action-btn" href="https://www.educationboardresults.gov.bd/result" target="_blank" rel="noopener">ফলাফল দেখুন ↗</a>
-      </div>
-
-      <div class="card" data-category="board" data-keywords="eboardresults web based ssc mark sheet ইবোর্ড রেজাল্ট প্রতিষ্ঠান ভিত্তিক">
-        <div class="card-header">
-          <h3>ওয়েব ভিত্তিক ফুল মার্কশিট সিস্টেম</h3>
-          <span class="badge board">বোর্ড ডিরেক্ট</span>
-        </div>
-        <p class="card-desc">প্রতিষ্ঠানভিত্তিক, কেন্দ্রভিত্তিক ও ব্যক্তিগত বিস্তারিত নম্বরপত্র ও আর্কাইভ ডাউনলোড পোর্টাল।</p>
-        <div class="card-domain">🔗 eboardresults.com</div>
-        <a class="card-action-btn" href="https://www.eboardresults.com" target="_blank" rel="noopener">মার্কশিট দেখুন ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 02: HIGHER SECONDARY (HSC / ALIM / BM) ============ -->
-  <section id="higher-secondary">
-    <div class="section-title-wrap">
-      <div class="section-icon-badge">🎓</div>
-      <div>
-        <h2>উচ্চ মাধ্যমিক স্তর (এইচএসসি · আলিম · বিএম · ভোকেশনাল)</h2>
-        <p>দ্বাদশ শ্রেণি সমাপনী এইচএসসি (HSC), আলিম (Alim), বিএম এবং ভোকেশনাল ফলাফল</p>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="card" data-category="board" data-keywords="hsc alim bm vocational higher secondary এইচএসসি আলিম ফলাফল">
-        <div class="card-header">
-          <h3>এইচএসসি / আলিম / বিএম ফলাফল</h3>
-          <span class="badge gov">সরকারি পোর্টাল</span>
-        </div>
-        <p class="card-desc">সাধারণ ৯টি বোর্ড, মাদ্রাসা ও কারিগরি বোর্ডের এইচএসসি ও আলিম পরীক্ষার রেজাল্ট পোর্টাল।</p>
-        <div class="card-domain">🔗 educationboardresults.gov.bd</div>
-        <a class="card-action-btn" href="https://www.educationboardresults.gov.bd/result" target="_blank" rel="noopener">ফলাফল দেখুন ↗</a>
-      </div>
-
-      <div class="card" data-category="board" data-keywords="eboardresults hsc mark sheet এইচএসসি মার্কশিট">
-        <div class="card-header">
-          <h3>এইচএসসি বিষয়ভিত্তিক মার্কশিট</h3>
-          <span class="badge board">বোর্ড ডিরেক্ট</span>
-        </div>
-        <p class="card-desc">এইচএসসি, আলিম এবং ভোকেশনাল পরীক্ষার সম্পূর্ণ নম্বরপত্র এবং কলেজভিত্তিক রেজাল্ট শিট।</p>
-        <div class="card-domain">🔗 eboardresults.com</div>
-        <a class="card-action-btn" href="https://www.eboardresults.com" target="_blank" rel="noopener">মার্কশিট দেখুন ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 03: PRIMARY & SCHOLARSHIP ============ -->
-  <section id="primary">
-    <div class="section-title-wrap">
-      <div class="section-icon-badge">👶</div>
-      <div>
-        <h2>প্রাথমিক ও ইবতেদায়ী সমাপনী (পিএসসি · বৃত্তি)</h2>
-        <p>প্রাথমিক শিক্ষা অধিদপ্তর (DPE) পরিচালিত ৫ম শ্রেণি সমাপনী ও মেধা বৃত্তি পরীক্ষার ফলাফল</p>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="card" data-category="primary" data-keywords="primary psc pece dpe teletalk প্রাথমিক ফলাফল">
-        <div class="card-header">
-          <h3>টেলিটক প্রাথমিক ফলাফল পোর্টাল</h3>
-          <span class="badge primary">ডিপিই পোর্টাল</span>
-        </div>
-        <p class="card-desc">প্রাথমিক শিক্ষা অধিদপ্তরের টেলিকম সার্ভার থেকে পিএসসি ও ইবতেদায়ী ফলাফল অনুসন্ধান।</p>
-        <div class="card-domain">🔗 dpe.teletalk.com.bd</div>
-        <a class="card-action-btn" href="https://dpe.teletalk.com.bd" target="_blank" rel="noopener">ফলাফল দেখুন ↗</a>
-      </div>
-
-      <div class="card" data-category="primary" data-keywords="primary scholarship ipemis dpe প্রাথমিক বৃত্তি ফলাফল">
-        <div class="card-header">
-          <h3>প্রাথমিক মেধা বৃত্তি ফলাফল (IPEMIS)</h3>
-          <span class="badge gov">সরকারি পোর্টাল</span>
-        </div>
-        <p class="card-desc">প্রাথমিক শিক্ষা অধিদপ্তরের IPEMIS পোর্টাল থেকে থানা ও জেলা ভিত্তিক বৃত্তি তালিকা।</p>
-        <div class="card-domain">🔗 ipemis.dpe.gov.bd</div>
-        <a class="card-action-btn" href="https://ipemis.dpe.gov.bd/scholarship-results" target="_blank" rel="noopener">বৃত্তি ফলাফল ↗</a>
-      </div>
-
-      <div class="card" data-category="primary" data-keywords="dpe gov bd primary education result ডিপিই নোটিশ">
-        <div class="card-header">
-          <h3>প্রাথমিক শিক্ষা অধিদপ্তর কেন্দ্রীয় সাইট</h3>
-          <span class="badge gov">অফিসিয়াল</span>
-        </div>
-        <p class="card-desc">ডিপিই-এর মূল নোটিশ বোর্ড ও কেন্দ্রীয় ফলাফল বিজ্ঞপ্তি সংগ্রহের স্থান।</p>
-        <div class="card-domain">🔗 dpe.gov.bd</div>
-        <a class="card-action-btn" href="https://dpe.gov.bd" target="_blank" rel="noopener">নোটিশ দেখুন ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 04: UNIVERSITY ADMISSIONS ============ -->
-  <section id="university">
-    <div class="section-title-wrap">
-      <div class="section-icon-badge">🏛️</div>
-      <div>
-        <h2>বিশ্ববিদ্যালয় ভর্তি পরীক্ষা (গুচ্ছ, ঢাবি, বুয়েট, সিকেআরইউইটি)</h2>
-        <p>পাবলিক বিশ্ববিদ্যালয়ের ১ম বর্ষ স্নাতক/অনার্স ভর্তি পরীক্ষার ফলাফল ও মেরিট লিস্ট</p>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="card" data-category="university" data-keywords="gst admission general science technology গুচ্ছ ভর্তি ফলাফল">
-        <div class="card-header">
-          <h3>জিএসটি সাধারণ ও বিজ্ঞান গুচ্ছ ভর্তি</h3>
-          <span class="badge uni">গুচ্ছ ভর্তি</span>
-        </div>
-        <p class="card-desc">২৪টি পাবলিক সাধারণ, বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ের সমন্বিত জিএসটি ফলাফল ও মেরিট তালিকা।</p>
-        <div class="card-domain">🔗 gstadmission.ac.bd</div>
-        <a class="card-action-btn" href="https://gstadmission.ac.bd" target="_blank" rel="noopener">গুচ্ছ রেজাল্ট ↗</a>
-      </div>
-
-      <div class="card" data-category="university" data-keywords="agri gst agricultural university কৃষি গুচ্ছ ভর্তি ফলাফল">
-        <div class="card-header">
-          <h3>কৃষি গুচ্ছ ভর্তি পরীক্ষা (Agri GST)</h3>
-          <span class="badge uni">কৃষি গুচ্ছ</span>
-        </div>
-        <p class="card-desc">বাংলাদেশ কৃষি বিশ্ববিদ্যালয় সহ ৯টি সরকারি কৃষি বিশ্ববিদ্যালয়ের সমন্বিত ফলাফল।</p>
-        <div class="card-domain">🔗 agri-gst.org</div>
-        <a class="card-action-btn" href="https://agri-gst.org" target="_blank" rel="noopener">কৃষি গুচ্ছ রেজাল্ট ↗</a>
-      </div>
-
-      <div class="card" data-category="university" data-keywords="dhaka university du admission result ঢাকা বিশ্ববিদ্যালয় ভর্তি">
-        <div class="card-header">
-          <h3>ঢাকা বিশ্ববিদ্যালয় ভর্তি (DU)</h3>
-          <span class="badge uni">ঢাবি পোর্টাল</span>
-        </div>
-        <p class="card-desc">ঢাবি বিজ্ঞান, কলা ও সামাজিক বিজ্ঞান, ব্যবসায় শিক্ষা এবং চারুকলা ইউনিটের ফলাফল।</p>
-        <div class="card-domain">🔗 admission.eis.du.ac.bd</div>
-        <a class="card-action-btn" href="https://admission.eis.du.ac.bd" target="_blank" rel="noopener">ঢাবি রেজাল্ট ↗</a>
-      </div>
-
-      <div class="card" data-category="university" data-keywords="buet engineering admission result বুয়েট ভর্তি">
-        <div class="card-header">
-          <h3>বুয়েট প্রকৌশল ভর্তি (BUET)</h3>
-          <span class="badge uni">বুয়েট</span>
-        </div>
-        <p class="card-desc">বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয় (BUET)-এর প্রিলিমিনারি ও মূল ভর্তি পরীক্ষার ফলাফল।</p>
-        <div class="card-domain">🔗 ugadmission.buet.ac.bd</div>
-        <a class="card-action-btn" href="https://ugadmission.buet.ac.bd" target="_blank" rel="noopener">বুয়েট রেজাল্ট ↗</a>
-      </div>
-
-      <div class="card" data-category="university" data-keywords="ckruet ruet kuet cuet engineering cluster প্রকৌশল গুচ্ছ">
-        <div class="card-header">
-          <h3>প্রকৌশল গুচ্ছ (CKRUET: রুয়েট, কুয়েট, চুয়েট)</h3>
-          <span class="badge uni">প্রকৌশল গুচ্ছ</span>
-        </div>
-        <p class="card-desc">রুয়েট, কুয়েট ও চুয়েট সমন্বিত ইঞ্জিনিয়ারিং ভর্তি পরীক্ষার মেধা তালিকা ও মেরিট লিস্ট।</p>
-        <div class="card-domain">🔗 ckruet.ac.bd</div>
-        <a class="card-action-btn" href="https://ckruet.ac.bd" target="_blank" rel="noopener">সিকেআরইউইটি রেজাল্ট ↗</a>
-      </div>
-
-      <div class="card" data-category="university" data-keywords="rajshahi university ru admission result রাজশাহী বিশ্ববিদ্যালয়">
-        <div class="card-header">
-          <h3>রাজশাহী বিশ্ববিদ্যালয় (RU)</h3>
-          <span class="badge uni">রাবি পোর্টাল</span>
-        </div>
-        <p class="card-desc">রাজশাহী বিশ্ববিদ্যালয়ের ‘এ’, ‘বি’ ও ‘সি’ ইউনিটের ভর্তি পরীক্ষার ফলাফল ও সাবজেক্ট চয়েস।</p>
-        <div class="card-domain">🔗 admission.ru.ac.bd</div>
-        <a class="card-action-btn" href="https://admission.ru.ac.bd" target="_blank" rel="noopener">রাবি রেজাল্ট ↗</a>
-      </div>
-
-      <div class="card" data-category="university" data-keywords="chittagong university cu admission result চট্টগ্রাম বিশ্ববিদ্যালয়">
-        <div class="card-header">
-          <h3>চট্টগ্রাম বিশ্ববিদ্যালয় (CU)</h3>
-          <span class="badge uni">চবি পোর্টাল</span>
-        </div>
-        <p class="card-desc">চট্টগ্রাম বিশ্ববিদ্যালয়ের সকল ইউনিট ও উপ-ইউনিটের ভর্তি পরীক্ষার মেধা তালিকা।</p>
-        <div class="card-domain">🔗 admission.cu.ac.bd</div>
-        <a class="card-action-btn" href="https://admission.cu.ac.bd" target="_blank" rel="noopener">চবি রেজাল্ট ↗</a>
-      </div>
-
-      <div class="card" data-category="university" data-keywords="jahangirnagar university ju admission result জাহাঙ্গীরনগর বিশ্ববিদ্যালয়">
-        <div class="card-header">
-          <h3>জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU)</h3>
-          <span class="badge uni">জাবি পোর্টাল</span>
-        </div>
-        <p class="card-desc">জাহাঙ্গীরনগর বিশ্ববিদ্যালয়ের সকল ইউনিটের লিখিত ভর্তি পরীক্ষার ফলাফল ও মেধা ক্রম।</p>
-        <div class="card-domain">🔗 ju-admission.org</div>
-        <a class="card-action-btn" href="https://ju-admission.org" target="_blank" rel="noopener">জাবি রেজাল্ট ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 05: MEDICAL, DENTAL & NURSING ============ -->
-  <section id="medical">
-    <div class="section-title-wrap">
-      <div class="section-icon-badge">🏥</div>
-      <div>
-        <h2>মেডিকেল, ডেন্টাল, নার্সিং ও আর্মড ফোর্সেস ভর্তি</h2>
-        <p>স্বাস্থ্য অধিদপ্তর (DGHS) ও নার্সিং কাউন্সিল পরিচালিত সরকারি ও বেসরকারি ভর্তি পরীক্ষার রেজাল্ট</p>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="card" data-category="medical" data-keywords="mbbs medical admission dghs teletalk মেডিকেল ভর্তি ফলাফল">
-        <div class="card-header">
-          <h3>এমবিবিএস মেডিকেল ভর্তি ফলাফল (MBBS)</h3>
-          <span class="badge med">স্বাস্থ্য অধিদপ্তর</span>
-        </div>
-        <p class="card-desc">সরকারি ও বেসরকারি মেডিকেল কলেজের এমবিবিএস ভর্তি পরীক্ষার মেধা তালিকা ও কলেজ বণ্টন।</p>
-        <div class="card-domain">🔗 result.dghs.gov.bd</div>
-        <a class="card-action-btn" href="https://result.dghs.gov.bd" target="_blank" rel="noopener">মেডিকেল রেজাল্ট ↗</a>
-      </div>
-
-      <div class="card" data-category="medical" data-keywords="bds dental admission result ডেন্টাল ভর্তি ফলাফল">
-        <div class="card-header">
-          <h3>বিডিএস ডেন্টাল ভর্তি ফলাফল (BDS)</h3>
-          <span class="badge med">স্বাস্থ্য অধিদপ্তর</span>
-        </div>
-        <p class="card-desc">সরকারি ও বেসরকারি ডেন্টাল কলেজ ও ডেন্টাল ইউনিটের বিডিএস (BDS) ভর্তি পরীক্ষার ফলাফল।</p>
-        <div class="card-domain">🔗 result.dghs.gov.bd/bds</div>
-        <a class="card-action-btn" href="https://result.dghs.gov.bd" target="_blank" rel="noopener">ডেন্টাল রেজাল্ট ↗</a>
-      </div>
-
-      <div class="card" data-category="medical" data-keywords="nursing bnmc teletalk bsc diploma midwifery নার্সিং ভর্তি ফলাফল">
-        <div class="card-header">
-          <h3>নার্সিং ও মিডওয়াইফারি ভর্তি (BNMC)</h3>
-          <span class="badge med">বিএনএমসি</span>
-        </div>
-        <p class="card-desc">বিএসসি নার্সিং, ডিপ্লোমা নার্সিং সায়েন্স ও মিডওয়াইফারি ভর্তি পরীক্ষার মেধা তালিকা।</p>
-        <div class="card-domain">🔗 bnmc.teletalk.com.bd</div>
-        <a class="card-action-btn" href="https://bnmc.teletalk.com.bd" target="_blank" rel="noopener">নার্সিং রেজাল্ট ↗</a>
-      </div>
-
-      <div class="card" data-category="medical" data-keywords="afmc amc armed forces medical college এএফএমসি ভর্তি">
-        <div class="card-header">
-          <h3>আর্মড ফোর্সেস মেডিকেল (AFMC & AMC)</h3>
-          <span class="badge med">সশস্ত্র বাহিনী</span>
-        </div>
-        <p class="card-desc">আর্মড ফোর্সেস মেডিকেল কলেজ এবং ৫টি আর্মি মেডিকেল কলেজের এমবিবিএস ভর্তি ফলাফল।</p>
-        <div class="card-domain">🔗 afmc.teletalk.com.bd</div>
-        <a class="card-action-btn" href="https://afmc.teletalk.com.bd" target="_blank" rel="noopener">এএফএমসি রেজাল্ট ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 06: NATIONAL UNIV & TECHNICAL ============ -->
-  <section id="nu-bteb">
-    <div class="section-title-wrap">
-      <div class="section-icon-badge">📚</div>
-      <div>
-        <h2>জাতীয় বিশ্ববিদ্যালয়, উন্মুক্ত বিশ্ববিদ্যালয় ও কারিগরি শিক্ষা</h2>
-        <p>জাতীয় বিশ্ববিদ্যালয় (NU) অনার্স/ডিগ্রি/মাস্টার্স, বাউবি (BOU) এবং পলিটেকনিক ডিপ্লোমা ফলাফল</p>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="card" data-category="nu-bteb" data-keywords="nu national university honours degree masters results জাতীয় বিশ্ববিদ্যালয় ফলাফল">
-        <div class="card-header">
-          <h3>জাতীয় বিশ্ববিদ্যালয় ফলাফল (NU Results)</h3>
-          <span class="badge nu">এনইউ রেজাল্ট</span>
-        </div>
-        <p class="card-desc">অনার্স ১ম, ২য়, ৩য়, ৪র্থ বর্ষ, ডিগ্রি পাস ও মাস্টার্স পরীক্ষার সিজিপিএ ও বিস্তারিত নম্বরপত্র।</p>
-        <div class="card-domain">🔗 results.nu.ac.bd</div>
-        <a class="card-action-btn" href="https://results.nu.ac.bd/" target="_blank" rel="noopener">এনইউ ফলাফল ↗</a>
-      </div>
-
-      <div class="card" data-category="nu-bteb" data-keywords="nu admission honours degree masters national university admission জাতীয় বিশ্ববিদ্যালয় ভর্তি">
-        <div class="card-header">
-          <h3>জাতীয় বিশ্ববিদ্যালয় ভর্তি ও রিলিজ স্লিপ</h3>
-          <span class="badge nu">এনইউ ভর্তি</span>
-        </div>
-        <p class="card-desc">অনার্স ১ম বর্ষ ভর্তি, কোটা ও রিলিজ স্লিপ মেধা তালিকা দেখার অফিসিয়াল পোর্টাল।</p>
-        <div class="card-domain">🔗 app1.nu.edu.bd</div>
-        <a class="card-action-btn" href="http://app1.nu.edu.bd/" target="_blank" rel="noopener">এনইউ ভর্তি ↗</a>
-      </div>
-
-      <div class="card" data-category="nu-bteb" data-keywords="bou open university ssc hsc degree honours result উন্মুক্ত বিশ্ববিদ্যালয় ফলাফল">
-        <div class="card-header">
-          <h3>বাংলাদেশ উন্মুক্ত বিশ্ববিদ্যালয় (BOU)</h3>
-          <span class="badge nu">বাউবি পোর্টাল</span>
-        </div>
-        <p class="card-desc">বাউবি এসএসসি, এইচএসসি, বিএ, বিএসএস, বিবিএ ও বিএড পরীক্ষার সিজিপিএ পোর্টাল।</p>
-        <div class="card-domain">🔗 exam.bou.ac.bd</div>
-        <a class="card-action-btn" href="https://exam.bou.ac.bd" target="_blank" rel="noopener">বাউবি ফলাফল ↗</a>
-      </div>
-
-      <div class="card" data-category="nu-bteb" data-keywords="bteb polytechnic diploma engineering textile marine কারিগরি ডিপ্লোমা ফলাফল">
-        <div class="card-header">
-          <h3>কারিগরি ডিপ্লোমা ইন ইঞ্জিনিয়ারিং (BTEB)</h3>
-          <span class="badge nu">বিটিইবি ডিপ্লোমা</span>
-        </div>
-        <p class="card-desc">পলিটেকনিকের ডিপ্লোমা ইন ইঞ্জিনিয়ারিং, টেক্সটাইল ও মেরিন পরীক্ষার সেমিস্টার রেজাল্ট।</p>
-        <div class="card-domain">🔗 btebresult.gov.bd</div>
-        <a class="card-action-btn" href="https://btebresult.gov.bd" target="_blank" rel="noopener">ডিপ্লোমা রেজাল্ট ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 07: JOB EXAMS ============ -->
-  <section id="job-exams">
-    <div class="section-title-wrap">
-      <div class="section-icon-badge">💼</div>
-      <div>
-        <h2>সরকারি, শিক্ষক নিবন্ধন ও ব্যাংক চাকুরী পরীক্ষা</h2>
-        <p>বিসিএস, এনটিআরসিএ, প্রাথমিক শিক্ষক, বাংলাদেশ ব্যাংক, রেলওয়ে ও জুডিশিয়ারি নিয়োগ রেজাল্ট</p>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="card" data-category="job" data-keywords="bcs bpsc preliminary written viva result বিসিএস পরীক্ষা ফলাফল">
-        <div class="card-header">
-          <h3>বিসিএস পরীক্ষা ফলাফল (BPSC)</h3>
-          <span class="badge job">বিপিএসসি</span>
-        </div>
-        <p class="card-desc">বিসিএস প্রিলিমিনারি, লিখিত এবং ভাইভা পরীক্ষার ফলাফল ও ক্যাডার সুপারিশ গেজেট।</p>
-        <div class="card-domain">🔗 bpsc.gov.bd</div>
-        <a class="card-action-btn" href="https://bpsc.gov.bd" target="_blank" rel="noopener">বিসিএস রেজাল্ট ↗</a>
-      </div>
-
-      <div class="card" data-category="job" data-keywords="ntrca teacher registration result শিক্ষক নিবন্ধন ফলাফল">
-        <div class="card-header">
-          <h3>এনটিআরসিএ শিক্ষক নিবন্ধন (NTRCA)</h3>
-          <span class="badge job">এনটিআরসিএ</span>
-        </div>
-        <p class="card-desc">বেসরকারি শিক্ষক নিবন্ধন পরীক্ষা ও গণবিজ্ঞপ্তির সুপারিশ তালিকা দেখার অফিসিয়াল সাইট।</p>
-        <div class="card-domain">🔗 ntrca.teletalk.com.bd</div>
-        <a class="card-action-btn" href="http://ntrca.teletalk.com.bd" target="_blank" rel="noopener">শিক্ষক নিবন্ধন ↗</a>
-      </div>
-
-      <div class="card" data-category="job" data-keywords="primary teacher recruitment dpe teletalk প্রাথমিক শিক্ষক নিয়োগ ফলাফল">
-        <div class="card-header">
-          <h3>প্রাথমিক সরকারি শিক্ষক নিয়োগ (DPE)</h3>
-          <span class="badge job">ডিপিই শিক্ষক</span>
-        </div>
-        <p class="card-desc">প্রাথমিক সহকারী শিক্ষক নিয়োগ পরীক্ষার লিখিত ও চূড়ান্ত ভাইভার জেলাভিত্তিক ফলাফল।</p>
-        <div class="card-domain">🔗 dpe.portal.gov.bd</div>
-        <a class="card-action-btn" href="https://dpe.portal.gov.bd" target="_blank" rel="noopener">শিক্ষক নিয়োগ ↗</a>
-      </div>
-
-      <div class="card" data-category="job" data-keywords="bank job bangladesh bank combined bank recruitment ব্যাংক জব ফলাফল">
-        <div class="card-header">
-          <h3>কম্বাইন্ড ব্যাংক ও বাংলাদেশ ব্যাংক জব</h3>
-          <span class="badge job">ব্যাংক জব</span>
-        </div>
-        <p class="card-desc">বাংলাদেশ ব্যাংক সমন্বিত ৯টি সরকারি ব্যাংক ও আর্থিক প্রতিষ্ঠানের অফিসার নিয়োগ ফলাফল।</p>
-        <div class="card-domain">🔗 erecruitment.bb.org.bd</div>
-        <a class="card-action-btn" href="https://erecruitment.bb.org.bd" target="_blank" rel="noopener">ব্যাংক ফলাফল ↗</a>
-      </div>
-
-      <div class="card" data-category="job" data-keywords="railway br teletalk bangladesh railway recruitment বাংলাদেশ রেলওয়ে নিয়োগ">
-        <div class="card-header">
-          <h3>বাংলাদেশ রেলওয়ে নিয়োগ পরীক্ষা (BR)</h3>
-          <span class="badge job">রেলওয়ে</span>
-        </div>
-        <p class="card-desc">বাংলাদেশ রেলওয়ের বিভিন্ন পদের প্রিলিমিনারি, লিখিত ও ভাইভা নিয়োগ ফলাফল।</p>
-        <div class="card-domain">🔗 br.teletalk.com.bd</div>
-        <a class="card-action-btn" href="https://br.teletalk.com.bd" target="_blank" rel="noopener">রেলওয়ে রেজাল্ট ↗</a>
-      </div>
-
-      <div class="card" data-category="job" data-keywords="bjc judicial service assistant judge বাংলাদেশ জুডিশিয়াল সার্ভিস">
-        <div class="card-header">
-          <h3>বাংলাদেশ জুডিশিয়াল সার্ভিস (BJC)</h3>
-          <span class="badge job">জুডিশিয়ারি</span>
-        </div>
-        <p class="card-desc">সহকারী জজ নিয়োগের বিজেএসসি প্রিলিমিনারি ও মূল লিখিত পরীক্ষার ফলাফল।</p>
-        <div class="card-domain">🔗 bjc.gov.bd</div>
-        <a class="card-action-btn" href="http://www.bjc.gov.bd" target="_blank" rel="noopener">বিজেসি রেজাল্ট ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 08: 1-CLICK SMS GENERATOR TOOL ============ -->
-  <section id="sms-tool">
-    <div class="section-title-wrap">
-      <div class="section-icon-badge">📱</div>
-      <div>
-        <h2>১-ক্লিক এসএমএস রেজাল্ট জেনারেটর</h2>
-        <p>ইন্টারনেট ছাড়া মাত্র একটি এসএমএসে যেকোনো শিক্ষা বোর্ডের রেজাল্ট পেতে কোড তৈরি করুন</p>
-      </div>
-    </div>
-    <div class="sms-generator-card">
-      <div class="sms-grid">
-        <div class="form-grid" style="grid-template-columns: 1fr 1fr;">
-          <div class="form-group">
-            <label for="sms-exam-select">পরীক্ষা</label>
-            <select id="sms-exam-select">
-              <option value="SSC">SSC (এসএসসি)</option>
-              <option value="HSC">HSC (এইচএসসি)</option>
-              <option value="DAKHIL">DAKHIL (দাখিল)</option>
-              <option value="ALIM">ALIM (আলিম)</option>
-              <option value="SSC">VOCATIONAL (ভোকেশনাল)</option>
-              <option value="DPE">DPE (প্রাথমিক)</option>
-              <option value="EBT">EBT (ইবতেদায়ী)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="sms-board-select">বোর্ড কোড</label>
-            <select id="sms-board-select">
-              <option value="DHA">ঢাকা (DHA)</option>
-              <option value="DIN">দিনাজপুর (DIN)</option>
-              <option value="RAJ">রাজশাহী (RAJ)</option>
-              <option value="COM">কুমিল্লা (COM)</option>
-              <option value="CHI">চট্টগ্রাম (CHI)</option>
-              <option value="BAR">বরিশাল (BAR)</option>
-              <option value="SYL">সিলেট (SYL)</option>
-              <option value="JES">যশোর (JES)</option>
-              <option value="MYM">ময়মনসিংহ (MYM)</option>
-              <option value="MAD">মাদ্রাসা (MAD)</option>
-              <option value="TEC">কারিগরি (TEC)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="sms-roll-input">রোল নম্বর</label>
-            <input type="text" id="sms-roll-input" placeholder="যেমন: 123456" inputmode="numeric">
-          </div>
-          <div class="form-group">
-            <label for="sms-year-input">পরীক্ষার সাল</label>
-            <input type="text" id="sms-year-input" placeholder="যেমন: 2024" inputmode="numeric">
-          </div>
-        </div>
-
-        <div class="sms-output-box">
-          <div>
-            <span style="font-size:13px; font-weight:600; color:var(--text-muted);">প্রেরণ করুন ১৬২২২ (16222) নম্বরে:</span>
-            <div id="sms-preview-text" class="sms-code-preview">SSC DHA 123456 2024</div>
-          </div>
-          <div class="sms-btn-group">
-            <button type="button" id="copy-sms-btn" class="btn-copy-sms">
-              📋 টেক্সট কপি করুন
+    <!-- Live Board Result Lookup Widget -->
+    <section id="lookup" style="margin-top:0; padding:0;">
+      <div class="widget-box">
+        <h3 style="font-size:18px; margin-bottom:6px; color:var(--text-primary); font-weight:700;">⚡ সরাসরি শিক্ষা বোর্ড রেজাল্ট দেখুন</h3>
+        <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:18px;">এসএসসি, এইচএসসি, দাখিল ও আলিম পরীক্ষার রোল ও রেজিস্ট্রেশন নম্বর দিয়ে সরাসরি মার্কশিট অনুসন্ধান করুন:</p>
+        <form id="live-result-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="live-exam-input">পরীক্ষার নাম</label>
+              <select id="live-exam-input" name="exam" required>
+                <option value="">নির্বাচন করুন</option>
+                <option value="ssc">SSC / দাখিল / ভোকেশনাল</option>
+                <option value="hsc">HSC / আলিম / বিএম</option>
+                <option value="dakhil">Dakhil (মাদ্রাসা)</option>
+                <option value="alim">Alim (মাদ্রাসা)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="live-year-input">পরীক্ষার সাল</label>
+              <input id="live-year-input" type="text" inputmode="numeric" pattern="[0-9]{4}" name="year" placeholder="যেমন: 2024" required>
+            </div>
+            <div class="form-group">
+              <label for="live-board-input">শিক্ষা বোর্ড</label>
+              <select id="live-board-input" name="board" required>
+                <option value="">বোর্ড নির্বাচন করুন</option>
+                <option value="dhaka">ঢাকা (Dhaka)</option>
+                <option value="dinajpur">দিনাজপুর (Dinajpur)</option>
+                <option value="rajshahi">রাজশাহী (Rajshahi)</option>
+                <option value="comilla">কুমিল্লা (Comilla)</option>
+                <option value="chittagong">চট্টগ্রাম (Chittagong)</option>
+                <option value="barisal">বরিশাল (Barisal)</option>
+                <option value="sylhet">সিলেট (Sylhet)</option>
+                <option value="jessore">যশোর (Jessore)</option>
+                <option value="mymensingh">ময়মনসিংহ (Mymensingh)</option>
+                <option value="madrasah">মাদ্রাসা বোর্ড (Madrasah)</option>
+                <option value="tec">কারিগরি বোর্ড (Technical)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="live-roll-input">রোল নম্বর</label>
+              <input id="live-roll-input" type="text" inputmode="numeric" pattern="[0-9]*" name="roll" placeholder="রোল নম্বর দিন" required>
+            </div>
+            <div class="form-group">
+              <label for="live-reg-input">রেজিস্ট্রেশন নম্বর</label>
+              <input id="live-reg-input" type="text" inputmode="numeric" pattern="[0-9]*" name="reg" placeholder="রেজিস্ট্রেশন নম্বর দিন" required>
+            </div>
+            <button type="submit" class="btn-submit">
+              <span>ফলাফল অনুসন্ধান করুন</span> 🚀
             </button>
-            <a id="send-sms-btn" class="btn-send-sms" href="sms:16222?body=SSC%20DHA%20123456%202024">
-              ✉️ সরাসরি SMS পাঠান
-            </a>
+          </div>
+        </form>
+        <div id="live-result-display" class="api-result-display"></div>
+      </div>
+    </section>
+
+    <!-- Secondary & Higher Secondary Cards -->
+    <section id="secondary" style="padding:0; margin-top:32px;">
+      <div class="section-title-wrap">
+        <div class="section-icon-badge">🎓</div>
+        <div>
+          <h2>মাধ্যমিক ও উচ্চ মাধ্যমিক ফলাফল পোর্টাল</h2>
+          <p>এসএসসি, এইচএসসি, দাখিল, আলিম, বিএম ও ভোকেশনাল ফুল মার্কশিট ও রেজাল্ট গেজেট</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card" data-category="board" data-keywords="ssc dakhil vocational board result শিক্ষা বোর্ড ফলাফল">
+          <div class="card-header">
+            <h3>এসএসসি / দাখিল / ভোকেশনাল ফলাফল</h3>
+            <span class="badge gov">সরকারি পোর্টাল</span>
+          </div>
+          <p class="card-desc">শিক্ষা মন্ত্রণালয়ের মূল অফিসিয়াল রেজাল্ট সিস্টেম। গ্রেড শিট ও ব্যক্তিগত ফলাফল দেখার প্ল্যাটফর্ম।</p>
+          <div class="card-domain">🔗 educationboardresults.gov.bd</div>
+          <a class="card-action-btn" href="https://www.educationboardresults.gov.bd/result" target="_blank" rel="noopener">ফলাফল দেখুন ↗</a>
+        </div>
+
+        <div class="card" data-category="board" data-keywords="eboardresults web based ssc mark sheet ইবোর্ড রেজাল্ট প্রতিষ্ঠান ভিত্তিক">
+          <div class="card-header">
+            <h3>ওয়েব ভিত্তিক ফুল মার্কশিট সিস্টেম</h3>
+            <span class="badge board">বোর্ড ডিরেক্ট</span>
+          </div>
+          <p class="card-desc">প্রতিষ্ঠানভিত্তিক, কেন্দ্রভিত্তিক ও ব্যক্তিগত বিস্তারিত নম্বরপত্র ও ১৯৯৬ সাল থেকে আর্কাইভ ডাউনলোড।</p>
+          <div class="card-domain">🔗 eboardresults.com</div>
+          <a class="card-action-btn" href="https://www.eboardresults.com" target="_blank" rel="noopener">মার্কশিট দেখুন ↗</a>
+        </div>
+
+        <div class="card" data-category="board" data-keywords="hsc alim bm vocational higher secondary এইচএসসি আলিম ফলাফল">
+          <div class="card-header">
+            <h3>এইচএসসি / আলিম / বিএম ফলাফল</h3>
+            <span class="badge gov">সরকারি পোর্টাল</span>
+          </div>
+          <p class="card-desc">সাধারণ ৯টি বোর্ড, মাদ্রাসা ও কারিগরি বোর্ডের এইচএসসি ও আলিম পরীক্ষার রেজাল্ট পোর্টাল।</p>
+          <div class="card-domain">🔗 educationboardresults.gov.bd</div>
+          <a class="card-action-btn" href="https://www.educationboardresults.gov.bd/result" target="_blank" rel="noopener">ফলাফল দেখুন ↗</a>
+        </div>
+
+        <div class="card" data-category="primary" data-keywords="primary psc pece dpe teletalk প্রাথমিক ফলাফল">
+          <div class="card-header">
+            <h3>টেলিটক প্রাথমিক ফলাফল (PEC/ইবতেদায়ী)</h3>
+            <span class="badge primary">ডিপিই পোর্টাল</span>
+          </div>
+          <p class="card-desc">প্রাথমিক শিক্ষা অধিদপ্তরের টেলিকম সার্ভার থেকে পিএসসি ও ইবতেদায়ী ফলাফল অনুসন্ধান।</p>
+          <div class="card-domain">🔗 dpe.teletalk.com.bd</div>
+          <a class="card-action-btn" href="https://dpe.teletalk.com.bd" target="_blank" rel="noopener">প্রাথমিক রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card alt" data-category="primary" data-keywords="primary scholarship ipemis dpe প্রাথমিক বৃত্তি ফলাফল">
+          <div class="card-header">
+            <h3>প্রাথমিক মেধা বৃত্তি ফলাফল (IPEMIS)</h3>
+            <span class="badge gov">সরকারি পোর্টাল</span>
+          </div>
+          <p class="card-desc">প্রাথমিক শিক্ষা অধিদপ্তরের IPEMIS পোর্টাল থেকে থানা ও জেলা ভিত্তিক বৃত্তি তালিকা।</p>
+          <div class="card-domain">🔗 ipemis.dpe.gov.bd</div>
+          <a class="card-action-btn" href="https://ipemis.dpe.gov.bd/scholarship-results" target="_blank" rel="noopener">বৃত্তি ফলাফল ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 Education Boards Table -->
+    <section id="boards" style="padding:0; margin-top:36px;">
+      <div class="section-title-wrap">
+        <div class="section-icon-badge">🏛️</div>
+        <div>
+          <h2>১১টি শিক্ষা বোর্ড ডিরেক্টরি</h2>
+          <p>বাংলাদেশের সকল সাধারণ, মাদ্রাসা ও কারিগরি শিক্ষা বোর্ডের নিজস্ব অফিসিয়াল ওয়েবসাইট</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="board-table">
+          <thead>
+            <tr>
+              <th>শিক্ষা বোর্ডের নাম</th>
+              <th>ধরন</th>
+              <th>অফিসিয়াল ওয়েবসাইট</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="board-row" data-category="board" data-keywords="dhaka board ঢাকা বোর্ড"><td>ঢাকা শিক্ষা বোর্ড (Dhaka Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://www.dhakaeducationboard.gov.bd" target="_blank" rel="noopener">dhakaeducationboard.gov.bd ↗</a></td></tr>
+            <tr class="board-row" data-category="board" data-keywords="rajshahi board রাজশাহী বোর্ড"><td>রাজশাহী শিক্ষা বোর্ড (Rajshahi Board)</td><td>সাধারণ</td><td><a class="board-link" href="http://www.rajshahieducationboard.gov.bd" target="_blank" rel="noopener">rajshahieducationboard.gov.bd ↗</a></td></tr>
+            <tr class="board-row" data-category="board" data-keywords="comilla board কুমিল্লা বোর্ড"><td>কুমিল্লা শিক্ষা বোর্ড (Comilla Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://comillaboard.portal.gov.bd" target="_blank" rel="noopener">comillaboard.portal.gov.bd ↗</a></td></tr>
+            <tr class="board-row" data-category="board" data-keywords="jessore board যশোর বোর্ড"><td>যশোর শিক্ষা বোর্ড (Jessore Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://www.jessoreboard.gov.bd" target="_blank" rel="noopener">jessoreboard.gov.bd ↗</a></td></tr>
+            <tr class="board-row" data-category="board" data-keywords="chittagong board চট্টগ্রাম বোর্ড"><td>চট্টগ্রাম শিক্ষা বোর্ড (Chittagong Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://bise-ctg.portal.gov.bd" target="_blank" rel="noopener">bise-ctg.portal.gov.bd ↗</a></td></tr>
+            <tr class="board-row" data-category="board" data-keywords="barisal board বরিশাল বোর্ড"><td>বরিশাল শিক্ষা বোর্ড (Barisal Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://www.barisalboard.gov.bd" target="_blank" rel="noopener">barisalboard.gov.bd ↗</a></td></tr>
+            <tr class="board-row" data-category="board" data-keywords="sylhet board সিলেট বোর্ড"><td>সিলেট শিক্ষা বোর্ড (Sylhet Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://sylhetboard.gov.bd" target="_blank" rel="noopener">sylhetboard.gov.bd ↗</a></td></tr>
+            <tr class="board-row" data-category="board" data-keywords="dinajpur board দিনাজপুর বোর্ড"><td>দিনাজপুর শিক্ষা বোর্ড (Dinajpur Board)</td><td>সাধারণ</td><td><a class="board-link" href="http://dinajpureducationboard.gov.bd" target="_blank" rel="noopener">dinajpureducationboard.gov.bd ↗</a></td></tr>
+            <tr class="board-row" data-category="board" data-keywords="mymensingh board ময়মনসিংহ বোর্ড"><td>ময়মনসিংহ শিক্ষা বোর্ড (Mymensingh Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://mymensinghboard.gov.bd" target="_blank" rel="noopener">mymensinghboard.gov.bd ↗</a></td></tr>
+            <tr class="board-row" data-category="board" data-keywords="madrasah board bmeb মাদ্রাসা বোর্ড"><td>বাংলাদেশ মাদ্রাসা শিক্ষা বোর্ড (BMEB)</td><td>দাখিল / আলিম</td><td><a class="board-link" href="http://www.bmeb.gov.bd" target="_blank" rel="noopener">bmeb.gov.bd ↗</a></td></tr>
+            <tr class="board-row" data-category="board" data-keywords="technical board bteb কারিগরি বোর্ড"><td>বাংলাদেশ কারিগরি শিক্ষা বোর্ড (BTEB)</td><td>ভোকেশনাল / ডিপ্লোমা</td><td><a class="board-link" href="https://bteb.gov.bd" target="_blank" rel="noopener">bteb.gov.bd ↗</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- =========================================================================
+       PILLAR 2: উচ্চশিক্ষা ও ভর্তি পরীক্ষা (Higher Education & Admissions)
+       ========================================================================= -->
+  <div id="pillar-higher-edu" class="pillar-section">
+    <div class="pillar-banner">
+      <div class="pillar-banner-text">
+        <h2><span>🎓</span> পিলার ০২: উচ্চশিক্ষা ও ভর্তি পরীক্ষা</h2>
+        <p>পাবলিক বিশ্ববিদ্যালয় গুচ্ছ, ঢাবি, বুয়েট, মেডিকেল, ডেন্টাল, নার্সিং, জাতীয় বিশ্ববিদ্যালয় ও কারিগরি শিক্ষা</p>
+      </div>
+      <span class="pillar-badge">PILLAR 02</span>
+    </div>
+
+    <!-- University Admissions -->
+    <section id="university" style="padding:0; margin-top:0;">
+      <div class="section-title-wrap">
+        <div class="section-icon-badge">🏛️</div>
+        <div>
+          <h2>পাবলিক বিশ্ববিদ্যালয় ১ম বর্ষ স্নাতক ভর্তি</h2>
+          <p>সাধারণ গুচ্ছ, কৃষি গুচ্ছ, প্রকৌশল গুচ্ছ এবং শীর্ষ স্বায়ত্তশাসিত বিশ্ববিদ্যালয়ের ভর্তি ফলাফল</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card" data-category="university" data-keywords="gst admission general science technology গুচ্ছ ভর্তি ফলাফল">
+          <div class="card-header">
+            <h3>জিএসটি সাধারণ ও বিজ্ঞান গুচ্ছ ভর্তি</h3>
+            <span class="badge uni">গুচ্ছ ভর্তি</span>
+          </div>
+          <p class="card-desc">২৪টি পাবলিক সাধারণ, বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ের সমন্বিত জিএসটি ফলাফল ও মেরিট তালিকা।</p>
+          <div class="card-domain">🔗 gstadmission.ac.bd</div>
+          <a class="card-action-btn" href="https://gstadmission.ac.bd" target="_blank" rel="noopener">গুচ্ছ রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card alt" data-category="university" data-keywords="agri gst agricultural university কৃষি গুচ্ছ ভর্তি ফলাফল">
+          <div class="card-header">
+            <h3>কৃষি গুচ্ছ ভর্তি পরীক্ষা (Agri GST)</h3>
+            <span class="badge uni">কৃষি গুচ্ছ</span>
+          </div>
+          <p class="card-desc">বাংলাদেশ কৃষি বিশ্ববিদ্যালয় সহ ৯টি সরকারি কৃষি বিশ্ববিদ্যালয়ের সমন্বিত ফলাফল।</p>
+          <div class="card-domain">🔗 agri-gst.org</div>
+          <a class="card-action-btn" href="https://agri-gst.org" target="_blank" rel="noopener">কৃষি গুচ্ছ রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card" data-category="university" data-keywords="dhaka university du admission result ঢাকা বিশ্ববিদ্যালয় ভর্তি">
+          <div class="card-header">
+            <h3>ঢাকা বিশ্ববিদ্যালয় ভর্তি (DU)</h3>
+            <span class="badge uni">ঢাবি পোর্টাল</span>
+          </div>
+          <p class="card-desc">ঢাবি বিজ্ঞান, কলা ও সামাজিক বিজ্ঞান, ব্যবসায় শিক্ষা এবং চারুকলা ইউনিটের ফলাফল।</p>
+          <div class="card-domain">🔗 admission.eis.du.ac.bd</div>
+          <a class="card-action-btn" href="https://admission.eis.du.ac.bd" target="_blank" rel="noopener">ঢাবি রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card alt" data-category="university" data-keywords="buet engineering admission result বুয়েট ভর্তি">
+          <div class="card-header">
+            <h3>বুয়েট প্রকৌশল ভর্তি (BUET)</h3>
+            <span class="badge uni">বুয়েট</span>
+          </div>
+          <p class="card-desc">বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয় (BUET)-এর প্রিলিমিনারি ও মূল ভর্তি পরীক্ষার ফলাফল।</p>
+          <div class="card-domain">🔗 ugadmission.buet.ac.bd</div>
+          <a class="card-action-btn" href="https://ugadmission.buet.ac.bd" target="_blank" rel="noopener">বুয়েট রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card" data-category="university" data-keywords="ckruet ruet kuet cuet engineering cluster প্রকৌশল গুচ্ছ">
+          <div class="card-header">
+            <h3>প্রকৌশল গুচ্ছ (CKRUET: রুয়েট, কুয়েট, চুয়েট)</h3>
+            <span class="badge uni">প্রকৌশল গুচ্ছ</span>
+          </div>
+          <p class="card-desc">রুয়েট, কুয়েট ও চুয়েট সমন্বিত ইঞ্জিনিয়ারিং ভর্তি পরীক্ষার মেধা তালিকা ও মেরিট লিস্ট।</p>
+          <div class="card-domain">🔗 ckruet.ac.bd</div>
+          <a class="card-action-btn" href="https://ckruet.ac.bd" target="_blank" rel="noopener">সিকেআরইউইটি রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card alt" data-category="university" data-keywords="rajshahi university ru admission result রাজশাহী বিশ্ববিদ্যালয়">
+          <div class="card-header">
+            <h3>রাজশাহী বিশ্ববিদ্যালয় (RU)</h3>
+            <span class="badge uni">রাবি পোর্টাল</span>
+          </div>
+          <p class="card-desc">রাজশাহী বিশ্ববিদ্যালয়ের ‘এ’, ‘বি’ ও ‘সি’ ইউনিটের ভর্তি পরীক্ষার ফলাফল ও সাবজেক্ট চয়েস।</p>
+          <div class="card-domain">🔗 admission.ru.ac.bd</div>
+          <a class="card-action-btn" href="https://admission.ru.ac.bd" target="_blank" rel="noopener">রাবি রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card" data-category="university" data-keywords="chittagong university cu admission result চট্টগ্রাম বিশ্ববিদ্যালয়">
+          <div class="card-header">
+            <h3>চট্টগ্রাম বিশ্ববিদ্যালয় (CU)</h3>
+            <span class="badge uni">চবি পোর্টাল</span>
+          </div>
+          <p class="card-desc">চট্টগ্রাম বিশ্ববিদ্যালয়ের সকল ইউনিট ও উপ-ইউনিটের ভর্তি পরীক্ষার মেধা তালিকা।</p>
+          <div class="card-domain">🔗 admission.cu.ac.bd</div>
+          <a class="card-action-btn" href="https://admission.cu.ac.bd" target="_blank" rel="noopener">চবি রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card alt" data-category="university" data-keywords="jahangirnagar university ju admission result জাহাঙ্গীরনগর বিশ্ববিদ্যালয়">
+          <div class="card-header">
+            <h3>জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU)</h3>
+            <span class="badge uni">জাবি পোর্টাল</span>
+          </div>
+          <p class="card-desc">জাহাঙ্গীরনগর বিশ্ববিদ্যালয়ের সকল ইউনিটের লিখিত ভর্তি পরীক্ষার ফলাফল ও মেধা ক্রম।</p>
+          <div class="card-domain">🔗 ju-admission.org</div>
+          <a class="card-action-btn" href="https://ju-admission.org" target="_blank" rel="noopener">জাবি রেজাল্ট ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Medical & Nursing -->
+    <section id="pillar-medical" style="padding:0; margin-top:36px;">
+      <div class="section-title-wrap">
+        <div class="section-icon-badge">🏥</div>
+        <div>
+          <h2>মেডিকেল, ডেন্টাল, নার্সিং ও আর্মড ফোর্সেস ভর্তি</h2>
+          <p>স্বাস্থ্য অধিদপ্তর (DGHS) ও নার্সিং কাউন্সিল পরিচালিত সরকারি ও বেসরকারি ভর্তি রেজাল্ট</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card" data-category="medical" data-keywords="mbbs medical admission dghs teletalk মেডিকেল ভর্তি ফলাফল">
+          <div class="card-header">
+            <h3>এমবিবিএস মেডিকেল ভর্তি ফলাফল (MBBS)</h3>
+            <span class="badge med">স্বাস্থ্য অধিদপ্তর</span>
+          </div>
+          <p class="card-desc">সরকারি ও বেসরকারি মেডিকেল কলেজের এমবিবিএস ভর্তি পরীক্ষার মেধা তালিকা ও কলেজ বণ্টন।</p>
+          <div class="card-domain">🔗 result.dghs.gov.bd</div>
+          <a class="card-action-btn" href="https://result.dghs.gov.bd" target="_blank" rel="noopener">মেডিকেল রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card alt" data-category="medical" data-keywords="bds dental admission result ডেন্টাল ভর্তি ফলাফল">
+          <div class="card-header">
+            <h3>বিডিএস ডেন্টাল ভর্তি ফলাফল (BDS)</h3>
+            <span class="badge med">স্বাস্থ্য অধিদপ্তর</span>
+          </div>
+          <p class="card-desc">সরকারি ও বেসরকারি ডেন্টাল কলেজ ও ডেন্টাল ইউনিটের বিডিএস (BDS) ভর্তি পরীক্ষার ফলাফল।</p>
+          <div class="card-domain">🔗 result.dghs.gov.bd/bds</div>
+          <a class="card-action-btn" href="https://result.dghs.gov.bd" target="_blank" rel="noopener">ডেন্টাল রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card" data-category="medical" data-keywords="nursing bnmc teletalk bsc diploma midwifery নার্সিং ভর্তি ফলাফল">
+          <div class="card-header">
+            <h3>নার্সিং ও মিডওয়াইফারি ভর্তি (BNMC)</h3>
+            <span class="badge med">বিএনএমসি</span>
+          </div>
+          <p class="card-desc">বিএসসি নার্সিং, ডিপ্লোমা নার্সিং সায়েন্স ও মিডওয়াইফারি ভর্তি পরীক্ষার মেধা তালিকা।</p>
+          <div class="card-domain">🔗 bnmc.teletalk.com.bd</div>
+          <a class="card-action-btn" href="https://bnmc.teletalk.com.bd" target="_blank" rel="noopener">নার্সিং রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card alt" data-category="medical" data-keywords="afmc amc armed forces medical college এএফএমসি ভর্তি">
+          <div class="card-header">
+            <h3>আর্মড ফোর্সেস মেডিকেল (AFMC & AMC)</h3>
+            <span class="badge med">সশস্ত্র বাহিনী</span>
+          </div>
+          <p class="card-desc">আর্মড ফোর্সেস মেডিকেল কলেজ এবং ৫টি আর্মি মেডিকেল কলেজের এমবিবিএস ভর্তি ফলাফল।</p>
+          <div class="card-domain">🔗 afmc.teletalk.com.bd</div>
+          <a class="card-action-btn" href="https://afmc.teletalk.com.bd" target="_blank" rel="noopener">এএফএমসি রেজাল্ট ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- National University & Technical -->
+    <section id="pillar-nu-bteb" style="padding:0; margin-top:36px;">
+      <div class="section-title-wrap">
+        <div class="section-icon-badge">📚</div>
+        <div>
+          <h2>জাতীয় বিশ্ববিদ্যালয়, উন্মুক্ত বিশ্ববিদ্যালয় ও কারিগরি শিক্ষা</h2>
+          <p>জাতীয় বিশ্ববিদ্যালয় (NU) অনার্স/ডিগ্রি/মাস্টার্স, বাউবি (BOU) এবং পলিটেকনিক ডিপ্লোমা ফলাফল</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card" data-category="nu-bteb" data-keywords="nu national university honours degree masters results জাতীয় বিশ্ববিদ্যালয় ফলাফল">
+          <div class="card-header">
+            <h3>জাতীয় বিশ্ববিদ্যালয় ফলাফল (NU Results)</h3>
+            <span class="badge nu">এনইউ রেজাল্ট</span>
+          </div>
+          <p class="card-desc">অনার্স ১ম, ২য়, ৩য়, ৪র্থ বর্ষ, ডিগ্রি পাস ও মাস্টার্স পরীক্ষার সিজিপিএ ও বিস্তারিত নম্বরপত্র।</p>
+          <div class="card-domain">🔗 results.nu.ac.bd</div>
+          <a class="card-action-btn" href="https://results.nu.ac.bd/" target="_blank" rel="noopener">এনইউ ফলাফল ↗</a>
+        </div>
+
+        <div class="card alt" data-category="nu-bteb" data-keywords="nu admission honours degree masters national university admission জাতীয় বিশ্ববিদ্যালয় ভর্তি">
+          <div class="card-header">
+            <h3>জাতীয় বিশ্ববিদ্যালয় ভর্তি ও রিলিজ স্লিপ</h3>
+            <span class="badge nu">এনইউ ভর্তি</span>
+          </div>
+          <p class="card-desc">অনার্স ১ম বর্ষ ভর্তি, কোটা ও রিলিজ স্লিপ মেধা তালিকা দেখার অফিসিয়াল পোর্টাল।</p>
+          <div class="card-domain">🔗 app1.nu.edu.bd</div>
+          <a class="card-action-btn" href="http://app1.nu.edu.bd/" target="_blank" rel="noopener">এনইউ ভর্তি ↗</a>
+        </div>
+
+        <div class="card" data-category="nu-bteb" data-keywords="bou open university ssc hsc degree honours result উন্মুক্ত বিশ্ববিদ্যালয় ফলাফল">
+          <div class="card-header">
+            <h3>বাংলাদেশ উন্মুক্ত বিশ্ববিদ্যালয় (BOU)</h3>
+            <span class="badge nu">বাউবি পোর্টাল</span>
+          </div>
+          <p class="card-desc">বাউবি এসএসসি, এইচএসসি, বিএ, বিএসএস, বিবিএ ও বিএড পরীক্ষার সিজিপিএ পোর্টাল।</p>
+          <div class="card-domain">🔗 exam.bou.ac.bd</div>
+          <a class="card-action-btn" href="https://exam.bou.ac.bd" target="_blank" rel="noopener">বাউবি ফলাফল ↗</a>
+        </div>
+
+        <div class="card alt" data-category="nu-bteb" data-keywords="bteb polytechnic diploma engineering textile marine কারিগরি ডিপ্লোমা ফলাফল">
+          <div class="card-header">
+            <h3>কারিগরি ডিপ্লোমা ইন ইঞ্জিনিয়ারিং (BTEB)</h3>
+            <span class="badge nu">বিটিইবি ডিপ্লোমা</span>
+          </div>
+          <p class="card-desc">পলিটেকনিকের ডিপ্লোমা ইন ইঞ্জিনিয়ারিং, টেক্সটাইল ও মেরিন পরীক্ষার সেমিস্টার রেজাল্ট।</p>
+          <div class="card-domain">🔗 btebresult.gov.bd</div>
+          <a class="card-action-btn" href="https://btebresult.gov.bd" target="_blank" rel="noopener">ডিপ্লোমা রেজাল্ট ↗</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- =========================================================================
+       PILLAR 3: চাকুরী ও ক্যারিয়ার পরীক্ষা (Job & Career Recruitment Exams)
+       ========================================================================= -->
+  <div id="pillar-jobs" class="pillar-section">
+    <div class="pillar-banner">
+      <div class="pillar-banner-text">
+        <h2><span>💼</span> পিলার ০৩: সরকারি, শিক্ষক ও ব্যাংক চাকুরী পরীক্ষা</h2>
+        <p>বিসিএস, এনটিআরসিএ শিক্ষক নিবন্ধন, প্রাথমিক শিক্ষক নিয়োগ, কম্বাইন্ড ব্যাংক, রেলওয়ে ও জুডিশিয়ারি</p>
+      </div>
+      <span class="pillar-badge">PILLAR 03</span>
+    </div>
+
+    <section id="job-exams" style="padding:0; margin-top:0;">
+      <div class="grid">
+        <div class="card" data-category="job" data-keywords="bcs bpsc preliminary written viva result বিসিএস পরীক্ষা ফলাফল">
+          <div class="card-header">
+            <h3>বিসিএস পরীক্ষা ফলাফল (BPSC)</h3>
+            <span class="badge job">বিপিএসসি</span>
+          </div>
+          <p class="card-desc">বিসিএস প্রিলিমিনারি, লিখিত এবং ভাইভা পরীক্ষার ফলাফল ও ক্যাডার সুপারিশ গেজেট।</p>
+          <div class="card-domain">🔗 bpsc.gov.bd</div>
+          <a class="card-action-btn" href="https://bpsc.gov.bd" target="_blank" rel="noopener">বিসিএস রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card alt" data-category="job" data-keywords="ntrca teacher registration result শিক্ষক নিবন্ধন ফলাফল">
+          <div class="card-header">
+            <h3>এনটিআরসিএ শিক্ষক নিবন্ধন (NTRCA)</h3>
+            <span class="badge job">এনটিআরসিএ</span>
+          </div>
+          <p class="card-desc">বেসরকারি শিক্ষক নিবন্ধন পরীক্ষা ও গণবিজ্ঞপ্তির সুপারিশ তালিকা দেখার অফিসিয়াল সাইট।</p>
+          <div class="card-domain">🔗 ntrca.teletalk.com.bd</div>
+          <a class="card-action-btn" href="http://ntrca.teletalk.com.bd" target="_blank" rel="noopener">শিক্ষক নিবন্ধন ↗</a>
+        </div>
+
+        <div class="card" data-category="job" data-keywords="primary teacher recruitment dpe teletalk প্রাথমিক শিক্ষক নিয়োগ ফলাফল">
+          <div class="card-header">
+            <h3>প্রাথমিক সরকারি শিক্ষক নিয়োগ (DPE)</h3>
+            <span class="badge job">ডিপিই শিক্ষক</span>
+          </div>
+          <p class="card-desc">প্রাথমিক সহকারী শিক্ষক নিয়োগ পরীক্ষার লিখিত ও চূড়ান্ত ভাইভার জেলাভিত্তিক ফলাফল।</p>
+          <div class="card-domain">🔗 dpe.portal.gov.bd</div>
+          <a class="card-action-btn" href="https://dpe.portal.gov.bd" target="_blank" rel="noopener">শিক্ষক নিয়োগ ↗</a>
+        </div>
+
+        <div class="card alt" data-category="job" data-keywords="bank job bangladesh bank combined bank recruitment ব্যাংক জব ফলাফল">
+          <div class="card-header">
+            <h3>কম্বাইন্ড ব্যাংক ও বাংলাদেশ ব্যাংক জব</h3>
+            <span class="badge job">ব্যাংক জব</span>
+          </div>
+          <p class="card-desc">বাংলাদেশ ব্যাংক সমন্বিত ৯টি সরকারি ব্যাংক ও আর্থিক প্রতিষ্ঠানের অফিসার নিয়োগ ফলাফল।</p>
+          <div class="card-domain">🔗 erecruitment.bb.org.bd</div>
+          <a class="card-action-btn" href="https://erecruitment.bb.org.bd" target="_blank" rel="noopener">ব্যাংক ফলাফল ↗</a>
+        </div>
+
+        <div class="card" data-category="job" data-keywords="railway br teletalk bangladesh railway recruitment বাংলাদেশ রেলওয়ে নিয়োগ">
+          <div class="card-header">
+            <h3>বাংলাদেশ রেলওয়ে নিয়োগ পরীক্ষা (BR)</h3>
+            <span class="badge job">রেলওয়ে</span>
+          </div>
+          <p class="card-desc">বাংলাদেশ রেলওয়ের বিভিন্ন পদের প্রিলিমিনারি, লিখিত ও ভাইভা নিয়োগ ফলাফল।</p>
+          <div class="card-domain">🔗 br.teletalk.com.bd</div>
+          <a class="card-action-btn" href="https://br.teletalk.com.bd" target="_blank" rel="noopener">রেলওয়ে রেজাল্ট ↗</a>
+        </div>
+
+        <div class="card alt" data-category="job" data-keywords="bjc judicial service assistant judge বাংলাদেশ জুডিশিয়াল সার্ভিস">
+          <div class="card-header">
+            <h3>বাংলাদেশ জুডিশিয়াল সার্ভিস (BJC)</h3>
+            <span class="badge job">জুডিশিয়ারি</span>
+          </div>
+          <p class="card-desc">সহকারী জজ নিয়োগের বিজেএসসি প্রিলিমিনারি ও মূল লিখিত পরীক্ষার ফলাফল।</p>
+          <div class="card-domain">🔗 bjc.gov.bd</div>
+          <a class="card-action-btn" href="http://www.bjc.gov.bd" target="_blank" rel="noopener">বিজেসি রেজাল্ট ↗</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- =========================================================================
+       PILLAR 4: ফলাফল টুলস, এসএমএস ও সহায়িকা (Tools, SMS & Grading Scale)
+       ========================================================================= -->
+  <div id="pillar-tools" class="pillar-section">
+    <div class="pillar-banner">
+      <div class="pillar-banner-text">
+        <h2><span>🛠️</span> পিলার ০৪: ফলাফল টুলস ও সহায়িকা</h2>
+        <p>১-ক্লিক এসএমএস রেজাল্ট জেনারেটর, বাংলাদেশ গ্রেডিং স্কেল এবং সাধারণ জিজ্ঞাসা</p>
+      </div>
+      <span class="pillar-badge">PILLAR 04</span>
+    </div>
+
+    <!-- 1-Click SMS Generator Tool -->
+    <section id="sms-tool" style="padding:0; margin-top:0;">
+      <div class="section-title-wrap">
+        <div class="section-icon-badge">📱</div>
+        <div>
+          <h2>১-ক্লিক এসএমএস রেজাল্ট জেনারেটর</h2>
+          <p>ইন্টারনেট ছাড়া মাত্র একটি এসএমএসে যেকোনো শিক্ষা বোর্ডের রেজাল্ট পেতে কোড তৈরি করুন</p>
+        </div>
+      </div>
+      <div class="sms-generator-card">
+        <div class="sms-grid">
+          <div class="form-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="form-group">
+              <label for="sms-exam-select">পরীক্ষা</label>
+              <select id="sms-exam-select">
+                <option value="SSC">SSC (এসএসসি)</option>
+                <option value="HSC">HSC (এইচএসসি)</option>
+                <option value="DAKHIL">DAKHIL (দাখিল)</option>
+                <option value="ALIM">ALIM (আলিম)</option>
+                <option value="SSC">VOCATIONAL (ভোকেশনাল)</option>
+                <option value="DPE">DPE (প্রাথমিক)</option>
+                <option value="EBT">EBT (ইবতেদায়ী)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sms-board-select">বোর্ড কোড</label>
+              <select id="sms-board-select">
+                <option value="DHA">ঢাকা (DHA)</option>
+                <option value="DIN">দিনাজপুর (DIN)</option>
+                <option value="RAJ">রাজশাহী (RAJ)</option>
+                <option value="COM">কুমিল্লা (COM)</option>
+                <option value="CHI">চট্টগ্রাম (CHI)</option>
+                <option value="BAR">বরিশাল (BAR)</option>
+                <option value="SYL">সিলেট (SYL)</option>
+                <option value="JES">যশোর (JES)</option>
+                <option value="MYM">ময়মনসিংহ (MYM)</option>
+                <option value="MAD">মাদ্রাসা (MAD)</option>
+                <option value="TEC">কারিগরি (TEC)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sms-roll-input">রোল নম্বর</label>
+              <input type="text" id="sms-roll-input" placeholder="যেমন: 123456" inputmode="numeric">
+            </div>
+            <div class="form-group">
+              <label for="sms-year-input">পরীক্ষার সাল</label>
+              <input type="text" id="sms-year-input" placeholder="যেমন: 2024" inputmode="numeric">
+            </div>
+          </div>
+
+          <div class="sms-output-box">
+            <div>
+              <span style="font-size:13px; font-weight:600; color:var(--text-muted);">প্রেরণ করুন ১৬২২২ (16222) নম্বরে:</span>
+              <div id="sms-preview-text" class="sms-code-preview">SSC DHA 123456 2024</div>
+            </div>
+            <div class="sms-btn-group">
+              <button type="button" id="copy-sms-btn" class="btn-copy-sms">
+                📋 টেক্সট কপি করুন
+              </button>
+              <a id="send-sms-btn" class="btn-send-sms" href="sms:16222?body=SSC%20DHA%20123456%202024">
+                ✉️ সরাসরি SMS পাঠান
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============ 09: EDUCATION BOARDS DIRECTORY ============ -->
-  <section id="boards">
-    <div class="section-title-wrap">
-      <div class="section-icon-badge">🏛️</div>
-      <div>
-        <h2>১১টি শিক্ষা বোর্ড ডিরেক্টরি</h2>
-        <p>বাংলাদেশের সকল সাধারণ, মাদ্রাসা ও কারিগরি শিক্ষা বোর্ডের অফিসিয়াল ওয়েবসাইট লিঙ্ক</p>
+    <!-- Grading Scale Table -->
+    <section id="grading" style="padding:0; margin-top:36px;">
+      <div class="section-title-wrap">
+        <div class="section-icon-badge">📊</div>
+        <div>
+          <h2>বাংলাদেশ গ্রেডিং পদ্ধতি ও জিপিএ স্কেল (GPA Scale)</h2>
+          <p>মাধ্যমিক ও উচ্চ মাধ্যমিক শিক্ষা বোর্ডের অনুমোদিত গ্রেডিং স্কেল বিবরণী</p>
+        </div>
       </div>
-    </div>
-    <div class="table-wrap">
-      <table class="board-table">
-        <thead>
-          <tr>
-            <th>শিক্ষা বোর্ডের নাম</th>
-            <th>ধরন</th>
-            <th>অফিসিয়াল ওয়েবসাইট</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="board-row" data-category="board" data-keywords="dhaka board ঢাকা বোর্ড"><td>ঢাকা শিক্ষা বোর্ড (Dhaka Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://www.dhakaeducationboard.gov.bd" target="_blank" rel="noopener">dhakaeducationboard.gov.bd ↗</a></td></tr>
-          <tr class="board-row" data-category="board" data-keywords="rajshahi board রাজশাহী বোর্ড"><td>রাজশাহী শিক্ষা বোর্ড (Rajshahi Board)</td><td>সাধারণ</td><td><a class="board-link" href="http://www.rajshahieducationboard.gov.bd" target="_blank" rel="noopener">rajshahieducationboard.gov.bd ↗</a></td></tr>
-          <tr class="board-row" data-category="board" data-keywords="comilla board কুমিল্লা বোর্ড"><td>কুমিল্লা শিক্ষা বোর্ড (Comilla Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://comillaboard.portal.gov.bd" target="_blank" rel="noopener">comillaboard.portal.gov.bd ↗</a></td></tr>
-          <tr class="board-row" data-category="board" data-keywords="jessore board যশোর বোর্ড"><td>যশোর শিক্ষা বোর্ড (Jessore Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://www.jessoreboard.gov.bd" target="_blank" rel="noopener">jessoreboard.gov.bd ↗</a></td></tr>
-          <tr class="board-row" data-category="board" data-keywords="chittagong board চট্টগ্রাম বোর্ড"><td>চট্টগ্রাম শিক্ষা বোর্ড (Chittagong Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://bise-ctg.portal.gov.bd" target="_blank" rel="noopener">bise-ctg.portal.gov.bd ↗</a></td></tr>
-          <tr class="board-row" data-category="board" data-keywords="barisal board বরিশাল বোর্ড"><td>বরিশাল শিক্ষা বোর্ড (Barisal Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://www.barisalboard.gov.bd" target="_blank" rel="noopener">barisalboard.gov.bd ↗</a></td></tr>
-          <tr class="board-row" data-category="board" data-keywords="sylhet board সিলেট বোর্ড"><td>সিলেট শিক্ষা বোর্ড (Sylhet Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://sylhetboard.gov.bd" target="_blank" rel="noopener">sylhetboard.gov.bd ↗</a></td></tr>
-          <tr class="board-row" data-category="board" data-keywords="dinajpur board দিনাজপুর বোর্ড"><td>দিনাজপুর শিক্ষা বোর্ড (Dinajpur Board)</td><td>সাধারণ</td><td><a class="board-link" href="http://dinajpureducationboard.gov.bd" target="_blank" rel="noopener">dinajpureducationboard.gov.bd ↗</a></td></tr>
-          <tr class="board-row" data-category="board" data-keywords="mymensingh board ময়মনসিংহ বোর্ড"><td>ময়মনসিংহ শিক্ষা বোর্ড (Mymensingh Board)</td><td>সাধারণ</td><td><a class="board-link" href="https://mymensinghboard.gov.bd" target="_blank" rel="noopener">mymensinghboard.gov.bd ↗</a></td></tr>
-          <tr class="board-row" data-category="board" data-keywords="madrasah board bmeb মাদ্রাসা বোর্ড"><td>বাংলাদেশ মাদ্রাসা শিক্ষা বোর্ড (BMEB)</td><td>দাখিল / আলিম</td><td><a class="board-link" href="http://www.bmeb.gov.bd" target="_blank" rel="noopener">bmeb.gov.bd ↗</a></td></tr>
-          <tr class="board-row" data-category="board" data-keywords="technical board bteb কারিগরি বোর্ড"><td>বাংলাদেশ কারিগরি শিক্ষা বোর্ড (BTEB)</td><td>ভোকেশনাল / ডিপ্লোমা</td><td><a class="board-link" href="https://bteb.gov.bd" target="_blank" rel="noopener">bteb.gov.bd ↗</a></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+      <div class="table-wrap">
+        <table class="board-table">
+          <thead>
+            <tr>
+              <th>নম্বর সীমা (Class Interval)</th>
+              <th>লেটার গ্রেড (Letter Grade)</th>
+              <th>গ্রেড পয়েন্ট (Grade Point)</th>
+              <th>মন্তব্য (Remarks)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="mono">80 - 100</td><td><strong style="color:var(--accent-emerald);">A+</strong></td><td class="mono">5.00</td><td>অসাধারণ (Outstanding)</td></tr>
+            <tr><td class="mono">70 - 79</td><td><strong style="color:var(--primary);">A</strong></td><td class="mono">4.00</td><td>চমৎকার (Excellent)</td></tr>
+            <tr><td class="mono">60 - 69</td><td><strong>A-</strong></td><td class="mono">3.50</td><td>খুব ভালো (Very Good)</td></tr>
+            <tr><td class="mono">50 - 59</td><td><strong>B</strong></td><td class="mono">3.00</td><td>ভালো (Good)</td></tr>
+            <tr><td class="mono">40 - 49</td><td><strong>C</strong></td><td class="mono">2.00</td><td>সন্তোষজনক (Satisfactory)</td></tr>
+            <tr><td class="mono">33 - 39</td><td><strong>D</strong></td><td class="mono">1.00</td><td>উত্তীর্ণ (Passing)</td></tr>
+            <tr><td class="mono">00 - 32</td><td><strong style="color:var(--accent-rose);">F</strong></td><td class="mono">0.00</td><td>অনুত্তীর্ণ (Failed)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-  <!-- ============ 10: BANGLADESH GRADING SCALE ============ -->
-  <section id="grading">
-    <div class="section-title-wrap">
-      <div class="section-icon-badge">📊</div>
-      <div>
-        <h2>বাংলাদেশ গ্রেডিং পদ্ধতি ও জিপিএ স্কেল (GPA Scale)</h2>
-        <p>মাধ্যমিক ও উচ্চ মাধ্যমিক শিক্ষা বোর্ডের অনুমোদিত গ্রেডিং স্কেল বিবরণী</p>
+    <!-- FAQ Section -->
+    <section id="faq" style="padding:0; margin-top:36px;">
+      <div class="section-title-wrap">
+        <div class="section-icon-badge">❓</div>
+        <div>
+          <h2>সাধারণ জিজ্ঞাসা (FAQ)</h2>
+          <p>ফলাফল অনুসন্ধান ও মার্কশিট সংক্রান্ত সচরাচর জিজ্ঞাসিত প্রশ্নসমূহ</p>
+        </div>
       </div>
-    </div>
-    <div class="table-wrap">
-      <table class="board-table">
-        <thead>
-          <tr>
-            <th>নম্বর সীমা (Class Interval)</th>
-            <th>লেটার গ্রেড (Letter Grade)</th>
-            <th>গ্রেড পয়েন্ট (Grade Point)</th>
-            <th>মন্তব্য (Remarks)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="mono">80 - 100</td><td><strong style="color:var(--accent-emerald);">A+</strong></td><td class="mono">5.00</td><td>অসাধারণ (Outstanding)</td></tr>
-          <tr><td class="mono">70 - 79</td><td><strong style="color:var(--primary);">A</strong></td><td class="mono">4.00</td><td>চমৎকার (Excellent)</td></tr>
-          <tr><td class="mono">60 - 69</td><td><strong>A-</strong></td><td class="mono">3.50</td><td>খুব ভালো (Very Good)</td></tr>
-          <tr><td class="mono">50 - 59</td><td><strong>B</strong></td><td class="mono">3.00</td><td>ভালো (Good)</td></tr>
-          <tr><td class="mono">40 - 49</td><td><strong>C</strong></td><td class="mono">2.00</td><td>সন্তোষজনক (Satisfactory)</td></tr>
-          <tr><td class="mono">33 - 39</td><td><strong>D</strong></td><td class="mono">1.00</td><td>উত্তীর্ণ (Passing)</td></tr>
-          <tr><td class="mono">00 - 32</td><td><strong style="color:var(--accent-rose);">F</strong></td><td class="mono">0.00</td><td>অনুত্তীর্ণ (Failed)</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ============ 11: FAQ ============ -->
-  <section id="faq">
-    <div class="section-title-wrap">
-      <div class="section-icon-badge">❓</div>
-      <div>
-        <h2>সাধারণ জিজ্ঞাসা (FAQ)</h2>
-        <p>ফলাফল অনুসন্ধান ও মার্কশিট সংক্রান্ত সচরাচর জিজ্ঞাসিত প্রশ্নসমূহ</p>
+      <div class="faq-list">
+        <details class="faq-item" data-category="faq" data-keywords="faq ssc result এসএসসি ফলাফল কিভাবে দেখব">
+          <summary class="faq-question">এসএসসি বা এইচএসসি ফুল মার্কশিট কীভাবে ডাউনলোড করব?</summary>
+          <div class="faq-answer">
+            <p>সম্পূর্ণ বিষয়ভিত্তিক নম্বরপত্রসহ এসএসসি ও এইচএসসি ফলাফল পেতে <a href="https://www.eboardresults.com" target="_blank" rel="noopener">eboardresults.com</a> পোর্টালে যান। সেখানে আপনার পরীক্ষা, বছর ও বোর্ড নির্বাচন করে 'Individual Result' বাটনে ক্লিক করে রোল ও রেজিস্ট্রেশন নম্বর দিলে ফুল মার্কশিট ডাউনলোড করা যাবে।</p>
+          </div>
+        </details>
+        <details class="faq-item" data-category="faq" data-keywords="faq nu result national university জাতীয় বিশ্ববিদ্যালয় ফলাফল">
+          <summary class="faq-question">জাতীয় বিশ্ববিদ্যালয়ের (NU) অনার্স/ডিগ্রি ফলাফল কোথায় পাওয়া যায়?</summary>
+          <div class="faq-answer">
+            <p>জাতীয় বিশ্ববিদ্যালয়ের অনার্স ১ম থেকে ৪র্থ বর্ষ, ডিগ্রি পাস এবং মাস্টার্স ফলাফল <a href="https://results.nu.ac.bd/" target="_blank" rel="noopener">results.nu.ac.bd</a> পোর্টালে পাওয়া যায়। আপনার রেজিস্ট্রেশন নম্বর ও পরীক্ষার সাল দিলেই সিজিপিএ দেখতে পাবেন।</p>
+          </div>
+        </details>
+        <details class="faq-item" data-category="faq" data-keywords="faq medical result মেডিকেল ভর্তি ফলাফল">
+          <summary class="faq-question">মেডিকেল (MBBS) ও ডেন্টাল (BDS) ভর্তি ফলাফল দেখার নিয়ম কী?</summary>
+          <div class="faq-answer">
+            <p>মেডিকেল ও ডেন্টাল ভর্তি ফলাফল স্বাস্থ্য অধিদপ্তরের সরকারি পোর্টাল <a href="https://result.dghs.gov.bd" target="_blank" rel="noopener">result.dghs.gov.bd</a>-এ প্রকাশিত হয়। রোল নম্বর দিয়ে অনুসন্ধান করলে মেধা স্থান ও বরাদ্দকৃত কলেজ জানা যাবে।</p>
+          </div>
+        </details>
+        <details class="faq-item" data-category="faq" data-keywords="faq bcs result বিসিএস ফলাফল">
+          <summary class="faq-question">বিসিএস ও সরকারি চাকুরী ফলাফল কোথায় চেক করব?</summary>
+          <div class="faq-answer">
+            <p>বাংলাদেশ সরকারি কর্ম কমিশনের ওয়েবসাইট <a href="https://bpsc.gov.bd" target="_blank" rel="noopener">bpsc.gov.bd</a> অথবা টেলিটক পোর্টাল <a href="https://bpsc.teletalk.com.bd" target="_blank" rel="noopener">bpsc.teletalk.com.bd</a>-এ বিসিএস প্রিলি, লিখিত ও ভাইভা ফলাফল পাওয়া যায়।</p>
+          </div>
+        </details>
       </div>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item" data-category="faq" data-keywords="faq ssc result এসএসসি ফলাফল কিভাবে দেখব">
-        <summary class="faq-question">এসএসসি বা এইচএসসি ফুল মার্কশিট কীভাবে ডাউনলোড করব?</summary>
-        <div class="faq-answer">
-          <p>সম্পূর্ণ বিষয়ভিত্তিক নম্বরপত্রসহ এসএসসি ও এইচএসসি ফলাফল পেতে <a href="https://www.eboardresults.com" target="_blank" rel="noopener">eboardresults.com</a> পোর্টালে যান। সেখানে আপনার পরীক্ষা, বছর ও বোর্ড নির্বাচন করে 'Individual Result' বাটনে ক্লিক করে রোল ও রেজিস্ট্রেশন নম্বর দিলে ফুল মার্কশিট ডাউনলোড করা যাবে।</p>
-        </div>
-      </details>
-      <details class="faq-item" data-category="faq" data-keywords="faq nu result national university জাতীয় বিশ্ববিদ্যালয় ফলাফল">
-        <summary class="faq-question">জাতীয় বিশ্ববিদ্যালয়ের (NU) অনার্স/ডিগ্রি ফলাফল কোথায় পাওয়া যায়?</summary>
-        <div class="faq-answer">
-          <p>জাতীয় বিশ্ববিদ্যালয়ের অনার্স ১ম থেকে ৪র্থ বর্ষ, ডিগ্রি পাস এবং মাস্টার্স ফলাফল <a href="https://results.nu.ac.bd/" target="_blank" rel="noopener">results.nu.ac.bd</a> পোর্টালে পাওয়া যায়। আপনার রেজিস্ট্রেশন নম্বর ও পরীক্ষার সাল দিলেই সিজিপিএ দেখতে পাবেন।</p>
-        </div>
-      </details>
-      <details class="faq-item" data-category="faq" data-keywords="faq medical result মেডিকেল ভর্তি ফলাফল">
-        <summary class="faq-question">মেডিকেল (MBBS) ও ডেন্টাল (BDS) ভর্তি ফলাফল দেখার নিয়ম কী?</summary>
-        <div class="faq-answer">
-          <p>মেডিকেল ও ডেন্টাল ভর্তি ফলাফল স্বাস্থ্য অধিদপ্তরের সরকারি পোর্টাল <a href="https://result.dghs.gov.bd" target="_blank" rel="noopener">result.dghs.gov.bd</a>-এ প্রকাশিত হয়। রোল নম্বর দিয়ে অনুসন্ধান করলে মেধা স্থান ও বরাদ্দকৃত কলেজ জানা যাবে।</p>
-        </div>
-      </details>
-      <details class="faq-item" data-category="faq" data-keywords="faq bcs result বিসিএস ফলাফল">
-        <summary class="faq-question">বিসিএস ও সরকারি চাকুরী ফলাফল কোথায় চেক করব?</summary>
-        <div class="faq-answer">
-          <p>বাংলাদেশ সরকারি কর্ম কমিশনের ওয়েবসাইট <a href="https://bpsc.gov.bd" target="_blank" rel="noopener">bpsc.gov.bd</a> অথবা টেলিটক পোর্টাল <a href="https://bpsc.teletalk.com.bd" target="_blank" rel="noopener">bpsc.teletalk.com.bd</a>-এ বিসিএস প্রিলি, লিখিত ও ভাইভা ফলাফল পাওয়া যায়।</p>
-        </div>
-      </details>
-    </div>
-  </section>
+    </section>
+  </div>
 </main>
 
 <!-- Footer -->
@@ -771,7 +808,7 @@
     </div>
     <div class="footer-bottom">
       <p>&copy; <span id="footer-year">2026</span> ফলাফল সেতু (ExamResultsBD). সর্বস্বত্ব সংরক্ষিত।</p>
-      <p>ডিজাইন ও ডেভেলপমেন্ট: আধুনিক এডুকেশন পোর্টাল স্ট্যান্ডার্ড</p>
+      <p>ডিজাইন ও আর্কিটেকচার: ৪-পিলার এডুকেশন পোর্টাল স্ট্যান্ডার্ড</p>
     </div>
   </div>
 </footer>
@@ -789,17 +826,21 @@
     <span class="icon">⚡</span>
     <span>রেজাল্ট</span>
   </a>
-  <a href="#secondary" class="mobile-nav-item">
+  <a href="#pillar-boards" class="mobile-nav-item">
     <span class="icon">🏫</span>
     <span>বোর্ড</span>
   </a>
-  <a href="#university" class="mobile-nav-item">
+  <a href="#pillar-higher-edu" class="mobile-nav-item">
     <span class="icon">🏛️</span>
-    <span>ভার্সিটি</span>
+    <span>উচ্চশিক্ষা</span>
   </a>
-  <a href="#sms-tool" class="mobile-nav-item">
+  <a href="#pillar-jobs" class="mobile-nav-item">
+    <span class="icon">💼</span>
+    <span>চাকুরী</span>
+  </a>
+  <a href="#pillar-tools" class="mobile-nav-item">
     <span class="icon">📱</span>
-    <span>SMS</span>
+    <span>টুলস</span>
   </a>
 </div>
 

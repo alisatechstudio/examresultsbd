@@ -123,15 +123,14 @@ function filterExams() {
     }
   });
 
-  // Handle section visibility
-  allSections.forEach(section => {
-    if (section.id === 'lookup' || section.id === 'sms-tool') return;
-    
-    const visibleCards = section.querySelectorAll('.card:not([style*="display: none"]), .faq-item:not([style*="display: none"]), .sms-item:not([style*="display: none"]), .board-row:not([style*="display: none"])');
+  // Handle section & pillar visibility
+  const allPillars = document.querySelectorAll('.pillar-section');
+  allPillars.forEach(pillar => {
+    const visibleCards = pillar.querySelectorAll('.card:not([style*="display: none"]), .faq-item:not([style*="display: none"]), .sms-item:not([style*="display: none"]), .board-row:not([style*="display: none"])');
     if (query !== '' || activeCategory !== 'all') {
-      section.style.display = visibleCards.length === 0 ? 'none' : '';
+      pillar.style.display = (visibleCards.length === 0 && !pillar.textContent.toLowerCase().includes(query)) ? 'none' : '';
     } else {
-      section.style.display = '';
+      pillar.style.display = '';
     }
   });
 
