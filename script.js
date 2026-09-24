@@ -341,7 +341,7 @@ if (liveForm && liveResultDisplay) {
 }
 
 /* ==========================================================================
-   Cookie Consent Banner Initialization (Google AdSense & GDPR Compliance)
+   Cookie Consent Banner Initialization (Privacy & GDPR Compliance)
    ========================================================================== */
 function initCookieConsent() {
   const cookieBanner = document.getElementById('cookie-banner');

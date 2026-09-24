@@ -1150,58 +1150,91 @@ footer {
   .hero-card { padding: 24px; }
   section { padding: 0 16px; margin-top: 36px; }
   #toast { bottom: 70px; right: 16px; left: 16px; text-align: center; justify-content: center; }
-  .ad-unit-wrapper { margin: 20px 12px; padding: 10px 8px; }
 }
 
 /* ==========================================================================
-   Google AdSense Units Styling (Slim & Responsive)
+   Responsive Banner Ad Unit (Desktop 728x90, Tablet 468x60, Mobile 320x50)
    ========================================================================== */
-.ad-unit-wrapper {
+.banner-ad-container {
   max-width: 970px;
   width: calc(100% - 24px);
-  margin: 16px auto;
-  padding: 6px 8px 8px 8px;
+  margin: 16px auto 20px auto;
+  padding: 8px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   text-align: center;
-  overflow: hidden;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
   transition: var(--transition);
 }
 
-.ad-unit-wrapper:hover {
+.banner-ad-container:hover {
   border-color: var(--border-focus);
 }
 
-.ad-label {
+.banner-ad-label {
   display: block;
   font-size: 9.5px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   font-family: 'JetBrains Mono', monospace;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
-.ad-unit-wrapper.top-banner {
-  max-width: 970px;
-  margin: 12px auto 20px auto;
+.ad-slot-728 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90px;
 }
 
-.ad-unit-wrapper.multiplex-box {
-  max-width: 1000px;
-  margin: 20px auto;
+.ad-slot-468 {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
 }
 
-ins.adsbygoogle {
-  margin: 0 auto;
+.ad-slot-320 {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
 }
 
+@media (max-width: 768px) {
+  .banner-ad-container {
+    margin: 16px 12px;
+    padding: 6px;
+    width: auto;
+  }
+  .ad-slot-728 {
+    display: none !important;
+  }
+  .ad-slot-468 {
+    display: flex !important;
+  }
+  .ad-slot-320 {
+    display: none !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .ad-slot-728 {
+    display: none !important;
+  }
+  .ad-slot-468 {
+    display: none !important;
+  }
+  .ad-slot-320 {
+    display: flex !important;
+  }
+}
 
 /* ==========================================================================
-   Cookie Consent Banner (AdSense & GDPR Policy Compliant)
+   Cookie Consent Banner (Privacy & GDPR Compliant)
    ========================================================================== */
 .cookie-banner {
   position: fixed;
