@@ -366,6 +366,49 @@ function initCookieConsent() {
   }
 }
 
+/* ==========================================================================
+   Auto-Refresh Banner Ads Every 10 Seconds
+   ========================================================================== */
+function initBannerAutoRefresh() {
+  const REFRESH_INTERVAL_MS = 10000; // 10 seconds
+
+  setInterval(() => {
+    // Pause auto-refresh if tab is in the background
+    if (document.hidden) return;
+
+    const bannerContainer = document.querySelector('.banner-ad-container');
+    if (!bannerContainer) return;
+
+    // Detect active slot by viewport matching CSS breakpoints:
+    // <= 500px: 320x50, 501px-768px: 468x60, > 768px: 728x90
+    const width = window.innerWidth;
+    let activeSlotSelector = '.ad-slot-728';
+    if (width <= 500) {
+      activeSlotSelector = '.ad-slot-320';
+    } else if (width <= 768) {
+      activeSlotSelector = '.ad-slot-468';
+    }
+
+    const activeSlot = bannerContainer.querySelector(activeSlotSelector);
+    const iframes = activeSlot
+      ? activeSlot.querySelectorAll('iframe')
+      : bannerContainer.querySelectorAll('iframe');
+
+    iframes.forEach(iframe => {
+      if (iframe && iframe.src) {
+        try {
+          const url = new URL(iframe.src);
+          url.searchParams.set('_adref', Date.now());
+          iframe.src = url.toString();
+        } catch (e) {
+          iframe.src = iframe.src;
+        }
+      }
+    });
+  }, REFRESH_INTERVAL_MS);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initCookieConsent();
+  initBannerAutoRefresh();
 });
