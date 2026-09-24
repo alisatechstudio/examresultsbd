@@ -1233,6 +1233,32 @@ footer {
   }
 }
 
+.native-ad-container {
+  max-width: 1000px;
+  width: calc(100% - 24px);
+  margin: 24px auto;
+  padding: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.native-ad-container:hover {
+  border-color: var(--border-focus);
+}
+
+@media (max-width: 768px) {
+  .native-ad-container {
+    margin: 20px 12px;
+    padding: 8px;
+    width: auto;
+  }
+}
+
 /* ==========================================================================
    Cookie Consent Banner (Privacy & GDPR Compliant)
    ========================================================================== */
