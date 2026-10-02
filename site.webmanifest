@@ -1,0 +1,26 @@
+{
+  "name": "ফলাফল সেতু — Exam Results BD",
+  "short_name": "ফলাফল সেতু",
+  "description": "বাংলাদেশের সকল পরীক্ষার ফলাফল ডিরেক্টরি ও মার্কশিট সার্চ পোর্টাল ২০২৬",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B4D3B",
+  "theme_color": "#0B4D3B",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

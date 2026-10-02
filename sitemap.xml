@@ -6,14 +6,14 @@
         xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
   <url>
     <loc>https://examresultsbd.online/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <mobile:mobile/>
     <image:image>
       <image:loc>https://examresultsbd.online/logo.png</image:loc>
-      <image:title>ফলাফল সেতু — বাংলাদেশের সকল পরীক্ষার ফলাফল ডিরেক্টরি</image:title>
-      <image:caption>Exam Results BD Portal</image:caption>
+      <image:title>ফলাফল সেতু — বাংলাদেশের সকল পরীক্ষার ফলাফল ২০২৬</image:title>
+      <image:caption>Exam Results BD Official Marksheet &amp; SMS Portal 2026</image:caption>
     </image:image>
     <xhtml:link rel="alternate" hreflang="bn-BD" href="https://examresultsbd.online/"/>
     <xhtml:link rel="alternate" hreflang="en-BD" href="https://examresultsbd.online/"/>
@@ -21,25 +21,25 @@
   </url>
   <url>
     <loc>https://examresultsbd.online/about.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://examresultsbd.online/contact.html</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://examresultsbd.online/privacy.html</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://examresultsbd.online/terms.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://examresultsbd.online/contact.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <loc>https://examresultsbd.online/terms.html</loc>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

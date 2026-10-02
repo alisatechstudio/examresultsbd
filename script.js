@@ -367,10 +367,10 @@ function initCookieConsent() {
 }
 
 /* ==========================================================================
-   Auto-Refresh Banner Ads Every 10 Seconds
+   Respectful Banner Ad Refresh (60s, Viewport-aware for Core Web Vitals)
    ========================================================================== */
 function initBannerAutoRefresh() {
-  const REFRESH_INTERVAL_MS = 10000; // 10 seconds
+  const REFRESH_INTERVAL_MS = 60000; // 60 seconds (Google CWV and standard compliant)
 
   setInterval(() => {
     // Pause auto-refresh if tab is in the background
@@ -379,8 +379,11 @@ function initBannerAutoRefresh() {
     const bannerContainer = document.querySelector('.banner-ad-container');
     if (!bannerContainer) return;
 
-    // Detect active slot by viewport matching CSS breakpoints:
-    // <= 500px: 320x50, 501px-768px: 468x60, > 768px: 728x90
+    // Check if container is actually in viewport to prevent layout thrashing
+    const rect = bannerContainer.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!isVisible) return;
+
     const width = window.innerWidth;
     let activeSlotSelector = '.ad-slot-728';
     if (width <= 500) {
@@ -401,7 +404,7 @@ function initBannerAutoRefresh() {
           url.searchParams.set('_adref', Date.now());
           iframe.src = url.toString();
         } catch (e) {
-          iframe.src = iframe.src;
+          // graceful fallback
         }
       }
     });
