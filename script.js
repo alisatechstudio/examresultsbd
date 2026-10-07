@@ -366,52 +366,6 @@ function initCookieConsent() {
   }
 }
 
-/* ==========================================================================
-   Respectful Banner Ad Refresh (60s, Viewport-aware for Core Web Vitals)
-   ========================================================================== */
-function initBannerAutoRefresh() {
-  const REFRESH_INTERVAL_MS = 60000; // 60 seconds (Google CWV and standard compliant)
-
-  setInterval(() => {
-    // Pause auto-refresh if tab is in the background
-    if (document.hidden) return;
-
-    const bannerContainer = document.querySelector('.banner-ad-container');
-    if (!bannerContainer) return;
-
-    // Check if container is actually in viewport to prevent layout thrashing
-    const rect = bannerContainer.getBoundingClientRect();
-    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-    if (!isVisible) return;
-
-    const width = window.innerWidth;
-    let activeSlotSelector = '.ad-slot-728';
-    if (width <= 500) {
-      activeSlotSelector = '.ad-slot-320';
-    } else if (width <= 768) {
-      activeSlotSelector = '.ad-slot-468';
-    }
-
-    const activeSlot = bannerContainer.querySelector(activeSlotSelector);
-    const iframes = activeSlot
-      ? activeSlot.querySelectorAll('iframe')
-      : bannerContainer.querySelectorAll('iframe');
-
-    iframes.forEach(iframe => {
-      if (iframe && iframe.src) {
-        try {
-          const url = new URL(iframe.src);
-          url.searchParams.set('_adref', Date.now());
-          iframe.src = url.toString();
-        } catch (e) {
-          // graceful fallback
-        }
-      }
-    });
-  }, REFRESH_INTERVAL_MS);
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   initCookieConsent();
-  initBannerAutoRefresh();
 });
