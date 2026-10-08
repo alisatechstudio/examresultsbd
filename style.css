@@ -301,6 +301,7 @@ nav.main a:hover {
 .hero-card h1 span.highlight {
   background: linear-gradient(120deg, #059669, #10B981, #0891B2);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
