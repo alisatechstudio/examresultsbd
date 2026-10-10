@@ -61,14 +61,13 @@
       document.head.appendChild(aScript);
     }
 
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadThirdParty, { timeout: 2500 });
-    } else {
-      setTimeout(loadThirdParty, 2000);
-    }
-    ['scroll', 'touchstart', 'mousemove', 'click', 'keydown'].forEach(function(evt) {
+    const triggerEvents = ['scroll', 'touchstart', 'click', 'keydown', 'wheel'];
+    triggerEvents.forEach(function(evt) {
       window.addEventListener(evt, loadThirdParty, { once: true, passive: true });
     });
+
+    // Fallback timer for passive readers who do not scroll
+    setTimeout(loadThirdParty, 6000);
   })();
 </script>
 
