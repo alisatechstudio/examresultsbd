@@ -10,14 +10,14 @@ const themeIcon = document.getElementById('theme-icon');
 
 function initTheme() {
   const savedTheme = localStorage.getItem('theme');
+  const currentAttr = document.documentElement.getAttribute('data-theme');
   if (savedTheme) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    if (currentAttr !== savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
   } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.documentElement.setAttribute('data-theme', 'dark');
+    if (currentAttr !== 'dark') document.documentElement.setAttribute('data-theme', 'dark');
     updateThemeIcon('dark');
   } else {
-    document.documentElement.setAttribute('data-theme', 'light');
     updateThemeIcon('light');
   }
 }
@@ -41,31 +41,35 @@ if (themeToggleBtn) {
 
 initTheme();
 
-// --- 2. Live BDT Clock & Date ---
+// --- 2. Live BDT Clock & Date (Initialized after paint to prevent reflows) ---
 const dateOpts = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
 const todayDateEl = document.getElementById('today-date');
-if (todayDateEl) {
-  todayDateEl.textContent = 'তারিখ: ' + new Date().toLocaleDateString('bn-BD', dateOpts);
-}
-
 const footerYearEl = document.getElementById('footer-year');
-if (footerYearEl) {
-  footerYearEl.textContent = new Date().getFullYear();
-}
-
 const clockElement = document.getElementById('clock');
+
 const updateClock = () => {
   if (clockElement) {
     clockElement.textContent = new Date().toLocaleTimeString('bn-BD') + ' BDT';
   }
 };
-updateClock();
+
+const initDateTime = () => {
+  if (todayDateEl) {
+    todayDateEl.textContent = 'তারিখ: ' + new Date().toLocaleDateString('bn-BD', dateOpts);
+  }
+  if (footerYearEl) {
+    footerYearEl.textContent = new Date().getFullYear();
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+};
+
 if (typeof window !== 'undefined') {
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      setInterval(updateClock, 1000);
-    }, 1000);
-  }, { once: true });
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(initDateTime, { timeout: 2000 });
+  } else {
+    window.addEventListener('load', () => setTimeout(initDateTime, 500), { once: true });
+  }
 }
 
 // --- 3. Toast Notification Helper ---
@@ -259,7 +263,7 @@ if (copySmsBtn) {
   });
 }
 
-updateSmsPreview();
+// Initial SMS preview is pre-rendered in static HTML, event listeners handle dynamic updates
 
 // --- 7. Live API Board Result Lookup ---
 const liveForm = document.getElementById('live-result-form');
@@ -377,9 +381,15 @@ function initCookieConsent() {
 
   const hasConsented = localStorage.getItem('examresultsbd_cookie_consent');
   if (!hasConsented) {
-    setTimeout(() => {
-      cookieBanner.style.display = 'block';
-    }, 1000);
+    const showBanner = () => {
+      if (cookieBanner.style.display !== 'block') {
+        cookieBanner.style.display = 'block';
+      }
+    };
+    // Defer showing banner until user starts interacting or idle after 5s to eliminate forced reflows
+    const triggerEvents = ['scroll', 'touchstart', 'click'];
+    triggerEvents.forEach(evt => window.addEventListener(evt, showBanner, { once: true, passive: true }));
+    setTimeout(showBanner, 5000);
   }
 
   if (acceptBtn) {
