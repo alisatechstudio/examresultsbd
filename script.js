@@ -60,7 +60,13 @@ const updateClock = () => {
   }
 };
 updateClock();
-setInterval(updateClock, 1000);
+if (typeof window !== 'undefined') {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      setInterval(updateClock, 1000);
+    }, 1000);
+  }, { once: true });
+}
 
 // --- 3. Toast Notification Helper ---
 function showToast(message) {
@@ -93,10 +99,21 @@ const searchResultCount = document.getElementById('search-result-count');
 const noResultsMsg = document.getElementById('no-results-msg');
 const resetSearchBtn = document.getElementById('reset-search-btn');
 
-const allCards = document.querySelectorAll('.card, .faq-item, .sms-item, .board-row');
-const allSections = document.querySelectorAll('main > section');
-
 let activeCategory = 'all';
+let cachedCards = null;
+let allPillars = null;
+
+function getCardIndex() {
+  if (!cachedCards) {
+    const cards = document.querySelectorAll('.card, .faq-item, .sms-item, .board-row');
+    cachedCards = Array.from(cards).map(card => ({
+      el: card,
+      text: ((card.textContent || '') + ' ' + (card.getAttribute('data-keywords') || '')).toLowerCase(),
+      category: card.getAttribute('data-category') || ''
+    }));
+  }
+  return cachedCards;
+}
 
 function filterExams() {
   const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
@@ -105,34 +122,36 @@ function filterExams() {
     clearSearchBtn.style.display = query.length > 0 ? 'block' : 'none';
   }
 
+  const cards = getCardIndex();
   let visibleCount = 0;
 
-  allCards.forEach(card => {
-    const text = card.textContent.toLowerCase();
-    const category = card.getAttribute('data-category') || '';
-    const keywords = card.getAttribute('data-keywords') || '';
-    
-    const matchesQuery = query === '' || text.includes(query) || keywords.toLowerCase().includes(query);
-    const matchesCategory = activeCategory === 'all' || category.includes(activeCategory);
+  for (let i = 0; i < cards.length; i++) {
+    const item = cards[i];
+    const matchesQuery = query === '' || item.text.includes(query);
+    const matchesCategory = activeCategory === 'all' || item.category.includes(activeCategory);
 
     if (matchesQuery && matchesCategory) {
-      card.style.display = '';
+      item.el.style.display = '';
       visibleCount++;
     } else {
-      card.style.display = 'none';
+      item.el.style.display = 'none';
     }
-  });
+  }
 
   // Handle section & pillar visibility
-  const allPillars = document.querySelectorAll('.pillar-section');
-  allPillars.forEach(pillar => {
-    const visibleCards = pillar.querySelectorAll('.card:not([style*="display: none"]), .faq-item:not([style*="display: none"]), .sms-item:not([style*="display: none"]), .board-row:not([style*="display: none"])');
+  if (!allPillars) {
+    allPillars = document.querySelectorAll('.pillar-section');
+  }
+
+  for (let i = 0; i < allPillars.length; i++) {
+    const pillar = allPillars[i];
     if (query !== '' || activeCategory !== 'all') {
-      pillar.style.display = (visibleCards.length === 0 && !pillar.textContent.toLowerCase().includes(query)) ? 'none' : '';
+      const hasVisible = pillar.querySelector('.card:not([style*="display: none"]), .faq-item:not([style*="display: none"]), .sms-item:not([style*="display: none"]), .board-row:not([style*="display: none"])');
+      pillar.style.display = hasVisible ? '' : 'none';
     } else {
       pillar.style.display = '';
     }
-  });
+  }
 
   if (searchResultCount) {
     if (query === '' && activeCategory === 'all') {
@@ -147,8 +166,14 @@ function filterExams() {
   }
 }
 
+let searchDebounceTimer = null;
+function debouncedFilterExams() {
+  clearTimeout(searchDebounceTimer);
+  searchDebounceTimer = setTimeout(filterExams, 80);
+}
+
 if (searchInput) {
-  searchInput.addEventListener('input', filterExams);
+  searchInput.addEventListener('input', debouncedFilterExams);
 }
 
 if (clearSearchBtn) {
@@ -179,8 +204,10 @@ filterChips.forEach(chip => {
   });
 });
 
-// Initialize search count
-filterExams();
+// Initialize search count without heavy DOM iteration
+if (searchResultCount) {
+  searchResultCount.textContent = '৫০+ টি অফিসিয়াল পোর্টাল সক্রিয়';
+}
 
 // --- 6. Interactive SMS Generator Tool ---
 const smsExamSelect = document.getElementById('sms-exam-select');

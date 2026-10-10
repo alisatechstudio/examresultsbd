@@ -83,9 +83,29 @@
   gtag('config', 'G-WLR2CV579C');
 </script>
 
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2862340185854650"
-     crossorigin="anonymous"></script>
+<!-- Google AdSense (Idle Deferred for Performance & Core Web Vitals) -->
+<script>
+  (function() {
+    let adsLoaded = false;
+    function initAds() {
+      if (adsLoaded) return;
+      adsLoaded = true;
+      const s = document.createElement('script');
+      s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2862340185854650';
+      s.async = true;
+      s.crossOrigin = 'anonymous';
+      document.head.appendChild(s);
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(initAds, { timeout: 2500 });
+    } else {
+      setTimeout(initAds, 2000);
+    }
+    ['scroll', 'touchstart', 'mousemove', 'click', 'keydown'].forEach(function(evt) {
+      window.addEventListener(evt, initAds, { once: true, passive: true });
+    });
+  })();
+</script>
 
 <!-- Structured Data 1: WebSite Schema with SearchAction -->
 <script type="application/ld+json">
