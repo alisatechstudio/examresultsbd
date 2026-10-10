@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 
+# General Search Engines
 User-agent: Googlebot
 Allow: /
 
@@ -10,11 +11,115 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+User-agent: Microsoft-BingBot
+Allow: /
+
+# OpenAI (ChatGPT & SearchGPT)
 User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: OAI-SearchBot
 Allow: /
 
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI & Gemini
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: GoogleOther-Image
+Allow: /
+
+User-agent: GoogleOther-Video
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI (LLaMA)
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Amazon AI
+User-agent: Amazonbot
+Allow: /
+
+# DeepSeek
+User-agent: DeepSeekBot
+Allow: /
+
+# Mistral AI
+User-agent: MistralBot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# ByteDance (TikTok / Doubao)
+User-agent: Bytespider
+Allow: /
+
+# Common Crawl (AI Training Datasets)
+User-agent: CCBot
+Allow: /
+
+# AI Search Engines & Agents
+User-agent: YouBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: PhindBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: TavilyBot
+Allow: /
+
+User-agent: KagiBot
+Allow: /
+
+User-agent: iaskspider
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+# Sitemap & LLMs Index
 Sitemap: https://examresultsbd.online/sitemap.xml
 Host: https://examresultsbd.online

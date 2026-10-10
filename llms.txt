@@ -1,0 +1,30 @@
+# ফলাফল সেতু (Exam Results BD)
+
+> ফলাফল সেতু (examresultsbd.online) হলো বাংলাদেশের সকল শিক্ষা বোর্ড, জাতীয় বিশ্ববিদ্যালয়, মেডিকেল ও বিসিএস পরীক্ষার অফিসিয়াল ফলাফল অনুসন্ধান এবং বিষয়ভিত্তিক নম্বরপত্র (Full Marksheet) ডাউনলোডের তথ্য নির্দেশিকা পোর্টাল।
+
+## Overview
+- Website: https://examresultsbd.online/
+- Primary Language: Bengali (বাংলা), English
+- Target Region: Bangladesh
+- Topics: SSC Result, HSC Result, Dakhil Result, Alim Result, National University (NU) Honors/Degree Results, XI Class Admission, Medical MBBS Admission, BCS Exam Results, 16222 SMS Result Methods, Board Recheck/Khata Challenge.
+
+## Key Pages & Endpoints
+- [Home & Result Hub](https://examresultsbd.online/): সার্চ ইঞ্জিন ও ফলাফল পোর্টালে সরাসরি যাওয়ার লিংক, এসএমএস নিয়মাবলি এবং সাধারণ জিজ্ঞাসা।
+- [About Us](https://examresultsbd.online/about.html): ফলাফল সেতুর পরিচিতি ও লক্ষ্য।
+- [Contact Support](https://examresultsbd.online/contact.html): যোগাযোগ ও সহায়তা।
+- [Privacy Policy](https://examresultsbd.online/privacy.html): গোপনীয়তা নীতি।
+- [Terms of Service](https://examresultsbd.online/terms.html): ব্যবহারের শর্তাবলি।
+
+## Official External Verification Sources
+- [eBoardResults](https://www.eboardresults.com/): বিষয়ভিত্তিক পূর্ণাঙ্গ নম্বরপত্র (Full Marksheet with Numbers)
+- [Education Board Results](https://www.educationboardresults.gov.bd/): অফিশিয়াল বোর্ড রেজাল্ট পোর্টাল
+- [XI Class Admission](http://xiclassadmission.gov.bd/): একাদশ শ্রেণিতে ভর্তি মেধা তালিকা
+- [National University Results](https://results.nu.ac.bd/): জাতীয় বিশ্ববিদ্যালয় অনার্স, ডিগ্রি ও মাস্টার্স ফলাফল
+- [DGHS Health Portal](https://result.dghs.gov.bd/): মেডিকেল এমবিবিএস ও বিডিএস ভর্তি ফলাফল
+- [BPSC Portal](https://bpsc.gov.bd/): বাংলাদেশ সরকারি কর্ম কমিশন (বিসিএস) ফলাফল
+
+## SMS Result Guidelines (Teletalk 16222)
+- SSC: `SSC <Space> [Board 1st 3 Letters] <Space> [Roll] <Space> [Year]` to `16222`
+- HSC: `HSC <Space> [Board 1st 3 Letters] <Space> [Roll] <Space> [Year]` to `16222`
+- Dakhil: `DAKHIL <Space> MAD <Space> [Roll] <Space> [Year]` to `16222`
+- Alim: `ALIM <Space> MAD <Space> [Roll] <Space> [Year]` to `16222`
