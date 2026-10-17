@@ -1,0 +1,71 @@
+# ফলাফল সেতু (Exam Results BD) — Comprehensive Documentation & API Specification
+
+> ফলাফল সেতু (examresultsbd.online) হলো বাংলাদেশের সকল শিক্ষা বোর্ড, জাতীয় বিশ্ববিদ্যালয়, মেডিকেল, ইঞ্জিনিয়ারিং ও বিসিএস পরীক্ষার অফিসিয়াল ফলাফল অনুসন্ধান, মার্কশিট ডাউনলোড ও এসএমএস নির্দেশিকা পোর্টাল।
+
+## 1. Domain & Meta Information
+- Canonical URL: https://examresultsbd.online/
+- Primary Languages: Bengali (bn-BD), English (en-BD)
+- Entity Type: Educational Information Portal & Examination Result Aggregator
+- Target Audience: Students, parents, educators, and job applicants in Bangladesh.
+
+## 2. Examination Result Systems & Verification Endpoints
+
+### 2.1 Secondary & Higher Secondary Education (SSC, HSC, Dakhil, Alim)
+- **eBoardResults Portal**: https://www.eboardresults.com/
+  - Capabilities: Individual Result, Institution Result, Centre Result, District Result.
+  - Supports: Detailed Subject-Wise Marksheets with individual component scores (Creative/CQ, MCQ, Practical).
+- **Education Board Results Portal**: https://www.educationboardresults.gov.bd/
+  - Capabilities: Direct board database query for SSC, HSC, JSC, Dakhil, Vocational.
+  - Parameters required: Examination Type, Year, Board Name, Roll Number, Registration Number.
+
+### 2.2 Higher Education & Universities
+- **National University (NU) Results**: https://results.nu.ac.bd/
+  - Programs: Degree Pass, Honors (1st, 2nd, 3rd, 4th Year), Masters (Preliminary & Final), Professional courses.
+  - Verification Parameters: Exam Roll, Registration Number, Exam Year.
+- **XI Class Admission System**: http://xiclassadmission.gov.bd/
+  - System: Centralized merit list allocation for admission into 11th grade / college.
+- **GST Cluster Admission**: https://gstadmission.ac.bd/
+  - 24 General and Science & Technology Public Universities combined admission merit ranking.
+
+### 2.3 Medical & Professional Examinations
+- **DGHS MBBS & BDS Admission**: https://result.dghs.gov.bd/
+  - National central admission examination for government and private medical/dental colleges.
+- **Bangladesh Public Service Commission (BPSC)**: https://bpsc.gov.bd/
+  - Bangladesh Civil Service (BCS) Preliminary, Written, and Viva-Voce Cadre results.
+
+## 3. Teletalk 16222 SMS Result Formats
+Results can be accessed without internet connectivity via any mobile operator (Teletalk, Grameenphone, Robi, Banglalink, Airtel) using standard SMS syntax sent to shortcode `16222`:
+
+| Examination | SMS Syntax Format | Example SMS |
+| :--- | :--- | :--- |
+| **SSC General** | `SSC <Space> [1st 3 Letters of Board] <Space> [Roll] <Space> [Year]` | `SSC DHA 123456 2026` |
+| **HSC General** | `HSC <Space> [1st 3 Letters of Board] <Space> [Roll] <Space> [Year]` | `HSC RAJ 654321 2026` |
+| **Dakhil (Madrasah)** | `DAKHIL <Space> MAD <Space> [Roll] <Space> [Year]` | `DAKHIL MAD 987654 2026` |
+| **Alim (Madrasah)** | `ALIM <Space> MAD <Space> [Roll] <Space> [Year]` | `ALIM MAD 456789 2026` |
+| **Vocational (Technical)** | `SSC <Space> TEC <Space> [Roll] <Space> [Year]` | `SSC TEC 321654 2026` |
+| **HSC Vocational/BM** | `HSC <Space> TEC <Space> [Roll] <Space> [Year]` | `HSC TEC 789123 2026` |
+
+### Board Code Abbreviations (First 3 Letters):
+- Dhaka: `DHA`
+- Rajshahi: `RAJ`
+- Comilla: `COM`
+- Jessore: `JES`
+- Chittagong: `CHI`
+- Barisal: `BAR`
+- Sylhet: `SYL`
+- Dinajpur: `DIN`
+- Mymensingh: `MYM`
+- Madrasah Board: `MAD`
+- Technical Board: `TEC`
+
+## 4. Board Challenge / Khata Re-scrutiny (খাতা চ্যালেঞ্জ)
+Students dissatisfied with published exam grades may apply for re-scrutiny within typically 7 days of result publication via Teletalk prepaid mobile:
+1. SMS format: `RSC <Space> [First 3 Letters of Board] <Space> [Roll] <Space> [Subject Codes separated by comma]` to `16222`.
+2. Follow up with confirmation PIN: `RSC <Space> YES <Space> [PIN] <Space> [Contact Mobile No]` to `16222`.
+
+## 5. Site Architecture & Directory
+- Home & Live Search: https://examresultsbd.online/
+- About Us: https://examresultsbd.online/about.html
+- Contact Support: https://examresultsbd.online/contact.html
+- Privacy Policy: https://examresultsbd.online/privacy.html
+- Terms of Service: https://examresultsbd.online/terms.html
