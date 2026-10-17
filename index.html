@@ -134,10 +134,9 @@ nav.main a:hover{color:var(--primary);background:var(--primary-light)}
   <link rel="stylesheet" href="style.css">
 </noscript>
 
-<!-- Google tag (gtag.js) & AdSense Deferred Loader for Core Web Vitals -->
+<!-- Google Consent Mode v2 & GDPR Consent Settings -->
+<script src="gdpr-consent.js"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-WLR2CV579C');
 
@@ -1682,24 +1681,14 @@ nav.main a:hover{color:var(--primary);background:var(--primary-light)}
     </div>
     <div class="footer-bottom">
       <p>&copy; <span id="footer-year">2026</span> ফলাফল সেতু (ExamResultsBD). সর্বস্বত্ব সংরক্ষিত।</p>
-      <p>একটি সমন্বিত ও সুরক্ষিত শিক্ষা পোর্টাল গেটওয়ে | Designed for High Speed & Transparency</p>
+      <p style="margin-top: 6px;">
+        <a href="privacy.html" style="color: inherit; text-decoration: underline;">গোপনীয়তা নীতি</a> &bull; 
+        <a href="terms.html" style="color: inherit; text-decoration: underline;">শর্তাবলী</a> &bull; 
+        <a href="#cookie-settings" data-open-cookie-settings style="color: inherit; text-decoration: underline;">কুকি সেটিংস (Cookie Settings)</a>
+      </p>
     </div>
   </div>
 </footer>
-
-<!-- Cookie Consent Banner for Privacy & Analytics Compliance -->
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie Consent">
-  <div class="cookie-content">
-    <div class="cookie-text">
-      <span>🍪</span>
-      <p><strong>কুকিজ ও গোপনীয়তা বিজ্ঞপ্তি:</strong> আমরা সাইটের সেবা ও গতি উন্নত করতে এবং অ্যানালিটিক্সের জন্য কুকিজ ব্যবহার করি। সাইটটি ব্যবহারের মাধ্যমে আপনি আমাদের <a href="privacy.html" target="_blank">গোপনীয়তা নীতি</a> মেনে নিচ্ছেন।</p>
-    </div>
-    <div class="cookie-actions">
-      <button type="button" id="cookie-accept-btn" class="cookie-btn accept">সম্মত আছি (Accept)</button>
-      <a href="privacy.html" class="cookie-btn learn">বিস্তারিত</a>
-    </div>
-  </div>
-</div>
 
 <!-- Toast Notification -->
 <div id="toast"></div>
