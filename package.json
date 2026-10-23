@@ -1,0 +1,30 @@
+{
+  "name": "examresultsbd",
+  "version": "1.0.0",
+  "description": "ফলাফল সেতু — Bangladesh Exam Results Portal (Node.js/Express)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "exam-results",
+    "bangladesh",
+    "ssc",
+    "hsc",
+    "education"
+  ],
+  "author": "ফলাফল সেতু",
+  "license": "ISC"
+}
