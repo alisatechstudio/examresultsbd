@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 const express = require('express');
 const compression = require('compression');
@@ -27,10 +27,10 @@ app.use(compression());
 app.use(express.json());
 
 app.use(
-  express.static(path.join(__dirname), {
+  express.static(path.join(__dirname, 'public'), {
     maxAge: process.env.NODE_ENV === 'production' ? '1d' : 0,
     etag: true,
-    index: false,
+    index: 'index.html',
   })
 );
 
@@ -48,3 +48,4 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+
