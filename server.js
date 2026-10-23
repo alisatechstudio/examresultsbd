@@ -26,14 +26,17 @@ app.use(
 app.use(compression());
 app.use(express.json());
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.get('/', (_req, res) => res.render('index'));
+
 app.use(
   express.static(path.join(__dirname, 'public'), {
     maxAge: process.env.NODE_ENV === 'production' ? '1d' : 0,
     etag: true,
-    index: 'index.html',
   })
 );
-
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
