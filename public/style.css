@@ -1561,3 +1561,108 @@ footer {
   font-size: 13px;
   color: var(--text-muted);
 }
+
+
+/* ==========================================================================
+   Banner Advertisements Layout & Responsiveness
+   ========================================================================== */
+.ad-banner-slot {
+  position: relative;
+  margin: 24px auto;
+  text-align: center;
+  clear: both;
+}
+
+.ad-label {
+  display: block;
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+.top-banner-slot {
+  max-width: 1200px;
+  padding: 0 16px;
+  min-height: 90px;
+}
+
+.rect-banner-slot {
+  max-width: 320px;
+  min-height: 250px;
+  margin: 20px auto 10px;
+}
+
+.divider-banner-slot {
+  max-width: 1200px;
+  padding: 0 16px;
+  min-height: 60px;
+  margin: 36px auto;
+}
+
+.native-banner-slot {
+  max-width: 1200px;
+  margin: 40px auto 20px;
+  padding: 0 16px;
+  min-height: 120px;
+}
+
+.native-ad-header {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  border-left: 3px solid var(--primary);
+  padding-left: 10px;
+  text-align: left;
+}
+
+.ad-desktop-728 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ad-mobile-320 {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .ad-desktop-728 {
+    display: none !important;
+  }
+  .ad-mobile-320 {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .desktop-side-gutter {
+    display: none !important;
+  }
+  .divider-banner-slot {
+    display: none !important;
+  }
+}
+
+/* Fixed Desktop Side Gutters (160x600 Left & 160x300 Right) */
+@media (min-width: 1560px) {
+  .desktop-side-gutter {
+    position: fixed;
+    top: 130px;
+    z-index: 90;
+    text-align: center;
+  }
+  .gutter-left {
+    left: calc(50% - 600px - 175px);
+  }
+  .gutter-right {
+    right: calc(50% - 600px - 175px);
+  }
+}
+
+@media (max-width: 1559px) {
+  .desktop-side-gutter {
+    display: none !important;
+  }
+}
