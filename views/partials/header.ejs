@@ -16,15 +16,24 @@
       </div>
     </a>
     <nav class="main" role="navigation" aria-label="প্রধান মেনু">
-      <a href="/"<% if (typeof activePage !== 'undefined' && activePage === 'home') { %> style="color:var(--primary); font-weight:700;"<% } %>>🏠 হোমপেজ</a>
-      <a href="/ssc-result"<% if (typeof activePage !== 'undefined' && activePage === 'ssc') { %> style="color:var(--primary); font-weight:700;"<% } %>>🏫 এসএসসি রেজাল্ট</a>
-      <a href="/hsc-result"<% if (typeof activePage !== 'undefined' && activePage === 'hsc') { %> style="color:var(--primary); font-weight:700;"<% } %>>📝 এইচএসসি রেজাল্ট</a>
-      <a href="/university-admission"<% if (typeof activePage !== 'undefined' && activePage === 'university') { %> style="color:var(--primary); font-weight:700;"<% } %>>🎓 বিশ্ববিদ্যালয় ভর্তি</a>
-      <a href="/medical-admission"<% if (typeof activePage !== 'undefined' && activePage === 'medical') { %> style="color:var(--primary); font-weight:700;"<% } %>>🏥 মেডিকেল রেজাল্ট</a>
-      <a href="/nu-result"<% if (typeof activePage !== 'undefined' && activePage === 'nu') { %> style="color:var(--primary); font-weight:700;"<% } %>>📚 জাতীয় বিশ্ববিদ্যালয়</a>
-      <a href="/bcs-result"<% if (typeof activePage !== 'undefined' && activePage === 'bcs') { %> style="color:var(--primary); font-weight:700;"<% } %>>💼 বিসিএস</a>
-      <a href="/about"<% if (typeof activePage !== 'undefined' && activePage === 'about') { %> style="color:var(--primary); font-weight:700;"<% } %>>ℹ️ আমাদের সম্পর্কে</a>
-      <a href="/contact"<% if (typeof activePage !== 'undefined' && activePage === 'contact') { %> style="color:var(--primary); font-weight:700;"<% } %>>📞 যোগাযোগ</a>
+      <a href="/" class="<%= activePage === 'home' ? 'active' : '' %>">হোমপেজ</a>
+      <a href="/ssc-result" class="<%= activePage === 'ssc' ? 'active' : '' %>">এসএসসি রেজাল্ট</a>
+      <a href="/hsc-result" class="<%= activePage === 'hsc' ? 'active' : '' %>">এইচএসসি রেজাল্ট</a>
+      <a href="/primary-result" class="<%= activePage === 'primary' ? 'active' : '' %>">প্রাথমিক রেজাল্ট</a>
+      <a href="/university-admission" class="<%= activePage === 'university' ? 'active' : '' %>">বিশ্ববিদ্যালয় ভর্তি</a>
+      <a href="/medical-admission" class="<%= activePage === 'medical' ? 'active' : '' %>">মেডিকেল ভর্তি</a>
+      <a href="/nu-result" class="<%= activePage === 'nu' ? 'active' : '' %>">জাতীয় বিশ্ববিদ্যালয়</a>
+      <a href="/bcs-result" class="<%= activePage === 'bcs' ? 'active' : '' %>">বিসিএস রেজাল্ট</a>
+      <a href="/ntrca-result" class="<%= activePage === 'ntrca' ? 'active' : '' %>">এনটিআরসিএ রেজাল্ট</a>
+      <a href="/sms-result" class="<%= activePage === 'sms' ? 'active' : '' %>">এসএমএস রেজাল্ট</a>
+      <a href="/grading-system" class="<%= activePage === 'grading' ? 'active' : '' %>">গ্রেডিং সিস্টেম</a>
+      <a href="/board-challenge" class="<%= activePage === 'challenge' ? 'active' : '' %>">বোর্ড চ্যালেঞ্জ</a>
+      <a href="/education-boards" class="<%= activePage === 'boards' ? 'active' : '' %>">শিক্ষা বোর্ডসমূহ</a>
+      <a href="/guide" class="<%= activePage === 'guide' ? 'active' : '' %>">গাইড</a>
+      <a href="/about" class="<%= activePage === 'about' ? 'active' : '' %>">আমাদের সম্পর্কে</a>
+      <a href="/contact" class="<%= activePage === 'contact' ? 'active' : '' %>">যোগাযোগ</a>
+      <a href="/privacy" class="<%= activePage === 'privacy' ? 'active' : '' %>">গোপনীয়তা নীতি</a>
+      <a href="/terms" class="<%= activePage === 'terms' ? 'active' : '' %>">শর্তাবলী</a>
     </nav>
     <button type="button" id="theme-toggle-btn" class="theme-btn" title="থিম পরিবর্তন করুন" aria-label="Toggle Dark/Light Mode">
       <span id="theme-icon">🌙</span>

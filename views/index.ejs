@@ -562,43 +562,9 @@ nav.main a:hover{color:var(--primary);background:var(--primary-light)}
 <script src="https://5gvci.com/act/files/tag.min.js?z=12075622" data-cfasync="false" async></script>
 </head>
 <body>
+  <%- include('partials/header', { activePage: 'home' }) %>
 
-<!-- Top Utility Status Strip -->
-<div class="memo-strip">
-  <div class="status-indicator">
-    <span class="pulse-dot"></span>
-    <span>অনানুষ্ঠানিক ডিরেক্টরি · ১০০% অফিসিয়াল পোর্টাল লিংক</span>
-  </div>
-  <span id="clock" class="mono">সময় লোড হচ্ছে...</span>
-</div>
-
-<!-- Sticky Main Header -->
-<header class="site" role="banner">
-  <div class="site-inner">
-    <a href="/" class="brand" aria-label="ফলাফল সেতু হোমপেজ">
-      <div class="seal">ফ</div>
-      <div class="brand-text">
-        <span class="bn">ফলাফল সেতু</span>
-        <small>Exam Results BD — সকল পরীক্ষার ফলাফল পোর্টাল</small>
-      </div>
-    </a>
-    <nav class="main" role="navigation" aria-label="প্রধান মেনু">
-      <a href="#search-hub">🔍 অনুসন্ধান</a>
-      <a href="#pillar-boards">🏫 বোর্ড রেজাল্ট</a>
-      <a href="#pillar-higher-edu">🎓 উচ্চশিক্ষা ও ভর্তি</a>
-      <a href="#pillar-jobs">💼 চাকুরী পরীক্ষা</a>
-      <a href="#academic-hub">📚 শিক্ষা ও ফলাফল গাইড</a>
-      <a href="about.html">ℹ️ আমাদের সম্পর্কে</a>
-      <a href="privacy.html">🔒 গোপনীয়তা নীতি</a>
-      <a href="contact.html">📞 যোগাযোগ</a>
-    </nav>
-    <button type="button" id="theme-toggle-btn" class="theme-btn" title="থিম পরিবর্তন করুন" aria-label="Toggle Dark/Light Mode">
-      <span id="theme-icon">🌙</span>
-    </button>
-  </div>
-</header>
-
-<main>
+  <main>
   <!-- Desktop Wide Skyscraper (160x600 Left) -->
   <div class="desktop-side-gutter gutter-left" aria-hidden="true">
     <div class="ad-label">বিজ্ঞাপন</div>

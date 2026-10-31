@@ -225,6 +225,12 @@ nav.main a:hover {
   background: var(--primary-light);
 }
 
+nav.main a.active {
+  color: var(--primary);
+  background: var(--primary-light);
+  font-weight: 700;
+}
+
 /* Theme Switcher Button */
 .theme-btn {
   background: var(--bg-card-alt);
