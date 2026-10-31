@@ -1,0 +1,33 @@
+<div class="memo-strip">
+  <div class="status-indicator">
+    <span class="pulse-dot"></span>
+    <span>অনানুষ্ঠানিক ডিরেক্টরি · ১০০% অফিসিয়াল পোর্টাল লিংক</span>
+  </div>
+  <span id="clock" class="mono">ExamResultsBD</span>
+</div>
+
+<header class="site" role="banner">
+  <div class="site-inner">
+    <a href="/" class="brand" aria-label="ফলাফল সেতু হোমপেজ">
+      <div class="seal">ফ</div>
+      <div class="brand-text">
+        <span class="bn">ফলাফল সেতু</span>
+        <small>Exam Results BD — সকল পরীক্ষার ফলাফল পোর্টাল</small>
+      </div>
+    </a>
+    <nav class="main" role="navigation" aria-label="প্রধান মেনু">
+      <a href="/"<% if (typeof activePage !== 'undefined' && activePage === 'home') { %> style="color:var(--primary); font-weight:700;"<% } %>>🏠 হোমপেজ</a>
+      <a href="/ssc-result"<% if (typeof activePage !== 'undefined' && activePage === 'ssc') { %> style="color:var(--primary); font-weight:700;"<% } %>>🏫 এসএসসি রেজাল্ট</a>
+      <a href="/hsc-result"<% if (typeof activePage !== 'undefined' && activePage === 'hsc') { %> style="color:var(--primary); font-weight:700;"<% } %>>📝 এইচএসসি রেজাল্ট</a>
+      <a href="/university-admission"<% if (typeof activePage !== 'undefined' && activePage === 'university') { %> style="color:var(--primary); font-weight:700;"<% } %>>🎓 বিশ্ববিদ্যালয় ভর্তি</a>
+      <a href="/medical-admission"<% if (typeof activePage !== 'undefined' && activePage === 'medical') { %> style="color:var(--primary); font-weight:700;"<% } %>>🏥 মেডিকেল রেজাল্ট</a>
+      <a href="/nu-result"<% if (typeof activePage !== 'undefined' && activePage === 'nu') { %> style="color:var(--primary); font-weight:700;"<% } %>>📚 জাতীয় বিশ্ববিদ্যালয়</a>
+      <a href="/bcs-result"<% if (typeof activePage !== 'undefined' && activePage === 'bcs') { %> style="color:var(--primary); font-weight:700;"<% } %>>💼 বিসিএস</a>
+      <a href="/about"<% if (typeof activePage !== 'undefined' && activePage === 'about') { %> style="color:var(--primary); font-weight:700;"<% } %>>ℹ️ আমাদের সম্পর্কে</a>
+      <a href="/contact"<% if (typeof activePage !== 'undefined' && activePage === 'contact') { %> style="color:var(--primary); font-weight:700;"<% } %>>📞 যোগাযোগ</a>
+    </nav>
+    <button type="button" id="theme-toggle-btn" class="theme-btn" title="থিম পরিবর্তন করুন" aria-label="Toggle Dark/Light Mode">
+      <span id="theme-icon">🌙</span>
+    </button>
+  </div>
+</header>

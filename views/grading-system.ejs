@@ -1,0 +1,141 @@
+<%- include('partials/head', { title: 'বাংলাদেশ শিক্ষা বোর্ড গ্রেডিং সিস্টেম ২০২৬ — ফলাফল সেতু', description: 'এসএসসি, এইচএসসি, দাখিল, আলিম, ডিগ্রি, অনার্স, মাস্টার্স — সকল পরীক্ষার অফিসিয়াল জিপিএ, লেটার গ্রেড, গ্রেড পয়েন্ট ও সিজিপিএ হিসাবের পদ্ধতি।', canonical: '/grading-system', ogType: 'website' }) %>
+
+<body>
+  <%- include('partials/header', { activePage: 'grading' }) %>
+
+  <main>
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <h1 class="page-title">শিক্ষা বোর্ড গ্রেডিং সিস্টেম ২০২৬</h1>
+        <p class="page-subtitle">বাংলাদেশের সকল পাবলিক পরীক্ষার (SSC, HSC, NU, Medical) অফিসিয়াল গ্রেড স্কেল, জিপিএ ও সিজিপিএ হিসাব</p>
+      </div>
+    </div>
+
+    <section class="result-grid">
+      <div class="result-card main-board">
+        <div class="result-card-header">
+          <span class="badge">📊 এসএসসি / এইচএসসি / দাখিল / আলিম</span>
+          <h2>মাধ্যমিক ও উচ্চমাধ্যমিক গ্রেড স্কেল</h2>
+        </div>
+        <div class="table-wrapper">
+          <table class="grade-table">
+            <thead>
+              <tr>
+                <th>মার্কস পরিসর</th>
+                <th>লেটার গ্রেড (LG)</th>
+                <th>গ্রেড পয়েন্ট (GP)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>৮০ - ১০০</td><td>A+</td><td>৫.০০</td></tr>
+              <tr><td>৭০ - ৭৯</td><td>A</td><td>৪.০০</td></tr>
+              <tr><td>৬০ - ৬৯</td><td>A-</td><td>৩.৫০</td></tr>
+              <tr><td>৫০ - ৫৯</td><td>B</td><td>৩.০০</td></tr>
+              <tr><td>৪০ - ৪৯</td><td>C</td><td>২.০০</td></tr>
+              <tr><td>৩৩ - ৩৯</td><td>D</td><td>১.০০</td></tr>
+              <tr><td>০ - ৩২</td><td>F</td><td>০.০০</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note"><strong>পাস মার্কস:</strong> ৩৩ (D গ্রেড) | <strong>৪র্থ বিষয়:</strong> ২.০০ GP বাদ দিয়ে অতিরিক্ত পয়েন্ট মূল বিষএে যোগ হয়</p>
+      </div>
+
+      <div class="result-card">
+        <div class="result-card-header">
+          <span class="badge">🧮 জিপিএ (GPA) হিসাব</span>
+          <h2>এসএসসি/এইচএসসি জিপিএ ক্যালকুলেশন</h2>
+        </div>
+        <div class="calculation-box">
+          <h4>সূত্র:</h4>
+          <code>GPA = (বিষয় ১-৫ এর GP যোগফল + ৪র্থ বিষয়ের অতিরিক্ত GP) ÷ ৫</code>
+          <h4>উদাহরণ:</h4>
+          <ul class="calc-steps">
+            <li>বিষয় ১: A+ (৫.০০)</li>
+            <li>বিষয় ২: A (৪.০০)</li>
+            <li>বিষয় ৩: A- (৩.৫০)</li>
+            <li>বিষয় ৪: B (৩.০০) → অতিরিক্ত = ৩.০০ - ২.০০ = ১.০০</li>
+            <li>বিষয় ৫: A (৪.০০)</li>
+            <li><strong>মোট = ৫.০০+৪.০০+৩.৫০+৪.০০+১.০০ = ১৭.৫০</strong></li>
+            <li><strong>GPA = ১৭.৫০ ÷ ৫ = ৩.৫০</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-card-header">
+          <span class="badge">📚 জাতীয় বিশ্ববিদ্যালয় (NU)</span>
+          <h2>অনার্স / ডিগ্রি / মাস্টার্স গ্রেডিং</h2>
+        </div>
+        <div class="table-wrapper">
+          <table class="grade-table">
+            <thead>
+              <tr>
+                <th>মার্কস</th>
+                <th>লেটার গ্রেড</th>
+                <th>গ্রেড পয়েন্ট</th>
+                <th>শ্রেণি</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>৮০% বা তার বেশি</td><td>A+</td><td>৪.০০</td><td>১ম শ্রেণি</td></tr>
+              <tr><td>৭৫% - ৭৯%</td><td>A</td><td>৩.৭৫</td><td>১ম শ্রেণি</td></tr>
+              <tr><td>৭০% - ৭৪%</td><td>A-</td><td>৩.৫০</td><td>১ম শ্রেণি</td></tr>
+              <tr><td>৬৫% - ৬৯%</td><td>B+</td><td>৩.২৫</td><td>১ম শ্রেণি</td></tr>
+              <tr><td>৬০% - ৬৪%</td><td>B</td><td>৩.০০</td><td>১ম শ্রেণি</td></tr>
+              <tr><td>৫৫% - ৫৯%</td><td>B-</td><td>২.৭৫</td><td>২য় শ্রেণি</td></tr>
+              <tr><td>৫০% - ৫৪%</td><td>C+</td><td>২.৫০</td><td>২য় শ্রেণি</td></tr>
+              <tr><td>৪৫% - ৪৯%</td><td>C</td><td>২.২৫</td><td>২য় শ্রেণি</td></tr>
+              <tr><td>৪০% - ৪৪%</td><td>D</td><td>২.০০</td><td>৩য় শ্রেণি</td></tr>
+              <tr><td>৪০% এর কম</td><td>F</td><td>০.০০</td><td>ফেল</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note"><strong>সিজিপিএ (CGPA):</strong> সেমিস্টারভিত্তিক ওয়ায়েটেড গড় | <strong>প্রমোশন:</strong> সিজিপিএ ২.০০ হলে পরবর্তী বর্ষে উন্নতি</p>
+      </div>
+
+      <div class="result-card">
+        <div class="result-card-header">
+          <span class="badge">🏥 মেডিকেল ভর্তি (DGHS)</span>
+          <h2>মেধা স্কোর হিসাব (১০০ নম্বর)</h2>
+        </div>
+        <div class="calculation-box">
+          <h4>গণনা পদ্ধতি:</h4>
+          <ul class="calc-steps">
+            <li><strong>এসএসসি জিপিএ × ১০ =</strong> ৫০ নম্বর (ম্যাক্স)</li>
+            <li><strong>এইচএসসি জিপিএ × ১০ =</strong> ৫০ নম্বর (ম্যাক্স)</li>
+            <li><strong>বা: (এসএসসি GP + এইচএসসি GP) × ১০ =</strong> ১০০ নম্বর</li>
+          </ul>
+          <h4>উদাহরণ:</h4>
+          <p>এসএসসি: ৫.০০, এইচএসসি: ৫.০০ → মেধা স্কোর = (৫.০০+৫.০০)×১০ = <strong>১০০/১০০</strong></p>
+          <p>এসএসসি: ৪.৫০, এইচএসসি: ৪.৮০ → মেধা স্কোর = (৪.৫০+৪.৮০)×১০ = <strong>৯৩/১০০</strong></p>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-card-header">
+          <span class="badge">🏛️ বিশ্ববিদ্যালয় ভর্তি (GST/পৃথক)</span>
+          <h2>যোগ্যতা মানদণ্ড (Eligibility)</h2>
+        </div>
+        <ul class="feature-list">
+          <li><strong>গুচ্ছ (GST):</strong> এসএসসি + এইচএসসি মিলিয়ে মোট জিপিএ ৭.০০ (ফ্রিডম ফাইarlo ৬.৫০)</li>
+          <li><strong>ঢাবি / বুয়েট / চবি / রাবি:</strong> এসএসসি + এইচএসসি মোট জিপিএ ৮.০০ - ৮.৫০ (ইউনিটভিত্তিক)</li>
+          <li><strong>মেডিকেল (MBBS):</strong> এসএসসি + এইচএসসি মোট জিপিএ ৯.০০ (সাধারণ), ৮.০০ (উপজাতি/ফ্রিডম ফাইarlo)</li>
+          <li><strong>জাতীয় বিশ্ববিদ্যালয় (NU):</strong> এইচএসসি পাস (ন্যূনতম জিপিএ ২.৫০)</li>
+        </ul>
+      </div>
+
+      <div class="result-card info-section">
+        <h2>📌 গুরুত্বপূর্ণ নোট</h2>
+        <ul class="tips-list">
+          <li><strong>৪র্থ বিষয়:</strong> পাশাপাশি ৫টি আবশ্যক বিষয়ের বাইরে ১টি ঐচ্ছিক বিষয়। এর GP ২.০০ বাদ দিয়ে বাকি GP মূল ৫টি বিষয়ের সাথে যোগ হয়।</li>
+          <li><strong>সিজিপিএ vs জিপিএ:</strong> জিপিএ একক পরীক্ষার গড়, সিজিপিএ একাধিক সেমিস্টার/বर्षের ওয়েটেড গড়।</li>
+          <li><strong>গ্রেড উন্নতি:</strong> কোনো বিষয়ে F পেলে সেটি অনুপস্থিত মনে করা হয়, কম্পার্টমেন্টাল পরীক্ষা দিতে হয়।</li>
+          <li><strong>অফিসিয়াল সোত:</strong> সব গ্রেড স্কেল শিক্ষা মন্ত্রণালয় ও সংশ্লিষ্ট বোর্ড/বিশ্ববিদ্যালয়ের অধিসূচনায় প্রকাশিত।</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

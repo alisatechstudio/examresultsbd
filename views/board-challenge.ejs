@@ -1,0 +1,122 @@
+<%- include('partials/head', { title: 'বোর্ড চ্যালেঞ্জ / খাতা পুনঃনিরীক্ষণ নিয়ম ২০২৬ — ফলাফল সেতু', description: 'এসএসসি, এইচএসসি, দাখিল, আলিম খাতা চ্যালেঞ্জ (Board Challenge) আবেদনের পূর্ণাঙ্গ নিয়ম, ফি, সময়সীমা, টেলিটক এসএমএস পদ্ধতি ও ফলাফল।', canonical: '/board-challenge', ogType: 'website' }) %>
+
+<body>
+  <%- include('partials/header', { activePage: 'challenge' }) %>
+
+  <main>
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <h1 class="page-title">বোর্ড চ্যালেঞ্জ / খাতা পুনঃনিরীক্ষণ ২০২৬</h1>
+        <p class="page-subtitle">শিক্ষা বোর্ড কর্তৃক নির্ধারিত অফিসিয়াল পুনঃনিরীক্ষণ (Re-scrutiny/Challenge) আবেদনের সঠিক পদ্ধতি, ফি ও সময়সীমা</p>
+      </div>
+    </div>
+
+    <section class="result-grid">
+      <div class="result-card main-board">
+        <div class="result-card-header">
+          <span class="badge">⚡ দ্রুত ও সঠিক পদ্ধতি</span>
+          <h2>টেলিটক প্রিপেইড এসএমএস (শুধুমাত্র উপায়)</h2>
+        </div>
+        <div class="sms-format">
+          <h4>ধাপ ১: আবেদন (Application)</h4>
+          <code>RSC <বোর্ড ৩ অক্ষর> <রোল> <বিষয় কোড></code>
+          <p>উদাহরণ: <strong>RSC DHA 123456 101</strong> পাঠান <strong>১৬২২২</strong> নম্বরে</p>
+          
+          <h4>ধাপ ২: কনফার্মেশন (Pin পাওয়ার পর)</h4>
+          <code>RSC YES <পিন> <যোগাযোগ নম্বর></code>
+          <p>উদাহরণ: <strong>RSC YES 1234 017XXXXXXXX</strong> পাঠান <strong>১৬২২২</strong> নম্বরে</p>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-card-header">
+          <span class="badge">💰 ফি ও সময়সীমা</span>
+          <h2>খরচ এবং মועד</h2>
+        </div>
+        <ul class="feature-list">
+          <li><strong>প্রতি বিষয় ফি:</strong> ১২৫ টাকা (ভ্যাটসহ) — শুধুমাত্র টেলিটক প্রিপেইড সিম থেকে</li>
+          <li><strong>আবেদন काल:</strong> ফলাফল প্রকাশের পরদিন থেকে <strong>৭ দিনের মধ্যে</strong></li>
+          <li><strong>পিন পাওয়ার পর:</strong> পিন প্রাপ্তির <strong>২৪ ঘণ্টার মধ্যে</strong> কনফার্মেশন এসএমএস পাঠাতে হবে</li>
+          <li><strong>ফিরতি পিন না পেলে:</strong> ফি কেটে যাবে না, আবেদন الكاملة হবে না</li>
+        </ul>
+      </div>
+
+      <div class="result-card">
+        <div class="result-card-header">
+          <span class="badge">🔢 বিষয় কোড (Subject Code)</span>
+          <h2>প্রধান বিষয় কোড (এসএসসি/এইচএসসি)</h2>
+        </div>
+        <div class="table-wrapper">
+          <table class="grade-table">
+            <thead>
+              <tr>
+                <th>বিষয়</th>
+                <th>কোড (SSC)</th>
+                <th>কোড (HSC)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>বাংলা ১ম পত্র</td><td>101</td><td>101</td></tr>
+              <tr><td>বাংলা ২য় পত্র</td><td>102</td><td>102</td></tr>
+              <tr><td>ইংরেজি ১ম পত্র</td><td>107</td><td>107</td></tr>
+              <tr><td>ইংরেজি ২য় পত্র</td><td>108</td><td>108</td></tr>
+              <tr><td>গণিত</td><td>109</td><td>265/266</td></tr>
+              <tr><td>উচ্চতর গণিত</td><td>126</td><td>265</td></tr>
+              <tr><td>পদার্থবিজ্ঞান</td><td>174</td><td>174</td></tr>
+              <tr><td>রসায়ন</td><td>175</td><td>175</td></tr>
+              <tr><td>জীববিজ্ঞান</td><td>178</td><td>178</td></tr>
+              <tr><td>তথ্য ও যোগাযোগ প্রযুক্তি</td><td>154</td><td>275</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">সম্পূর্ণ কোড তালিকা: eboardresults.com → Subject Code অপশনে পাওয়া যাবে</p>
+      </div>
+
+      <div class="result-card">
+        <div class="result-card-header">
+          <span class="badge">📋 বোর্ড কোড (৩ অক্ষর)</span>
+          <h2>শিক্ষা বোর্ড কোড</h2>
+        </div>
+        <ul class="board-codes">
+          <li>DHA — ঢাকা</li>
+          <li>RAJ — রাজশাহী</li>
+          <li>COM — কুমিল্লা</li>
+          <li>JES — যশোর</li>
+          <li>CHI — চট্টগ্রাম</li>
+          <li>BAR — বরিশাল</li>
+          <li>SYL — সিলেট</li>
+          <li>DIN — দিনাজপুর</li>
+          <li>MYM — ময়মনসিংহ</li>
+          <li>MAD — মাদ্রাসা (দাখিল/আলিম)</li>
+          <li>TEC — কারিগরি (ভোকেশনাল)</li>
+        </ul>
+      </div>
+
+      <div class="result-card">
+        <div class="result-card-header">
+          <span class="badge">ℹ️ গুরুত্বপূর্ণ তথ্য</span>
+          <h2>জানতে হবে</h2>
+        </div>
+        <ul class="tips-list">
+          <li><strong>নম্বর কমে যায় কি?</strong> না, শিক্ষা বোর্ড नियম অনুযায়ী পুনঃনিরীক্ষণে নম্বর বাড়ে অথবা অপরিবর্তিত থাকে। কমে যাওয়ার ঘটনা ঘটে না।</li>
+          <li><strong>কতটি বিষয় চ্যালেঞ্জ করা যায়?</strong> সর্বোচ্চ ৫টি বিষয় (৪র্থ বিষয় সহ) একসাথে চ্যালেঞ্জ করা যায়।</li>
+          <li><strong>ফলাফল কখন?</strong> আবেদন শেষে ১৫-৩০ দিনের মধ্যে বোর্ড ওয়েবসাইটে প্রকাশিত হয়।</li>
+          <li><strong>অনলাইন আবেদন:</strong> বর্তমানে শুধুমাত্র এসএমএস পদ্ধতিই মান্য। ওয়েব পোর্টালে সরাসরি আবেদন নেই।</li>
+          <li><strong>দাখিল/আলিম:</strong> মাদ্রাসা বোর্ডের জন্য কোড <strong>MAD</strong> ব্যবহার করুন, বিষয় কোড একই থাকে।</li>
+        </ul>
+      </div>
+
+      <div class="result-card info-section">
+        <h2>❓ প্রায়শই জিজ্ঞাসিত প্রশ্ন</h2>
+        <ul class="tips-list">
+          <li><strong>প্রশ্ন:</strong> পিন পেলে কতক্ষণ mề কনফার্ম করতে হবে?<br><strong>উত্তর:</strong> ২৪ ঘণ্টার মধ্যে। সময় শেষ হলে আবেদন বাতিল হয়ে যাবে।</li>
+          <li><strong>প্রশ্ন:</strong> একই বিষয়ে দুইবার চ্যালেঞ্জ করা যায় কি?<br><strong>উত্তর:</strong> না, একই বিষয়ে দ্বিতীয়বার আবেদন গ্রহণ করা হয় না।</li>
+          <li><strong>প্রশ্ন:</strong> রেজিস্ট্রেশন নম্বর লাগবে কি?<br><strong>উত্তর:</strong> এসএমএস পদ্ধতিতে শুধু রোল ও বিষয় কোডই চাই। রেজি নম্বর লাগে না।</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
